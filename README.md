@@ -22,11 +22,11 @@
 
 - 直接下载
 
-	[]()
+	[https://github.com/bihe0832/readhub-android/releases/download/v1.0/shakeba-release-20170511-v1.0-alpha.apk](https://github.com/bihe0832/readhub-android/releases/download/v1.0/shakeba-release-20170511-v1.0-alpha.apk)
 
 ### 应用效果
 
-![应用效果](./shakeba_intro.gif )
+![应用效果](./readhub.gif )
 
 ## 运行代码
 
