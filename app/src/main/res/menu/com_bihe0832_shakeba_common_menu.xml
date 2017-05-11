@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+        android:id="@+id/navigation_item_home"
+        android:checked="true"
+        android:orderInCategory="0"
+        android:icon="@drawable/iconfont_home"
+        android:title="@string/menu_key_go_home" />
+
+        <item
+            android:id="@+id/navigation_item_shakeba"
+            android:icon="@drawable/readhub_icon"
+            android:orderInCategory="1"
+            android:title="@string/menu_key_shakeba" />
+
+        <item
+            android:id="@+id/navigation_item_share"
+            android:icon="@drawable/iconfont_share"
+            android:orderInCategory="2"
+            android:title="@string/menu_key_share" />
+
+        <item
+            android:id="@+id/navigation_item_update"
+            android:icon="@drawable/iconfont_update"
+            android:orderInCategory="3"
+            android:title="@string/menu_key_update" />
+
+
+
+
+
+        <item
+            android:id="@+id/navigation_item_me"
+            android:icon="@drawable/iconfont_blog"
+            android:orderInCategory="4"
+            android:title="@string/menu_key_me" />
+
+    </group>
+
+</menu>

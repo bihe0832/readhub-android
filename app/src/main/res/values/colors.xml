@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="blue_0">#00151C</color>
+
+    <color name="blue_4">#ff33b5e5</color>
+
+    <!-- 通用 -->
+    <color name="color_text_grey">#49596b</color>
+    <color name="color_grey">#919aac</color>
+    <color name="color_black">#20242b</color>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="red">#FF0000</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow_lemon">#FFFACD</color>
+    <color name="gray_light">#DFDFDF</color>
+    <color name="gray_white">#F5F5F5</color>
+    <color name="gray_slate">#708090</color>
+    <color name="blue_light">#0083FF</color>
+    <color name="darkGreen">#006400</color>
+    <color name="middleGreen">#008800</color>
+    <color name="lightGreen">#18A654</color>
+
+    <color name="readhub_light">#607d8b</color>
+    <color name="readhub_bule">#3D5C6C</color>
+
+
+</resources>

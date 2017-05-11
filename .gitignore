@@ -1,0 +1,10 @@
+.gradle/*
+.idea/*
+app/build/*
+build/*
+app/app.iml
+shakeba.properties
+shakeba.xml
+local.properties
+shakeba_new.iml
+bin

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/gray_white">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<ImageView
+			android:id="@+id/guideImage"
+			android:layout_width="100dp"
+			android:layout_height="100dp"
+			android:scaleType="centerCrop"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="180dp"
+			android:src="@drawable/readhub_logo"/>
+
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:textColor="@color/readhub_bule"
+			android:layout_marginBottom="150dp"
+			android:layout_gravity="center_horizontal"
+			android:gravity="bottom"
+			android:textSize="@dimen/text_size_24"
+			android:text="@string/splash_start_btn_text"/>
+
+	</LinearLayout>
+
+
+</RelativeLayout>

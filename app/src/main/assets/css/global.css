@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* code@bihe832.com */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;list-style:none;}
+fieldset,img{border:0;}
+
+h1,
+span,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face{font-family:Helvetica Neue For Number;src:local("Helvetica Neue");unicode-range:u+30-39}

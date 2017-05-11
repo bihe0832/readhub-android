@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+        <!--   your app's branding color (for the app bar) -->
+        <item name="colorPrimary">@color/readhub_bule</item>
+        <!--   darker variant of colorPrimary (for status bar, contextual app bars) -->
+        <item name="colorPrimaryDark">@color/readhub_light</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">@color/readhub_bule</item>
+    </style>
+
+    <color name="toast_background_color">@color/white</color>
+    <color name="toast_text_color">@color/color_black</color>
+    <dimen name="toast_padding">5dp</dimen>
+    <dimen name="toast_img_size">20dp</dimen>
+    <dimen name="toast_text_margin">8dp</dimen>
+
+    <color name="webview_background_color">@color/blue_0</color>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="app_name">Readhub</string>
+    <string name="company_name">Readhub</string>
+    <string name="app_slogan">每天几分钟 了解互联网</string>
+    <string name="app_version_name">V1.0</string>
+    <integer name="app_version_code">1</integer>
+    <string name="splash_start_btn_text">@string/company_name</string>
+
+    <string name="link_readhub_page">https://readhub.me</string>
+    <string name="link_author">file:///android_asset/author.html</string>
+    <string name="link_readhub_desc">file:///android_asset/readhub.html</string>
+    <string name="link_feedback">file:///android_asset/feedback.html</string>
+
+    <string name="menu_key_go_home">阅读资讯</string>
+    <string name="menu_key_feedback">反馈建议</string>
+    <string name="menu_key_update">检查更新</string>
+    <string name="menu_key_shakeba">关于应用</string>
+    <string name="menu_key_me">关于作者</string>
+    <string name="menu_key_share">分享应用</string>
+
+
+
+    <string name="share_title">分享 Readhub 给朋友</string>
+    <string name="share_text">Readhub 是无码科技团队的一个副产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。快点击 http://shakeba.bihe0832.com/download/index.html 下载吧！！！</string>
+
+    <string name="game_update_isnew_toast">您当前的版本（%1$s）已经是最新版本了！</string>
+    <string name="game_update_notnew_Title">Readhub 有版本啦！</string>
+    <string name="game_update_notnew_desc">Readhub 最新版（%1$s）已经发布啦，您要现在更新么？</string>
+    <string name="game_update_notnew_update_btn">确认更新</string>
+    <string name="game_update_notnew_cancle_btn">取消更新</string>
+
+
+</resources>

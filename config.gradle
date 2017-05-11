@@ -1,0 +1,16 @@
+ext {
+    android = [
+        compileSdkVersion: 25,
+        buildToolsVersion: "25.0.2",
+        applicationId    : "com.bihe0832.readhub",
+        minSdkVersion    : 9,
+        targetSdkVersion : 25,
+        versionCode      : 1,
+        versionName      : "1.0.0"
+    ]
+
+    def supportVersion = "25.0.0"
+    dependencies = [
+        SupportDesign           : "com.android.support:design:$supportVersion",
+    ]
+}
