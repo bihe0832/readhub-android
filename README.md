@@ -34,14 +34,22 @@
 
 - 该项目是结合个人之前开源的一个apk项目(shakeba:[https://github.com/bihe0832/Shakeba](https://github.com/bihe0832/Shakeba))的代码修改而来，因此里面大量文件的命名包含shakeba字段，后续逐渐整理。
 
-- 这是第一个版本，没有做太复杂的逻辑，只是简单的一个webview的壳加readhub的主页。后续研究一下增加
-
-	- tab和预览内容native化
-	
-	- 增加新内容推送
-
 ### 运行方法
 
 如何修改配置及运行工程，请参考本人博客：[终端基于gradle的开源项目运行环境配置指引](
 http://blog.bihe0832.com/android-as-gradle-config.html)
 
+### 待增加内容
+
+- 话题和咨询的详细内容查看
+	
+- 增加新内容推送
+
+
+## 更新历史
+
+### v1.0
+
+- 2017-05-11：完成app框架，使用webview内置官网实现第一版
+
+- 2017-05-12：实现Native的基本内容，目前仅能展示摘要信息
