@@ -19,29 +19,17 @@ public class SafeJSONObject extends JSONObject {
 
     @Override
     public boolean getBoolean(String name) throws JSONException {
-        if (!has(name)) {
-            // Logger.w("json no key: " + name);
-            return false;
-        }
-        return super.getBoolean(name);
+        return getBoolean(name,false);
     }
 
     @Override
     public double getDouble(String name) throws JSONException {
-        if (!has(name)) {
-            // Logger.w("json no key: " + name);
-            return -1;
-        }
-        return super.getDouble(name);
+        return getDouble(name,-1);
     }
 
     @Override
-    public int getInt(String name) throws JSONException {
-        if (!has(name)) {
-            // Logger.w("json no key: " + name);
-            return -1;
-        }
-        return super.getInt(name);
+    public int getInt(String name){
+        return getInt(name,-1);
     }
 
     @Override
@@ -63,47 +51,47 @@ public class SafeJSONObject extends JSONObject {
     }
 
     @Override
-    public long getLong(String name) throws JSONException {
-        if (!has(name)) {
-            // Logger.w("json no key: " + name);
-            return -1;
-        }
-        return super.getLong(name);
+    public long getLong(String name){
+        return getLong(name, -1L);
     }
 
     @Override
-    public String getString(String name) throws JSONException {
-        if (!has(name)) {
-            // Logger.w("json no key: " + name);
-            return "";
-        }
-        return super.getString(name);
+    public String getString(String name){
+
+        return getString(name,"");
     }
 
-    public boolean getBoolean(String name, boolean defaultValue)
-            throws JSONException {
+    public boolean getBoolean(String name, boolean defaultValue){
         if (!has(name)) {
-            // Logger.w("json no key: " + name);
             return defaultValue;
         }
-        return super.getBoolean(name);
+        try{
+            return super.getBoolean(name);
+        }catch (Exception e){
+            return defaultValue;
+        }
     }
 
-    public double getDouble(String name, double defaultValue)
-            throws JSONException {
+    public double getDouble(String name, double defaultValue){
         if (!has(name)) {
-            // Logger.w("json no key: " + name);
             return defaultValue;
         }
-        return super.getDouble(name);
+        try{
+            return super.getDouble(name);
+        }catch (Exception e){
+            return defaultValue;
+        }
     }
 
-    public int getInt(String name, int defaultValue) throws JSONException {
+    public int getInt(String name, int defaultValue){
         if (!has(name)) {
-            // Logger.w("json no key: " + name);
             return defaultValue;
         }
-        return super.getInt(name);
+        try{
+            return super.getInt(name);
+        }catch (Exception e){
+            return defaultValue;
+        }
     }
 
     public JSONArray getJSONArray(String name, JSONArray defaultValue)
@@ -124,20 +112,25 @@ public class SafeJSONObject extends JSONObject {
         return super.getJSONObject(name);
     }
 
-    public long getLong(String name, Long defaultValue) throws JSONException {
+    public long getLong(String name, Long defaultValue){
         if (!has(name)) {
-            // Logger.w("json no key: " + name);
             return defaultValue;
         }
-        return super.getLong(name);
+        try{
+            return super.getLong(name);
+        }catch (Exception e){
+            return defaultValue;
+        }
     }
 
-    public String getString(String name, String defaultValue)
-            throws JSONException {
+    public String getString(String name, String defaultValue) {
         if (!has(name)) {
-            // Logger.w("json no key: " + name);
             return defaultValue;
         }
-        return super.getString(name);
+        try{
+            return super.getString(name);
+        }catch (Exception e){
+            return defaultValue;
+        }
     }
 }

@@ -94,7 +94,6 @@ public class FileUtil {
      * 获取程序运行期间文件保存的根目录
      *
      * @return SD卡可用的时候返回的是
-     * /mnt/sdcard/tencent/YSDK，SD卡不可用返回的是内存的路径data/data
      * /packagename/files
      */
     public static String getCommonRootDir(Context mContext) {

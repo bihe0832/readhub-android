@@ -36,4 +36,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile rootProject.ext.dependencies["SupportDesign"]
+    compile rootProject.ext.dependencies["SupportCardView"]
+    compile project(':xrecyclerview')
+
 }

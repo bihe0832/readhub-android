@@ -1,7 +1,7 @@
 package com.bihe0832.readhub.module.update;
 
 /**
- * Created by hardyshi on 15/11/4.
+ * @author code@bihe0832.com
  */
 public class PackageUpdateInfo {
     public String pckVersion = "";

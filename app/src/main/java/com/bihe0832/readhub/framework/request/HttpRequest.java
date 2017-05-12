@@ -23,7 +23,7 @@ public abstract class HttpRequest {
 	public static final String PARAM_VERSION_CODE = "versionCode";
 	public static final String PARAM_OS = "os";
 
-	private static final String LOG_TAG = "YSDK_REQUEST";
+	private static final String LOG_TAG = "HTTPReq";
 	protected static String HTTP_DOMAIN = "http://shakeba.bihe0832.com";
 
 	protected String path = "";

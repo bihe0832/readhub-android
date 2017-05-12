@@ -8,9 +8,10 @@ import com.bihe0832.readhub.libware.util.SafeJSONObject;
 import com.bihe0832.readhub.libware.util.TextUtils;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public abstract class HttpResponse {
-    public static final String TAG = "YSDK_RSP";
+    public static final String TAG = "HTTPRSP";
 	public static final String HTTP_RESP_PARAM_RET = "ret";
     public static final String HTTP_RESP_PARAM_CODE = "errcode";
 	public static final String HTTP_RESP_PARAM_MSG = "msg";
@@ -49,7 +50,7 @@ public abstract class HttpResponse {
     
     public abstract void parseJson(SafeJSONObject json);
     
-    public void parseBaseJson(SafeJSONObject json) {
+    public void parseBaseJson(JSONObject json) {
         try {
             int ret = json.getInt(HTTP_RESP_PARAM_RET);
             msg = json.getString(HTTP_RESP_PARAM_MSG);
@@ -69,7 +70,7 @@ public abstract class HttpResponse {
                 }
                 Logger.e(TAG,"=======================================");
                 Logger.e(TAG,this.getClass().getName());
-                Logger.e(TAG,"YSDK Server Error,ret:"+ret+";flag:"+ flag +";msg:"+msg);
+                Logger.e(TAG,"Server Error,ret:"+ret+";flag:"+ flag +";msg:"+msg);
                 Logger.e(TAG,"=======================================");
             }
         } catch (JSONException e) {

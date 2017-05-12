@@ -17,7 +17,7 @@ import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.ui.ToastUtil;
 
 /**
- * Created by hardyshi on 15/11/4.
+ * Created by code@bihe0832.com
  */
 public class ShakebaUpdate {
     private static volatile ShakebaUpdate instance;

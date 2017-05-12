@@ -51,7 +51,7 @@ public class ConfigManager {
 			mLocalConfig.load(inputStream);
 		} catch (IOException e) {
 			e.printStackTrace();
-			Logger.e("YSDK_DOCTOR", "ERROR-YSDK config file");
+			Logger.e(Logger.DOCTOR_TAG, "ERROR: config file");
 		} finally {
 			if (inputStream != null) {
 				try {

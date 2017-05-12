@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.framework.activity.base.BaseActivity;
 import com.bihe0832.readhub.framework.fragment.MainFragment;
+import com.bihe0832.readhub.framework.fragment.WebClientFragment;
 import com.bihe0832.readhub.framework.fragment.base.WebViewFragment;
 import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.ui.ViewUtils;
@@ -28,6 +29,8 @@ import com.bihe0832.readhub.module.update.ShakebaUpdate;
  */
 
 public class MainActivity extends BaseActivity {
+
+    public static final String INTENT_EXTRA_KEY_ITEM_URL = "EXTRA_URL";
 
     private DrawerLayout mDrawerLayout;//侧边菜单视图
     private ActionBarDrawerToggle mDrawerToggle;  //菜单开关
@@ -80,8 +83,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.navigation_item_go_back:
+                        switchFragment(getString(R.string.app_name),MainFragment.class);
+                        hideMenu(R.id.navigation_item_go_back);
+                        break;
                     case R.id.navigation_item_home:
-                        switchFragment(getString(R.string.menu_key_go_home),MainFragment.class);
+                        switchFragment(getString(R.string.menu_key_go_homepage),WebClientFragment.class);
+                        showMenu(R.id.navigation_item_go_back);
                         break;
                     case R.id.navigation_item_shakeba:
                         switchFragment(getString(R.string.menu_key_shakeba),AboutReadhubFragment.class);
@@ -158,5 +166,13 @@ public class MainActivity extends BaseActivity {
         sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text));
         sendIntent.setType("text/plain");
         activity.startActivity(Intent.createChooser(sendIntent, getString(R.string.share_title)));
+    }
+
+    private void showMenu(int id){
+        mNavigationView.getMenu().getItem(getResources().getInteger(id)).setVisible(true);
+    }
+
+    private void hideMenu(int id){
+        mNavigationView.getMenu().getItem(getResources().getInteger(id)).setVisible(false);
     }
 }
