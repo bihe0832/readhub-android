@@ -1,4 +1,4 @@
-package com.bihe0832.readhub.framework.adapter;
+package com.bihe0832.readhub.module.readhub.adapter;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

@@ -2,7 +2,7 @@
 .idea/*
 app/build/*
 build/*
-app/app.iml
+*.iml
 shakeba.properties
 shakeba.xml
 local.properties

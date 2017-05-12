@@ -9,15 +9,14 @@
             android:checked="true"
             android:orderInCategory="0"
             android:icon="@drawable/iconfont_home"
-            android:title="@string/menu_key_go_back"
-            android:visible="false"/>
+            android:title="@string/menu_key_app"/>
 
         <item
         android:id="@+id/navigation_item_home"
         android:checked="true"
         android:orderInCategory="3"
         android:icon="@drawable/iconfont_home"
-        android:title="@string/menu_key_go_homepage" />
+        android:title="@string/menu_key_web" />
 
         <item
             android:id="@+id/navigation_item_shakeba"

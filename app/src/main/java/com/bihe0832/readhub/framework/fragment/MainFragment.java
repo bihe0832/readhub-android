@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bihe0832.readhub.R;
-import com.bihe0832.readhub.framework.adapter.ViewPagerAdapter;
+import com.bihe0832.readhub.module.readhub.adapter.ViewPagerAdapter;
 import com.bihe0832.readhub.framework.fragment.base.BaseFragment;
 
 import java.util.ArrayList;

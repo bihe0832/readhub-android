@@ -85,11 +85,9 @@ public class MainActivity extends BaseActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_item_go_back:
                         switchFragment(getString(R.string.app_name),MainFragment.class);
-                        hideMenu(R.id.navigation_item_go_back);
                         break;
                     case R.id.navigation_item_home:
-                        switchFragment(getString(R.string.menu_key_go_homepage),WebClientFragment.class);
-                        showMenu(R.id.navigation_item_go_back);
+                        switchFragment(getString(R.string.menu_key_web),WebClientFragment.class);
                         break;
                     case R.id.navigation_item_shakeba:
                         switchFragment(getString(R.string.menu_key_shakeba),AboutReadhubFragment.class);

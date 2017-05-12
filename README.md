@@ -18,7 +18,7 @@
 
 - 扫码下载
 
-	![扫码下载摇吧](./readhub_download.png )
+	![扫码下载摇吧](./demo/readhub_download.png )
 
 - 直接下载
 
@@ -26,7 +26,7 @@
 
 ### 应用效果
 
-![应用效果](./readhub.gif )
+![应用效果](./demo/readhub.gif )
 
 ## 运行代码
 

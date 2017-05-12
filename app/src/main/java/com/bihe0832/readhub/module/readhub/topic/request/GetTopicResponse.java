@@ -1,16 +1,11 @@
 package com.bihe0832.readhub.module.readhub.topic.request;
 
 
-import com.bihe0832.readhub.framework.common.BaseRet;
 import com.bihe0832.readhub.framework.request.HttpResponse;
 import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.util.SafeJSONObject;
-import com.bihe0832.readhub.module.readhub.topic.TopicInfo;
-import com.bihe0832.readhub.module.readhub.topic.TopicInfoDetail;
-import com.bihe0832.readhub.module.update.PackageUpdateInfo;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;

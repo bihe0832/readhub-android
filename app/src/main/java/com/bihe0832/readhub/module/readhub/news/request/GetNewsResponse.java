@@ -4,9 +4,6 @@ package com.bihe0832.readhub.module.readhub.news.request;
 import com.bihe0832.readhub.framework.request.HttpResponse;
 import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.util.SafeJSONObject;
-import com.bihe0832.readhub.module.readhub.news.NewsInfo;
-import com.bihe0832.readhub.module.readhub.topic.TopicInfo;
-import com.bihe0832.readhub.module.readhub.topic.TopicInfoDetail;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -57,13 +54,13 @@ public class GetNewsResponse extends HttpResponse {
 
             NewsInfo info = new NewsInfo();
             info.mId = json.getString("id");
-            info.mTitle = json.getString("title");
-            info.mSummary = json.getString("summary");
-            info.mPublishDate = json.getString("publishDate");
+            info.mSiteName = json.getString("siteName");
+            info.mAuthorName = json.getString("authorName");
             info.mUrl = json.getString("url");
             info.mSummary = json.getString("summary");
+            info.mTitle = json.getString("title");
             info.mPublishDate = json.getString("publishDate");
-            info.mSiteName = json.getString("siteName");
+
             return info;
         }else{
             return null;

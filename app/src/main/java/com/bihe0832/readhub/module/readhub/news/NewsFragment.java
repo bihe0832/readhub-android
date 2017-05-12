@@ -7,7 +7,7 @@ import com.bihe0832.readhub.libware.thread.ShakebaThreadManager;
 import com.bihe0832.readhub.module.readhub.ReadhubFragment;
 import com.bihe0832.readhub.module.readhub.news.request.GetNewsRequest;
 import com.bihe0832.readhub.module.readhub.news.request.GetNewsResponse;
-import com.bihe0832.readhub.module.readhub.topic.request.GetTopicRequest;
+import com.bihe0832.readhub.module.readhub.news.request.NewsInfo;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;

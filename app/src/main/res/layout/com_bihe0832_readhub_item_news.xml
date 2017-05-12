@@ -47,9 +47,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="英国虚拟现实初创公司Improbable确定完成5亿美元的B轮融资，软银以超过10亿美元的估值领投，此前的投资方Andreessen Horowitz和Horizons Ventures继续跟投。上个月就有相关人士透露这笔交易，不过包括金额在内的细节都并没有得到双方的证实。"
-                    android:textSize="14sp"
-                    android:visibility="gone"/>
+                    android:text="@string/news_desc"
+                    android:textSize="14sp" />
 
 
 

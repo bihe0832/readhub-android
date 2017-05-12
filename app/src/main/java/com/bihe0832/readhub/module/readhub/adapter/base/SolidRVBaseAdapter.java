@@ -1,4 +1,4 @@
-package com.bihe0832.readhub.framework.adapter.base;
+package com.bihe0832.readhub.module.readhub.adapter.base;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
