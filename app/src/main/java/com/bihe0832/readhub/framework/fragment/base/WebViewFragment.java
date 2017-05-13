@@ -1,6 +1,5 @@
 package com.bihe0832.readhub.framework.fragment.base;
 
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,12 +14,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.framework.Shakeba;
 import com.bihe0832.readhub.libware.file.Logger;
-import com.bihe0832.readhub.libware.ui.ToastUtil;
 
 /**
  * @author code@bihe0832.com
@@ -30,7 +27,6 @@ public abstract class WebViewFragment extends BaseFragment {
 
     protected WebView mWebView;
     protected ProgressBar mProgressBar;
-
     private SwipeRefreshLayout mSwipeLayout;
 
     private static final String APP_CACAHE_DIRNAME = "/webcache";
@@ -121,7 +117,16 @@ public abstract class WebViewFragment extends BaseFragment {
     }
 
     public boolean canGoBack() {
-        return mWebView != null && mWebView.canGoBack();
+        if(mWebView != null){
+            if(mWebView.getUrl().equalsIgnoreCase(getLoadUrl())){
+                mWebView.clearHistory();
+                return false;
+            }else{
+                return mWebView.canGoBack();
+            }
+        }else{
+            return false;
+        }
     }
 
     public void goBack() {

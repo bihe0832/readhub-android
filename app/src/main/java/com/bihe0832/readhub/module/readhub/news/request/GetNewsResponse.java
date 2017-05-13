@@ -4,6 +4,7 @@ package com.bihe0832.readhub.module.readhub.news.request;
 import com.bihe0832.readhub.framework.request.HttpResponse;
 import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.util.SafeJSONObject;
+import com.bihe0832.readhub.libware.util.TimeUtils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -71,13 +72,6 @@ public class GetNewsResponse extends HttpResponse {
         date = date.replace("T"," ");
         int a = date.lastIndexOf(".");
         date = date.substring(0, a);
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
-        try {
-            ts = Timestamp.valueOf(date);
-            return String.valueOf(ts.getTime());
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
+        return String.valueOf(TimeUtils.getDateCompareResult(date));
     }
 }

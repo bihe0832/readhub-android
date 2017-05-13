@@ -5,8 +5,8 @@ ext {
         applicationId    : "com.bihe0832.readhub",
         minSdkVersion    : 12,
         targetSdkVersion : 25,
-        versionCode      : 1,
-        versionName      : "1.0.0"
+        versionCode      : 5,
+        versionName      : "1.0.1"
     ]
 
     def supportVersion = "25.0.0"

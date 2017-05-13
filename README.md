@@ -22,7 +22,7 @@
 
 - 直接下载
 
-	[https://github.com/bihe0832/readhub-android/releases/download/v1.0/shakeba-release-20170511-v1.0-alpha.apk](https://github.com/bihe0832/readhub-android/releases/download/v1.0/shakeba-release-20170511-v1.0-alpha.apk)
+	[https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk?raw=true](https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk?raw=true)
 
 ### 应用效果
 
@@ -53,3 +53,5 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 - 2017-05-11：完成app框架，使用webview内置官网实现第一版
 
 - 2017-05-12：实现Native的基本内容，目前仅能展示摘要信息
+
+- 2017-05-13：优化webview的跳转，增加资讯信息点击的交互，点击展示或跳转，长按分享

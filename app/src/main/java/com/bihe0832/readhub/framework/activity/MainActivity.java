@@ -2,7 +2,6 @@ package com.bihe0832.readhub.framework.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -43,6 +42,7 @@ public class MainActivity extends BaseActivity {
     private FragmentManager mFragmentManager;
     private Fragment mCurrentFragment;
 
+    private boolean mIsHome = false;
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -64,24 +64,33 @@ public class MainActivity extends BaseActivity {
     private void handleIntent(Intent intent){
         if(null != intent && null != intent.getExtras()){
             if(null != intent.getExtras()){
+                String url = "";
                 if(intent.getExtras().containsKey(INTENT_EXTRA_KEY_ITEM_URL)){
-                    WebClientFragment.setmURL(intent.getExtras().getString(INTENT_EXTRA_KEY_ITEM_URL));
+                    url = intent.getExtras().getString(INTENT_EXTRA_KEY_ITEM_URL);
                 }
 
                 String name = "";
                 if(intent.getExtras().containsKey(INTENT_EXTRA_KEY_ITEM_TITLE)){
                     name = intent.getExtras().getString(INTENT_EXTRA_KEY_ITEM_TITLE);
                 }
+                switchToWebClientFragment(name,url);
 
-                if(TextUtils.ckIsEmpty(name)){
-                    name = Shakeba.getInstance().getStringById(R.string.app_name);
-                }
-
-                switchFragment(name,WebClientFragment.class);
             }
         }
     }
 
+    private void switchToWebClientFragment(String title, String url){
+        if(TextUtils.ckIsEmpty(title)){
+            title = getString(R.string.app_name);
+        }
+        if(!TextUtils.ckIsEmpty(url) && url.equalsIgnoreCase(getString(R.string.link_readhub_page))){
+            mIsHome = true;
+        }else{
+            mIsHome = false;
+        }
+        WebClientFragment.setsURL(url);
+        switchFragment(title,WebClientFragment.class);
+    }
     //切换Fragment
     private void switchFragment(String titleName, Class<?> clazz) {
         if(TextUtils.ckIsEmpty(titleName)){
@@ -113,7 +122,7 @@ public class MainActivity extends BaseActivity {
                         switchFragment(getString(R.string.app_name),MainFragment.class);
                         break;
                     case R.id.navigation_item_home:
-                        switchFragment(getString(R.string.menu_key_web),WebClientFragment.class);
+                        switchToWebClientFragment(getString(R.string.app_name),getString(R.string.link_readhub_page));
                         break;
                     case R.id.navigation_item_shakeba:
                         switchFragment(getString(R.string.menu_key_shakeba),AboutReadhubFragment.class);
@@ -164,7 +173,7 @@ public class MainActivity extends BaseActivity {
 
         if (mCurrentFragment instanceof WebViewFragment) {//如果当前的Fragment是WebViewFragment 则监听返回事件
             WebViewFragment webViewFragment = (WebViewFragment) mCurrentFragment;
-            if (webViewFragment.canGoBack()) {
+            if (mIsHome && webViewFragment.canGoBack()) {
                 webViewFragment.goBack();
                 return;
             }else{
