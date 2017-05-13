@@ -2,6 +2,7 @@ package com.bihe0832.readhub.framework.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.bihe0832.readhub.R;
+import com.bihe0832.readhub.framework.Shakeba;
 import com.bihe0832.readhub.framework.activity.base.BaseActivity;
 import com.bihe0832.readhub.framework.fragment.MainFragment;
 import com.bihe0832.readhub.framework.fragment.WebClientFragment;
@@ -31,6 +33,7 @@ import com.bihe0832.readhub.module.update.ShakebaUpdate;
 public class MainActivity extends BaseActivity {
 
     public static final String INTENT_EXTRA_KEY_ITEM_URL = "EXTRA_URL";
+    public static final String INTENT_EXTRA_KEY_ITEM_TITLE = "EXTRA_TITLE";
 
     private DrawerLayout mDrawerLayout;//侧边菜单视图
     private ActionBarDrawerToggle mDrawerToggle;  //菜单开关
@@ -44,6 +47,7 @@ public class MainActivity extends BaseActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Logger.d(intent);
+        handleIntent(intent);
     }
 
     @Override
@@ -54,6 +58,28 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void init() {
         mFragmentManager = getSupportFragmentManager();
+    }
+
+
+    private void handleIntent(Intent intent){
+        if(null != intent && null != intent.getExtras()){
+            if(null != intent.getExtras()){
+                if(intent.getExtras().containsKey(INTENT_EXTRA_KEY_ITEM_URL)){
+                    WebClientFragment.setmURL(intent.getExtras().getString(INTENT_EXTRA_KEY_ITEM_URL));
+                }
+
+                String name = "";
+                if(intent.getExtras().containsKey(INTENT_EXTRA_KEY_ITEM_TITLE)){
+                    name = intent.getExtras().getString(INTENT_EXTRA_KEY_ITEM_TITLE);
+                }
+
+                if(TextUtils.ckIsEmpty(name)){
+                    name = Shakeba.getInstance().getStringById(R.string.app_name);
+                }
+
+                switchFragment(name,WebClientFragment.class);
+            }
+        }
     }
 
     //切换Fragment
@@ -141,9 +167,12 @@ public class MainActivity extends BaseActivity {
             if (webViewFragment.canGoBack()) {
                 webViewFragment.goBack();
                 return;
+            }else{
+                switchFragment(getString(R.string.app_name),MainFragment.class);
             }
+        }else{
+            exitGame();
         }
-        exitGame();
     }
 
     private long lastBackKeyDownTick = 0;

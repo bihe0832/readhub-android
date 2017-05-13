@@ -141,10 +141,16 @@ public abstract class WebViewFragment extends BaseFragment {
             view.loadUrl(url);
             return true;
         }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+        }
     }
 
     //WebChromeClient是辅助WebView处理Javascript的对话框，网站图标，网站title，加载进度等
     class MyWebChromeClient extends WebChromeClient {
+
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
             Log.e("onProgressChanged", newProgress + "");

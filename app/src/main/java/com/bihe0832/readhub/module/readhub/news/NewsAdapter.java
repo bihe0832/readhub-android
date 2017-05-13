@@ -28,7 +28,8 @@ public class NewsAdapter extends SolidRVBaseAdapter<NewsInfo> {
         NewsInfo info = mBeans.get(position - 1);
         //TODO 逻辑处理
         if(null != info){
-            intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_URL, info.getmId());
+            intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_URL, info.getmUrl());
+            intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_TITLE, info.getmTitle());
             mContext.startActivity(intent);
         }
         // 点击打开链接
