@@ -72,6 +72,6 @@ public class GetNewsResponse extends HttpResponse {
         date = date.replace("T"," ");
         int a = date.lastIndexOf(".");
         date = date.substring(0, a);
-        return String.valueOf(TimeUtils.getDateCompareResult(date));
+        return String.valueOf(TimeUtils.getTimeStampByDateString(date));
     }
 }

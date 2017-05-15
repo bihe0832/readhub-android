@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.LinearLayout;
 
 import com.bihe0832.readhub.R;
-import com.bihe0832.readhub.libware.util.TextUtils;
 import com.bihe0832.readhub.module.readhub.ReadhubOnClickListener;
 import com.bihe0832.readhub.module.readhub.adapter.base.SolidRVBaseAdapter;
 import com.bihe0832.readhub.module.readhub.topic.request.TopicInfo;
