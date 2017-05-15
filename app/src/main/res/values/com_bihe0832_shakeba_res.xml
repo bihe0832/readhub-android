@@ -52,8 +52,8 @@
     <integer name="menu_order_app">0</integer>
     <string name="menu_key_web">网页版</string>
     <integer name="menu_order_web">1</integer>
-    <string name="menu_key_feedback">反馈建议</string>
-    <integer name="menu_order_feedback">2</integer>
+    <string name="menu_key_readhub">关于应用</string>
+    <integer name="menu_order_readhub">2</integer>
     <string name="menu_key_share">分享应用</string>
     <integer name="menu_order_share">4</integer>
     <string name="menu_key_update">检查更新</string>

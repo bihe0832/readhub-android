@@ -21,8 +21,8 @@
         <item
             android:id="@+id/navigation_item_readhub"
             android:icon="@drawable/iconfont_about"
-            android:orderInCategory="@integer/menu_order_feedback"
-            android:title="@string/menu_key_feedback" />
+            android:orderInCategory="@integer/menu_order_readhub"
+            android:title="@string/menu_key_readhub" />
 
         <item
             android:id="@+id/navigation_item_share"
