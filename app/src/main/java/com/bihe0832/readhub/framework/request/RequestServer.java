@@ -22,6 +22,7 @@ public class RequestServer {
             synchronized (RequestServer.class) {
                 if (instance == null) {
                     instance = new RequestServer();
+                    instance.init();
                 }
             }
         }
@@ -30,7 +31,7 @@ public class RequestServer {
 
     private RequestServer() {}
 
-    public void init () {
+    private void init () {
 
         Looper callLooper = Shakeba.getInstance().getLooper(ShakebaThreadManager.LOOPER_TYPE_SHAKEBA_REQUEST);
         mCallHandler = new Handler(callLooper) {

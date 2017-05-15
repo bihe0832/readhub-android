@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+        <RelativeLayout android:id="@+id/common_view"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            >
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="•"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="-1dp"
+                    android:layout_marginBottom="-1dp"
+                    android:layout_alignParentBottom="true"
+                    />
+
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/common_title"
+                    android:text="安全漏洞频现 女黑客一口气黑掉 4 款共享单车 App"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="-1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="-1dp"
+                    android:layout_alignParentBottom="true"
+                    />
+                <TextView android:id="@+id/common_desc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:gravity="center_vertical"
+                    android:layout_toRightOf="@id/common_title"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="10dp"
+                    android:text="腾讯科技"
+                    android:textColor="@color/gray"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="-1dp"
+                    android:layout_marginBottom="-1dp"
+                    android:layout_alignParentBottom="true"
+                    />
+        </RelativeLayout>
+</RelativeLayout>
+
+
+
+

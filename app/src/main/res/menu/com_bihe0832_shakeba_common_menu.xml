@@ -7,43 +7,39 @@
         <item
             android:id="@+id/navigation_item_go_back"
             android:checked="true"
-            android:orderInCategory="0"
+            android:orderInCategory="@integer/menu_order_app"
             android:icon="@drawable/iconfont_home"
             android:title="@string/menu_key_app"/>
 
         <item
         android:id="@+id/navigation_item_home"
         android:checked="true"
-        android:orderInCategory="3"
-        android:icon="@drawable/iconfont_home"
+        android:orderInCategory="@integer/menu_order_web"
+        android:icon="@drawable/iconfont_homepage"
         android:title="@string/menu_key_web" />
 
         <item
-            android:id="@+id/navigation_item_shakeba"
-            android:icon="@drawable/readhub_icon"
-            android:orderInCategory="4"
-            android:title="@string/menu_key_shakeba" />
+            android:id="@+id/navigation_item_readhub"
+            android:icon="@drawable/iconfont_about"
+            android:orderInCategory="@integer/menu_order_feedback"
+            android:title="@string/menu_key_feedback" />
 
         <item
             android:id="@+id/navigation_item_share"
             android:icon="@drawable/iconfont_share"
-            android:orderInCategory="5"
+            android:orderInCategory="@integer/menu_order_share"
             android:title="@string/menu_key_share" />
 
         <item
             android:id="@+id/navigation_item_update"
             android:icon="@drawable/iconfont_update"
-            android:orderInCategory="6"
+            android:orderInCategory="@integer/menu_order_update"
             android:title="@string/menu_key_update" />
-
-
-
-
 
         <item
             android:id="@+id/navigation_item_me"
             android:icon="@drawable/iconfont_blog"
-            android:orderInCategory="7"
+            android:orderInCategory="@integer/menu_order_me"
             android:title="@string/menu_key_me" />
 
     </group>

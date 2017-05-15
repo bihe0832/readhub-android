@@ -35,18 +35,9 @@
     <string name="link_readhub_desc">file:///android_asset/readhub.html</string>
     <string name="link_feedback">file:///android_asset/feedback.html</string>
 
-    <string name="menu_key_app">应用版</string>
-    <string name="menu_key_web">网页版</string>
-    <string name="menu_key_feedback">反馈建议</string>
-    <string name="menu_key_update">检查更新</string>
-    <string name="menu_key_shakeba">关于应用</string>
-    <string name="menu_key_me">关于作者</string>
-    <string name="menu_key_share">分享应用</string>
-
     <string name="page_key_topic">热门话题</string>
     <string name="page_key_news">最新资讯</string>
     <string name="news_desc">%1$s / %2$s • %3$s前</string>
-
 
     <string name="share_title">分享 Readhub 给朋友</string>
     <string name="share_text">Readhub 是无码科技团队的一款产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。你可以点击 https://readhub.me 通过网页版了解信息，或者点击 http://shakeba.bihe0832.com/download/index.html 下载Android应用。</string>
@@ -57,5 +48,17 @@
     <string name="game_update_notnew_update_btn">确认更新</string>
     <string name="game_update_notnew_cancle_btn">取消更新</string>
 
+    <string name="menu_key_app">应用版</string>
+    <integer name="menu_order_app">0</integer>
+    <string name="menu_key_web">网页版</string>
+    <integer name="menu_order_web">1</integer>
+    <string name="menu_key_feedback">反馈建议</string>
+    <integer name="menu_order_feedback">2</integer>
+    <string name="menu_key_share">分享应用</string>
+    <integer name="menu_order_share">4</integer>
+    <string name="menu_key_update">检查更新</string>
+    <integer name="menu_order_update">5</integer>
+    <string name="menu_key_me">关于作者</string>
+    <integer name="menu_order_me">6</integer>
 
 </resources>

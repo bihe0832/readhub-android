@@ -13,7 +13,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.bihe0832.readhub.R;
-import com.bihe0832.readhub.framework.Shakeba;
 import com.bihe0832.readhub.framework.activity.base.BaseActivity;
 import com.bihe0832.readhub.framework.fragment.MainFragment;
 import com.bihe0832.readhub.framework.fragment.WebClientFragment;
@@ -105,6 +104,11 @@ public class MainActivity extends BaseActivity {
             mFragmentManager.beginTransaction().hide(mCurrentFragment).add(R.id.frame_content, to).commit();
         }
         mCurrentFragment = to;
+        if(to instanceof WebClientFragment){
+            hideMenu(R.integer.menu_order_web);
+        }else{
+            showMenu(R.integer.menu_order_web);
+        }
     }
 
     //初始化默认选中的Fragment
@@ -124,8 +128,8 @@ public class MainActivity extends BaseActivity {
                     case R.id.navigation_item_home:
                         switchToWebClientFragment(getString(R.string.app_name),getString(R.string.link_readhub_page));
                         break;
-                    case R.id.navigation_item_shakeba:
-                        switchFragment(getString(R.string.menu_key_shakeba),AboutReadhubFragment.class);
+                    case R.id.navigation_item_readhub:
+                        switchFragment(getString(R.string.menu_key_app),AboutReadhubFragment.class);
                         break;
                     case R.id.navigation_item_me:
                         switchFragment(getString(R.string.menu_key_me),AboutAuthorFragment.class);
@@ -205,10 +209,15 @@ public class MainActivity extends BaseActivity {
     }
 
     private void showMenu(int id){
-        mNavigationView.getMenu().getItem(getResources().getInteger(id)).setVisible(true);
+        MenuItem menuItem = mNavigationView.getMenu().getItem(getResources().getInteger(id));
+        menuItem.setVisible(true);
+        menuItem.setChecked(false);
+
     }
 
     private void hideMenu(int id){
-        mNavigationView.getMenu().getItem(getResources().getInteger(id)).setVisible(false);
+        MenuItem menuItem = mNavigationView.getMenu().getItem(getResources().getInteger(id));
+        menuItem.setVisible(false);
+        menuItem.setChecked(false);
     }
 }

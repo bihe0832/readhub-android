@@ -27,8 +27,15 @@ public class WebClientFragment extends WebViewFragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        mWebView.loadUrl(getLoadUrl());
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden) {  //不在最前端界面显示
+        } else {  //重新显示到最前端
+            mWebView.stopLoading();
+            mWebView.removeAllViews();
+            mWebView.loadUrl(getLoadUrl());
+        }
     }
+
+
 }

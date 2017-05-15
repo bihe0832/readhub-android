@@ -15,6 +15,7 @@ import com.bihe0832.readhub.module.readhub.news.request.NewsInfo;
 
 public class ReadhubOnClickListener implements View.OnClickListener,View.OnLongClickListener {
 
+    boolean mViewIsShow = false;
     private View mView;
     private String shareTitle = "";
     private String shareSummary = "";
@@ -41,7 +42,13 @@ public class ReadhubOnClickListener implements View.OnClickListener,View.OnLongC
             intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_TITLE, shareTitle);
             view.getContext().startActivity(intent);
         }else{
-            mView.setVisibility(View.VISIBLE);
+            if(mViewIsShow){
+                mView.setVisibility(View.GONE);
+                mViewIsShow = false;
+            }else{
+                mView.setVisibility(View.VISIBLE);
+                mViewIsShow = true;
+            }
         }
     }
 

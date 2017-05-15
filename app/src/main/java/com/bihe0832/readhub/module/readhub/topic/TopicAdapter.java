@@ -1,22 +1,19 @@
 package com.bihe0832.readhub.module.readhub.topic;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.bihe0832.readhub.R;
-import com.bihe0832.readhub.libware.ui.ToastUtil;
 import com.bihe0832.readhub.libware.util.TextUtils;
 import com.bihe0832.readhub.module.readhub.ReadhubOnClickListener;
 import com.bihe0832.readhub.module.readhub.adapter.base.SolidRVBaseAdapter;
 import com.bihe0832.readhub.module.readhub.topic.request.TopicInfo;
+import com.bihe0832.readhub.module.readhub.topic.request.TopicInfoDetail;
 
 import java.util.List;
 
 public class TopicAdapter extends SolidRVBaseAdapter<TopicInfo> {
+
 
     public TopicAdapter(Context context, List<TopicInfo> beans) {
         super(context, beans);
@@ -35,17 +32,25 @@ public class TopicAdapter extends SolidRVBaseAdapter<TopicInfo> {
     @Override
     protected void onBindDataToView(final SolidCommonViewHolder holder, TopicInfo bean) {
         holder.setText(R.id.title, bean.getmTitle());
-        TextView moreView = holder.getView(R.id.more);
+        LinearLayout moreView = (LinearLayout)holder.getView(R.id.more);
+        moreView.removeAllViews();
+        if(null != bean.getNewsArrayList() && bean.getNewsArrayList().size() > 0){
+            for (TopicInfoDetail info: bean.getNewsArrayList()) {
+                TopicDetailItemView view  = new TopicDetailItemView(this.mContext);
+                view.initData(info);
+                moreView.addView(view);
+            }
+        }
+
         ReadhubOnClickListener listener = new ReadhubOnClickListener(moreView,bean.getmTitle(),bean.getmSummary());
         if (TextUtils.ckIsEmpty(bean.getmSummary())) {
-            moreView.setVisibility(View.VISIBLE);
+            holder.getView(R.id.title).setOnClickListener(listener);
             holder.getView(R.id.title).setOnLongClickListener(listener);
-            holder.getView(R.id.summary).setOnLongClickListener(listener);
         } else {
             holder.setText(R.id.summary, bean.getmSummary());
             holder.getView(R.id.title).setOnClickListener(listener);
-            holder.getView(R.id.summary).setOnClickListener(listener);
             holder.getView(R.id.title).setOnLongClickListener(listener);
+            holder.getView(R.id.summary).setOnClickListener(listener);
             holder.getView(R.id.summary).setOnLongClickListener(listener);
         }
     }
