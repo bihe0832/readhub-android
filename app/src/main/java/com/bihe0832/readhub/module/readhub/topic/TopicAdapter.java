@@ -43,15 +43,11 @@ public class TopicAdapter extends SolidRVBaseAdapter<TopicInfo> {
         }
 
         ReadhubOnClickListener listener = new ReadhubOnClickListener(moreView,bean.getmTitle(),bean.getmSummary());
-        if (TextUtils.ckIsEmpty(bean.getmSummary())) {
-            holder.getView(R.id.title).setOnClickListener(listener);
-            holder.getView(R.id.title).setOnLongClickListener(listener);
-        } else {
-            holder.setText(R.id.summary, bean.getmSummary());
-            holder.getView(R.id.title).setOnClickListener(listener);
-            holder.getView(R.id.title).setOnLongClickListener(listener);
-            holder.getView(R.id.summary).setOnClickListener(listener);
-            holder.getView(R.id.summary).setOnLongClickListener(listener);
-        }
+        holder.setText(R.id.summary, bean.getmSummary());
+        holder.getView(R.id.title).setOnClickListener(listener);
+        holder.getView(R.id.title).setOnLongClickListener(listener);
+        holder.getView(R.id.summary).setOnClickListener(listener);
+        holder.getView(R.id.summary).setOnLongClickListener(listener);
+
     }
 }

@@ -30,7 +30,7 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="软银领投，VR公司Improbable完成5.02亿美元融资"
+                    android:text=""
                     android:textColor="#292929"
                     android:textSize="18sp" />
 
@@ -39,7 +39,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="英国虚拟现实初创公司Improbable确定完成5亿美元的B轮融资，软银以超过10亿美元的估值领投，此前的投资方Andreessen Horowitz和Horizons Ventures继续跟投。上个月就有相关人士透露这笔交易，不过包括金额在内的细节都并没有得到双方的证实。"
+                    android:text=""
                     android:textSize="14sp" />
 
                 <TextView
