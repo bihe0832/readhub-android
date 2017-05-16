@@ -24,11 +24,11 @@ fi
 cd $localPath/bin && rm -rf  * && cd $localPath
 
 #构建md5
-# echo "********build*******"
-# chmod +x $localPath/gradlew
-# cd $localPath && ./gradlew clean
-# cd $localPath && ./gradlew build
-# checkResult
+echo "********build*******"
+chmod +x $localPath/gradlew
+cd $localPath && ./gradlew clean
+cd $localPath && ./gradlew build
+checkResult
 
 timeinfo=`date +'%Y%m%d'`
 echo "********copy apk *******"
