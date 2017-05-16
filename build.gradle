@@ -3,8 +3,7 @@ apply from: 'config.gradle'
 
 buildscript {
     repositories {
-        mavenLocal()
-        jcenter()
+        maven { url "http://maven.oa.com/nexus/content/repositories/android" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
@@ -13,7 +12,6 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenLocal()
-        jcenter()
+        maven { url "http://maven.oa.com/nexus/content/repositories/android" }
     }
 }
