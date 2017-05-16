@@ -49,7 +49,7 @@ public class GetNewsRequest extends HttpRequest {
 		Logger.d("CheckUpdateRequest,statusCode:"+statusCode);
         if(mResponseHandler != null) {
             mResponseHandler.onResponse(getNewsResponse);
-        }		
+        }
 	}
 
 }

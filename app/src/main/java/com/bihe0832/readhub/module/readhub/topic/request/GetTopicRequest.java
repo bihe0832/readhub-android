@@ -5,8 +5,6 @@ import com.bihe0832.readhub.framework.request.HttpResponseHandler;
 import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.util.SafeJSONObject;
 
-import org.json.JSONException;
-
 
 public class GetTopicRequest extends HttpRequest {
 	private static final String PATH = "/cgi/readhub.php";
@@ -51,7 +49,7 @@ public class GetTopicRequest extends HttpRequest {
 		Logger.d("CheckUpdateRequest,statusCode:"+statusCode);
         if(mResponseHandler != null) {
             mResponseHandler.onResponse(getTopicResponse);
-        }		
+        }
 	}
 
 }

@@ -23,6 +23,7 @@ import com.bihe0832.readhub.libware.util.TextUtils;
 import com.bihe0832.readhub.module.about.AboutAuthorFragment;
 import com.bihe0832.readhub.module.about.AboutReadhubFragment;
 import com.bihe0832.readhub.module.update.ShakebaUpdate;
+import com.bihe0832.readhub.network.ApiClient;
 
 /**
  * @author code@bihe0832.com
@@ -57,6 +58,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void init() {
         mFragmentManager = getSupportFragmentManager();
+        ApiClient.init("https://api.readhub.me");
     }
 
 

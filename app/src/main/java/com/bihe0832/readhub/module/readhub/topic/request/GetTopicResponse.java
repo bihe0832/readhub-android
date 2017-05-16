@@ -14,13 +14,13 @@ import java.util.ArrayList;
 public class GetTopicResponse extends HttpResponse {
 
     public ArrayList<TopicInfo> mInfoList = new ArrayList<>();
-public int pageSize = 0;
+    public int pageSize = 0;
     public String cursor = "";
 
     public GetTopicResponse() {
     	super();
     }
-    
+
     @Override
     public void parseJson(SafeJSONObject json) {
         Logger.d("parseJson");

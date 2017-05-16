@@ -37,6 +37,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile rootProject.ext.dependencies["SupportDesign"]
     compile rootProject.ext.dependencies["SupportCardView"]
+    compile rootProject.ext.dependencies["Retrofit"]
+    compile rootProject.ext.dependencies["Gson"]
+    compile rootProject.ext.dependencies["ConverterGson"]
+    compile 'info.guardianproject.netcipher:netcipher:1.2'
     compile project(':xrecyclerview')
 
 }

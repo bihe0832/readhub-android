@@ -16,6 +16,8 @@ ext {
     dependencies = [
         SupportDesign           : "com.android.support:design:$supportVersion",
         SupportCardView         : "com.android.support:cardview-v7:$supportCardViewVersion",
-
+        Retrofit                : "com.squareup.retrofit2:retrofit:2.3.0",
+        ConverterGson           : "com.squareup.retrofit2:converter-gson:2.2.0",
+        Gson                    : "com.google.code.gson:gson:2.8.0"
     ]
 }

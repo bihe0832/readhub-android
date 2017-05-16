@@ -9,7 +9,6 @@ import com.bihe0832.readhub.libware.util.TimeUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 
@@ -22,7 +21,7 @@ public class GetNewsResponse extends HttpResponse {
     public GetNewsResponse() {
     	super();
     }
-    
+
     @Override
     public void parseJson(SafeJSONObject json) {
         Logger.d("parseJson");
