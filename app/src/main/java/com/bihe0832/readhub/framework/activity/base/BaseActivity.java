@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import hugo.weaving.DebugLog;
+
 /**
  * @author code@bihe0832.com
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
+    @DebugLog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResourceID());

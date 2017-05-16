@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.hugo'
 
 android {
-
-
     def app = rootProject.ext.android
     compileSdkVersion app.compileSdkVersion as int
     buildToolsVersion app.buildToolsVersion
