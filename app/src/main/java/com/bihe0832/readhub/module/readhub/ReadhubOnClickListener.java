@@ -2,7 +2,6 @@ package com.bihe0832.readhub.module.readhub;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.bihe0832.readhub.framework.activity.MainActivity;
 import com.bihe0832.readhub.libware.util.TextUtils;
@@ -34,7 +33,6 @@ public class ReadhubOnClickListener implements View.OnClickListener,View.OnLongC
     @Override
     public void onClick(View view) {
         if(null == mView){
-            Toast.makeText(view.getContext(),"这是一个跳转",Toast.LENGTH_LONG).show();
             Intent intent = new Intent(view.getContext(), MainActivity.class);
             intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_URL, jumpUrl);
             intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_TITLE, shareTitle);
