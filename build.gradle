@@ -4,13 +4,13 @@ apply from: 'config.gradle'
 buildscript {
     repositories {
         mavenLocal()
+        jcenter()
         maven {
             url 'http://maven.aliyun.com/nexus/content/groups/public'
         }
-        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.3.0'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
     }
 }
@@ -18,9 +18,9 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
+        jcenter()
         maven {
             url 'http://maven.aliyun.com/nexus/content/groups/public'
         }
-        jcenter()
     }
 }
