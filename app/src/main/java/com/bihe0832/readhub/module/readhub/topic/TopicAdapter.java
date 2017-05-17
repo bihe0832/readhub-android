@@ -6,15 +6,15 @@ import android.widget.LinearLayout;
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.module.readhub.ReadhubOnClickListener;
 import com.bihe0832.readhub.module.readhub.adapter.base.SolidRVBaseAdapter;
-import com.bihe0832.readhub.module.readhub.topic.request.TopicInfo;
-import com.bihe0832.readhub.module.readhub.topic.request.TopicInfoDetail;
+import com.bihe0832.readhub.module.readhub.topic.api.bean.News;
+import com.bihe0832.readhub.module.readhub.topic.api.bean.Topic;
 
 import java.util.List;
 
-public class TopicAdapter extends SolidRVBaseAdapter<TopicInfo> {
+public class TopicAdapter extends SolidRVBaseAdapter<Topic> {
 
 
-    public TopicAdapter(Context context, List<TopicInfo> beans) {
+    public TopicAdapter(Context context, List<Topic> beans) {
         super(context, beans);
     }
 
@@ -29,20 +29,20 @@ public class TopicAdapter extends SolidRVBaseAdapter<TopicInfo> {
     }
 
     @Override
-    protected void onBindDataToView(final SolidCommonViewHolder holder, TopicInfo bean) {
-        holder.setText(R.id.title, bean.getmTitle());
-        LinearLayout moreView = (LinearLayout)holder.getView(R.id.more);
+    protected void onBindDataToView(final SolidCommonViewHolder holder, Topic bean) {
+        holder.setText(R.id.title, bean.getTitle());
+        LinearLayout moreView = holder.getView(R.id.more);
         moreView.removeAllViews();
-        if(null != bean.getNewsArrayList() && bean.getNewsArrayList().size() > 0){
-            for (TopicInfoDetail info: bean.getNewsArrayList()) {
+        if(null != bean.getNewsArray() && bean.getNewsArray().size() > 0){
+            for (News info: bean.getNewsArray()) {
                 TopicDetailItemView view  = new TopicDetailItemView(this.mContext);
                 view.initData(info);
                 moreView.addView(view);
             }
         }
 
-        ReadhubOnClickListener listener = new ReadhubOnClickListener(moreView,bean.getmTitle(),bean.getmSummary());
-        holder.setText(R.id.summary, bean.getmSummary());
+        ReadhubOnClickListener listener = new ReadhubOnClickListener(moreView,bean.getTitle(),bean.getSummary());
+        holder.setText(R.id.summary, bean.getSummary());
         holder.getView(R.id.title).setOnClickListener(listener);
         holder.getView(R.id.title).setOnLongClickListener(listener);
         holder.getView(R.id.summary).setOnClickListener(listener);

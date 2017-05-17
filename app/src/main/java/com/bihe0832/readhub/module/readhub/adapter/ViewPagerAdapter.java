@@ -31,7 +31,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment = createFrgmentByTitle(mTitleList.get(position));
+        Fragment fragment = createFragmentByTitle(mTitleList.get(position));
         return fragment;
     }
 
@@ -40,12 +40,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return mTitleList.size();
     }
 
-    private Fragment createFrgmentByTitle(String title) {
+    private Fragment createFragmentByTitle(String title) {
         //默认的Fragment
         Fragment result = null;
         if (title.equals( getString(R.string.page_key_topic))) {
             result = new TopicFragment();
         }else if(title.equals( getString(R.string.page_key_news))){
+//            result = new NewsFragment();
             result = new NewsFragment();
         }
         return result;

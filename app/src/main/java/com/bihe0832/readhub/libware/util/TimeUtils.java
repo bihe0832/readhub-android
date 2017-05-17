@@ -14,9 +14,8 @@ public class TimeUtils {
      * @return
      */
     public static Long getTimeStampByDateString(String date){
-        Timestamp ts = new Timestamp(System.currentTimeMillis());
         try {
-            ts = Timestamp.valueOf(date);
+            Timestamp ts = Timestamp.valueOf(date);
             return ts.getTime();
         } catch (Exception e) {
             e.printStackTrace();

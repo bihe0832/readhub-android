@@ -19,17 +19,17 @@ public class SafeJSONObject extends JSONObject {
 
     @Override
     public boolean getBoolean(String name) throws JSONException {
-        return getBoolean(name,false);
+        return getBoolean(name, false);
     }
 
     @Override
     public double getDouble(String name) throws JSONException {
-        return getDouble(name,-1);
+        return getDouble(name, -1);
     }
 
     @Override
-    public int getInt(String name){
-        return getInt(name,-1);
+    public int getInt(String name) {
+        return getInt(name, -1);
     }
 
     @Override
@@ -51,45 +51,48 @@ public class SafeJSONObject extends JSONObject {
     }
 
     @Override
-    public long getLong(String name){
+    public long getLong(String name) {
         return getLong(name, -1L);
     }
 
     @Override
-    public String getString(String name){
+    public String getString(String name) {
 
-        return getString(name,"");
+        return getString(name, "");
     }
 
-    public boolean getBoolean(String name, boolean defaultValue){
+    public boolean getBoolean(String name, boolean defaultValue) {
         if (!has(name)) {
             return defaultValue;
         }
-        try{
+        try {
             return super.getBoolean(name);
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return defaultValue;
         }
     }
 
-    public double getDouble(String name, double defaultValue){
+    public double getDouble(String name, double defaultValue) {
         if (!has(name)) {
             return defaultValue;
         }
-        try{
+        try {
             return super.getDouble(name);
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return defaultValue;
         }
     }
 
-    public int getInt(String name, int defaultValue){
+    public int getInt(String name, int defaultValue) {
         if (!has(name)) {
             return defaultValue;
         }
-        try{
+        try {
             return super.getInt(name);
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return defaultValue;
         }
     }
@@ -112,13 +115,14 @@ public class SafeJSONObject extends JSONObject {
         return super.getJSONObject(name);
     }
 
-    public long getLong(String name, Long defaultValue){
+    public long getLong(String name, Long defaultValue) {
         if (!has(name)) {
             return defaultValue;
         }
-        try{
+        try {
             return super.getLong(name);
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return defaultValue;
         }
     }
@@ -127,9 +131,10 @@ public class SafeJSONObject extends JSONObject {
         if (!has(name)) {
             return defaultValue;
         }
-        try{
+        try {
             return super.getString(name);
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             return defaultValue;
         }
     }

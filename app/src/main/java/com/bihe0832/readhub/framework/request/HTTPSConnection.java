@@ -26,16 +26,16 @@ public class HTTPSConnection extends BaseConnection {
 
     public HTTPSConnection(String url) {
         super();
-        TrustManager tm = null;
+//        TrustManager tm = null;
         try {
-            tm = MyX509TrustManager.getInstance();
+//            tm = MyX509TrustManager.getInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
 
         try {
             mSSLContext = SSLContext.getInstance("TLS");
-            mSSLContext.init(null, new TrustManager[] { tm }, null);
+            mSSLContext.init(null, new TrustManager[] { }, null);
             mConn = (HttpsURLConnection)new URL(url).openConnection();
             mConn.setDefaultSSLSocketFactory(mSSLContext.getSocketFactory());
         } catch (KeyManagementException e) {

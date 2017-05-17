@@ -19,11 +19,10 @@ public abstract class ReadhubFragment extends BaseFragment {
     private static final int ACTION_REFRESH = 1;
     private static final int ACTION_LOAD_MORE = 2;
 
-
     protected XRecyclerView mRecyclerView;
 
     protected String mCursor = "";
-    protected int pageSize = 5;
+    protected int pageSize = 10;
 
     private int mCurrentAction = ACTION_INIT;
 
