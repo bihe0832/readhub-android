@@ -8,8 +8,11 @@ import com.bihe0832.readhub.module.readhub.news.api.bean.NewsRsp;
 import com.bihe0832.readhub.network.ApiClient;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,7 +51,13 @@ public class NewsFragment extends ReadhubFragment {
                 }
 
                 String dateTime = newsRsp.getData().get(newsRsp.getData().size() - 1).getPublishDate();
-                mCursor = "" + new Date(dateTime).getTime();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA);
+                format.setTimeZone(TimeZone.getTimeZone("UTC"));
+                try {
+                    mCursor = "" + format.parse(dateTime).getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
                 pageSize = newsRsp.getPageSize();
                 loadComplete();
             }
