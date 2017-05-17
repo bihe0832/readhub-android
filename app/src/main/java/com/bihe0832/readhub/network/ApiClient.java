@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -39,11 +40,16 @@ public class ApiClient {
 //        }
 //                .connectionSpecs(Collections.singletonList(spec))
 //                .sslSocketFactory(sslFactory)
+        HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor();
+        logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .readTimeout(5, TimeUnit.SECONDS)
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .writeTimeout(5, TimeUnit.SECONDS)
+                .addNetworkInterceptor(logInterceptor)
                 .build();
+
         Gson gson = new GsonBuilder().create();
 
         ApiClient.retrofit = new Retrofit.Builder()

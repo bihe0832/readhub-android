@@ -39,7 +39,6 @@ dependencies {
     compile rootProject.ext.dependencies["Retrofit"]
     compile rootProject.ext.dependencies["Gson"]
     compile rootProject.ext.dependencies["ConverterGson"]
-    compile 'info.guardianproject.netcipher:netcipher:1.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile project(':xrecyclerview')
-
 }

@@ -67,7 +67,7 @@ public class TopicFragment extends ReadhubFragment {
 //                ShakebaThreadManager.getInstance().runOnUIThread(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        mTopicAdapter.addAll(response.mInfoList);
+//                        mNewsAdapter.addAll(response.mInfoList);
 //                    }
 //                });
 //            }
