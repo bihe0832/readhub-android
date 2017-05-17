@@ -2,12 +2,10 @@ package com.bihe0832.readhub.module.readhub;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bihe0832.readhub.framework.activity.MainActivity;
 import com.bihe0832.readhub.libware.util.TextUtils;
-import com.bihe0832.readhub.module.readhub.news.request.NewsInfo;
 
 /**
  * Created by zixie on 2017/5/13.

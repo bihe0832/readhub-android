@@ -1,4 +1,15 @@
 <resources>
+    <!-- some dimen from material design guideline -->
+    <dimen name="card_radius">2dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_max_elevation">8dp</dimen>
+
+    <!-- https://material.io/guidelines/layout/metrics-keylines.html#metrics-keylines-keylines-spacing -->
+    <dimen name="layout_padding">16dp</dimen>
+
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <!-- 通用 -->
     <dimen name="text_size_42">42.0sp</dimen>

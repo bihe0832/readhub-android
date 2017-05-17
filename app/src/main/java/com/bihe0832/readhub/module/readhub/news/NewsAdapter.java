@@ -39,7 +39,10 @@ class NewsAdapter extends SolidRVBaseAdapter<News> {
     protected void onBindDataToView(SolidCommonViewHolder holder, News bean) {
         holder.setText(R.id.title, bean.getTitle());
         holder.setText(R.id.summary, bean.getSummary());
-        String subText = String.format(Shakeba.getInstance().getStringById(R.string.news_desc), bean.getSiteName(), bean.getAuthorName(),bean.getPublishDate());
+        String subText = String.format(
+                Shakeba.getInstance().getStringById(R.string.news_desc),
+                bean.getSiteName(), bean.getAuthorName() == null ? "" : bean.getAuthorName(),
+                bean.getPublishDate());
         holder.setText(R.id.more,subText);
 
         ReadhubOnClickListener listener = new ReadhubOnClickListener(bean.getTitle(),bean.getSummary(),bean.getUrl());

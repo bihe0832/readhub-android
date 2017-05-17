@@ -30,9 +30,6 @@ public class NewsFragment extends ReadhubFragment {
     }
     @Override
     protected void getData() {
-//        GetNewsRequest request = new GetNewsRequest(mCursor, pageSize, new GetNewsResponseHandle());
-//        RequestServer.getInstance().doRequest(request);
-
         ApiClient.create(INewsService.class).requestNewsList(mCursor, pageSize).enqueue(new Callback<NewsRsp>() {
             @Override
             public void onResponse(Call<NewsRsp> call, Response<NewsRsp> response) {
@@ -64,31 +61,10 @@ public class NewsFragment extends ReadhubFragment {
 
             @Override
             public void onFailure(Call<NewsRsp> call, Throwable t) {
-
+                // TODO
             }
         });
     }
-
-//    private class GetNewsResponseHandle implements
-//            HttpResponseHandler<GetNewsResponse> {
-//
-//
-//        @Override
-//        public void onResponse(final GetNewsResponse response) {
-//            Logger.d(response.toString());
-//            if(null != response.mInfoList && response.mInfoList.size() > 0 ){
-//                ShakebaThreadManager.getInstance().runOnUIThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        mNewsAdapter.addAll(response.mInfoList);
-//                    }
-//                });
-//            }
-//            mCursor = response.cursor;
-//            pageSize = response.pageSize;
-//            loadComplete();
-//        }
-//    }
 
     @Override
     protected void clearAdapter() {
