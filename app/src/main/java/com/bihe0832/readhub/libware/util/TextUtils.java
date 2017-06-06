@@ -101,4 +101,11 @@ public class TextUtils {
        	}
     }
 
+    public static String getSafeString(String str) {
+        if(ckIsEmpty(str)){
+            return "";
+        }else {
+            return str;
+        }
+    }
 }

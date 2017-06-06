@@ -33,6 +33,7 @@ public class MainFragment extends BaseFragment {
         List<String> titles = new ArrayList<>();
         titles.add(getString(R.string.page_key_topic));
         titles.add(getString(R.string.page_key_news));
+        titles.add(getString(R.string.page_key_developer));
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getMContext(), titles, getFragmentManager());
         mViewPager.setAdapter(viewPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);

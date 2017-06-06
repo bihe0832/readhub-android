@@ -1,6 +1,10 @@
 package com.bihe0832.readhub.libware.util;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * Created by zixie on 2017/5/13.
@@ -8,64 +12,53 @@ import java.sql.Timestamp;
 
 public class TimeUtils {
 
-    /**
-     *
-     * @param date YYYY-MM-DD HH:MM:SS
-     * @return
-     */
-    public static Long getTimeStampByDateString(String date){
+    public static Long getTimeStampByReahubDateString(String date){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA);
+        format.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
-            Timestamp ts = Timestamp.valueOf(date);
-            return ts.getTime();
-        } catch (Exception e) {
+            return format.parse(date).getTime();
+        } catch (ParseException e) {
             e.printStackTrace();
             return 0L;
         }
     }
 
-    /**
-     *
-     * @param date YYYY-MM-DD HH:MM:SS
-     * @return
-     */
-    public static String getDateCompareResult(String date){
-        System.out.println("=====================");
-        System.out.println(date);
-        Long oldTimestamp =  getTimeStampByDateString(date) / 1000;
-        Long currentTimestamp = System.currentTimeMillis() / 1000;
+    public static String getDateCompareResultByReadhubDateFormat(String date){
+
+        return getDateCompareResult(getTimeStampByReahubDateString(date));
+    }
+
+    public static String getDateCompareResult(long oldTimestamp){
+        long minute = 1000 * 60;
+        long hour = minute * 60;
+        long day = hour * 24;
+        long month = day * 30;
+        long year = month * 12;
+        long currentTimestamp = System.currentTimeMillis();
         System.out.println(oldTimestamp);
         System.out.println(currentTimestamp);
-        if(oldTimestamp > 0){
-            if(currentTimestamp - oldTimestamp > 60){
-                int duration = (int)(currentTimestamp - oldTimestamp) / 60;
-                System.out.println("duration：" + duration);
-                if(duration > 60){
-                    duration = duration / 60;
-                    System.out.println("duration：" + duration);
-                    if(duration > 24){
-                        duration = duration / 24;
-                        System.out.println("duration：" + duration);
-                        if(duration > 30){
-                            duration = duration / 30;
-                            System.out.println("duration：" + duration);
-                            if(duration > 11){
-                                return duration / 12 + "年前";
-                            }else{
-                                return duration + "个月前";
-                            }
-                        }else{
-                            return duration + "天前";
-                        }
-                    }else{
-                        return duration + "小时前";
-                    }
-                }else{
-                    return duration + "分钟前";
-                }
-            }else{
-                return currentTimestamp - oldTimestamp  + "秒前";
-            }
-        }else{
+        long diffValue = currentTimestamp - oldTimestamp;
+        long yearC = diffValue / year;
+        long monthC = diffValue / month;
+        long weekC = diffValue / (7 * day);
+        long dayC = diffValue / day;
+        long hourC = diffValue / hour;
+        long minC = diffValue / minute;
+        if (yearC > 0) {
+            return yearC + "年前";
+        } else if (monthC > 0) {
+            return monthC + "月前";
+        } else if (weekC > 0) {
+            return weekC + "周前";
+        } else if (dayC > 0) {
+            return dayC + "天前";
+        } else if (hourC > 0) {
+            return hourC + "小时前";
+        } else if (minC > 0) {
+            return minC + "分钟前";
+        } else if (diffValue > 0) {
+            return diffValue + "秒前";
+        } else {
             return "不久前";
         }
     }

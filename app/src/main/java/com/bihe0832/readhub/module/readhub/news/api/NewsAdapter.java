@@ -1,4 +1,4 @@
-package com.bihe0832.readhub.module.readhub.news;
+package com.bihe0832.readhub.module.readhub.news.api;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,15 +6,16 @@ import android.content.Intent;
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.framework.Shakeba;
 import com.bihe0832.readhub.framework.activity.MainActivity;
+import com.bihe0832.readhub.libware.util.TimeUtils;
 import com.bihe0832.readhub.module.readhub.ReadhubOnClickListener;
 import com.bihe0832.readhub.module.readhub.adapter.base.SolidRVBaseAdapter;
 import com.bihe0832.readhub.module.readhub.news.api.bean.News;
 
 import java.util.List;
 
-class NewsAdapter extends SolidRVBaseAdapter<News> {
+public class NewsAdapter extends SolidRVBaseAdapter<News> {
 
-    NewsAdapter(Context context, List<News> beans) {
+    public NewsAdapter(Context context, List<News> beans) {
         super(context, beans);
     }
 
@@ -27,13 +28,11 @@ class NewsAdapter extends SolidRVBaseAdapter<News> {
     protected void onItemClick(int position) {
         Intent intent = new Intent(mContext, MainActivity.class);
         News info = mBeans.get(position - 1);
-        //TODO 逻辑处理
         if(null != info){
             intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_URL, info.getUrl());
             intent.putExtra(MainActivity.INTENT_EXTRA_KEY_ITEM_TITLE, info.getTitle());
             mContext.startActivity(intent);
         }
-        // 点击打开链接
     }
     @Override
     protected void onBindDataToView(SolidCommonViewHolder holder, News bean) {
@@ -42,7 +41,7 @@ class NewsAdapter extends SolidRVBaseAdapter<News> {
         String subText = String.format(
                 Shakeba.getInstance().getStringById(R.string.news_desc),
                 bean.getSiteName(), bean.getAuthorName() == null ? "" : bean.getAuthorName(),
-                bean.getPublishDate());
+                TimeUtils.getDateCompareResultByReadhubDateFormat(bean.getPublishDate()));
         holder.setText(R.id.more,subText);
 
         ReadhubOnClickListener listener = new ReadhubOnClickListener(bean.getTitle(),bean.getSummary(),bean.getUrl());

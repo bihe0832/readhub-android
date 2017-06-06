@@ -7,7 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.framework.Shakeba;
-import com.bihe0832.readhub.module.readhub.news.NewsFragment;
+import com.bihe0832.readhub.module.readhub.news.devnews.DevNewsFragment;
+import com.bihe0832.readhub.module.readhub.news.technews.TechNewsFragment;
 import com.bihe0832.readhub.module.readhub.topic.TopicFragment;
 
 import java.util.List;
@@ -46,8 +47,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         if (title.equals( getString(R.string.page_key_topic))) {
             result = new TopicFragment();
         }else if(title.equals( getString(R.string.page_key_news))){
-//            result = new NewsFragment();
-            result = new NewsFragment();
+            result = new DevNewsFragment();
+        }else if(title.equals( getString(R.string.page_key_developer))){
+            result = new TechNewsFragment();
         }
         return result;
     }

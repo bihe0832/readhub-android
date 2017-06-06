@@ -1,25 +1,22 @@
-package com.bihe0832.readhub.module.readhub.news;
+package com.bihe0832.readhub.module.readhub.news.devnews;
 
 import com.bihe0832.readhub.libware.thread.ShakebaThreadManager;
+import com.bihe0832.readhub.libware.util.TimeUtils;
 import com.bihe0832.readhub.module.readhub.ReadhubFragment;
-import com.bihe0832.readhub.module.readhub.news.api.INewsService;
+import com.bihe0832.readhub.module.readhub.news.api.NewsAdapter;
 import com.bihe0832.readhub.module.readhub.news.api.bean.News;
 import com.bihe0832.readhub.module.readhub.news.api.bean.NewsRsp;
 import com.bihe0832.readhub.network.ApiClient;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class NewsFragment extends ReadhubFragment {
+public class DevNewsFragment extends ReadhubFragment {
 
     protected NewsAdapter mNewsAdapter;
 
@@ -30,7 +27,7 @@ public class NewsFragment extends ReadhubFragment {
     }
     @Override
     protected void getData() {
-        ApiClient.create(INewsService.class).requestNewsList(mCursor, pageSize).enqueue(new Callback<NewsRsp>() {
+        ApiClient.create(IDevNewsService.class).requestNewsList(mCursor, pageSize).enqueue(new Callback<NewsRsp>() {
             @Override
             public void onResponse(Call<NewsRsp> call, Response<NewsRsp> response) {
                 final NewsRsp newsRsp = response.body();
@@ -47,14 +44,7 @@ public class NewsFragment extends ReadhubFragment {
                     });
                 }
 
-                String dateTime = newsRsp.getData().get(newsRsp.getData().size() - 1).getPublishDate();
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.CHINA);
-                format.setTimeZone(TimeZone.getTimeZone("UTC"));
-                try {
-                    mCursor = "" + format.parse(dateTime).getTime();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                mCursor = "" + TimeUtils.getTimeStampByReahubDateString(newsRsp.getData().get(newsRsp.getData().size() - 1).getPublishDate());
                 pageSize = newsRsp.getPageSize();
                 loadComplete();
             }

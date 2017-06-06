@@ -36,8 +36,9 @@
     <string name="link_feedback">file:///android_asset/feedback.html</string>
 
     <string name="page_key_topic">热门话题</string>
-    <string name="page_key_news">最新资讯</string>
-    <string name="news_desc">%1$s / %2$s • %3$s前</string>
+    <string name="page_key_news">科技动态</string>
+    <string name="page_key_developer">开发者资讯</string>
+    <string name="news_desc">%1$s / %2$s • %3$s</string>
 
     <string name="share_title">分享 Readhub 给朋友</string>
     <string name="share_text">Readhub 是无码科技团队的一款产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。你可以点击 https://readhub.me 通过网页版了解信息，或者点击 http://shakeba.bihe0832.com/download/index.html 下载Android应用。</string>

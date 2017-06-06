@@ -1,5 +1,7 @@
 package com.bihe0832.readhub.module.readhub.news.api.bean;
 
+import com.bihe0832.readhub.libware.util.TextUtils;
+
 /**
  * @desc Created by erichua on 15/05/2017.
  */
@@ -14,7 +16,7 @@ public class News {
     private String publishDate;
 
     public String getId() {
-        return id;
+        return TextUtils.getSafeString(id);
     }
 
     public void setId(String id) {
@@ -22,23 +24,15 @@ public class News {
     }
 
     public String getSiteName() {
-        return siteName;
-    }
-
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
+        return  TextUtils.getSafeString(siteName);
     }
 
     public String getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+        return  TextUtils.getSafeString(authorName);
     }
 
     public String getUrl() {
-        return url;
+        return  TextUtils.getSafeString(url);
     }
 
     public void setUrl(String url) {
@@ -46,15 +40,11 @@ public class News {
     }
 
     public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
+        return  TextUtils.getSafeString(summary);
     }
 
     public String getTitle() {
-        return title;
+        return  TextUtils.getSafeString(title);
     }
 
     public void setTitle(String title) {
@@ -62,10 +52,6 @@ public class News {
     }
 
     public String getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(String publishDate) {
-        this.publishDate = publishDate;
+        return  TextUtils.getSafeString(publishDate);
     }
 }
