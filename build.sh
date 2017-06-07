@@ -22,7 +22,7 @@ fi
 
 #进入打包目录并清空目录
 cd $localPath/bin && rm -rf  * && cd $localPath
-
+version=`git rev-list HEAD --count`
 #构建md5
 echo "********build*******"
 chmod +x $localPath/gradlew
@@ -30,10 +30,10 @@ cd $localPath && ./gradlew clean
 cd $localPath && ./gradlew build
 checkResult
 
-timeinfo=`date +'%Y%m%d'`
+timeinfo=`date +'%Y%m%d-%H%M'`
 echo "********copy apk *******"
-cp $localPath/app/build/outputs/apk/app-debug.apk $localPath/bin/readhub-debug-${timeinfo}.apk
-cp $localPath/app/build/outputs/apk/app-release-unsigned.apk $localPath/bin/readhub-release-unsigned-${timeinfo}.apk
-$ANDROID_HOME/build-tools/25.0.2/apksigner sign --ks $localPath/debug.keystore --ks-pass pass:android --out $localPath/bin/readhub-release-${timeinfo}.apk $localPath/bin/readhub-release-unsigned-${timeinfo}.apk 
+cp $localPath/app/build/outputs/apk/app-debug.apk $localPath/bin/readhub-debug-${version}-${timeinfo}.apk
+cp $localPath/app/build/outputs/apk/app-release-unsigned.apk $localPath/bin/readhub-release-${version}-unsigned-${timeinfo}.apk
+$ANDROID_HOME/build-tools/25.0.2/apksigner sign --ks $localPath/debug.keystore --ks-pass pass:android --out $localPath/bin/readhub-release-${version}-${timeinfo}.apk $localPath/bin/readhub-release-${version}-unsigned-${timeinfo}.apk 
 checkResult
-cp $localPath/bin/readhub-release-${timeinfo}.apk $localPath/demo/readhub-release-newer.apk
+cp $localPath/bin/readhub-release-${version}-${timeinfo}.apk $localPath/demo/readhub-release-newer.apk
