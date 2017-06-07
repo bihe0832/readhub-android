@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getLayoutResourceID() {
-        return R.layout.com_bihe0832_shakeba_main_activity;
+        return R.layout.com_bihe0832_main_activity;
     }
 
     @Override

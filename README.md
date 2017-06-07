@@ -22,7 +22,7 @@
 
 - 直接下载
 
-	[https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk?raw=true](https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk?raw=true)
+	[https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk](https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk)
 
 ### 应用效果
 
@@ -48,11 +48,6 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 - 增加已查看内容标记
 - 增加上次查看历史记录
 
-#### 待解决bug
-
-- 网络异常时，刷新缓存全无
-- 无网络进入，当网络OK时无法刷新
-
 ## 更新历史
 
 ### v1.0
@@ -64,3 +59,7 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 - 2017-05-13：优化webview的跳转，增加资讯信息点击的交互，点击展示或跳转，长按分享
 
 - 2017-05-15：增加专题内容隐藏、展示、跳转
+
+### v1.1
+
+- 2017-06-07：增加开发者资讯栏目，优化无网络或者网络异常时的用户体验

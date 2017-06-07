@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/layout_padding"
+        android:paddingRight="@dimen/layout_padding"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/network_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="fill_vertical"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/network_error_icon"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fragement_network_error_word"
+            android:layout_marginTop="40dp"
+            android:textSize="13sp"
+            android:textColor="@color/gray"
+            />
+        <Button
+            android:id="@+id/network_fresh_btn"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minHeight="35dp"
+            android:layout_marginTop="30dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="@string/fragement_network_retry_word"
+            android:textColor="@color/readhub_bule"
+            android:textSize="14sp"
+            android:background="@drawable/com_bihe0832_btn_selector" />
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

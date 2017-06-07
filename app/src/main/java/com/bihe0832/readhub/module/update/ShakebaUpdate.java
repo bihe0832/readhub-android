@@ -100,7 +100,7 @@ public class ShakebaUpdate {
             }
             if (!mRequest.mIsAuto) {
                 String text =
-                        String.format(Shakeba.getInstance().getStringById(R.string.game_update_isnew_toast),Shakeba.getInstance().getVersionName());
+                        String.format(Shakeba.getInstance().getStringById(R.string.game_update_isnew_toast),Shakeba.getInstance().getVersionName() + "." + Shakeba.getInstance().getVersionCode());
                 ToastUtil.show(mRequest.mActivity, text, Toast.LENGTH_SHORT);
                 return ;
             }

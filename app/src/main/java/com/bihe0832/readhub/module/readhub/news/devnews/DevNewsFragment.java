@@ -1,5 +1,6 @@
 package com.bihe0832.readhub.module.readhub.news.devnews;
 
+import com.bihe0832.readhub.libware.file.Logger;
 import com.bihe0832.readhub.libware.thread.ShakebaThreadManager;
 import com.bihe0832.readhub.libware.util.TimeUtils;
 import com.bihe0832.readhub.module.readhub.ReadhubFragment;
@@ -9,7 +10,9 @@ import com.bihe0832.readhub.module.readhub.news.api.bean.NewsRsp;
 import com.bihe0832.readhub.network.ApiClient;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeoutException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,7 +54,12 @@ public class DevNewsFragment extends ReadhubFragment {
 
             @Override
             public void onFailure(Call<NewsRsp> call, Throwable t) {
-                // TODO
+                t.printStackTrace();
+                if(t instanceof UnknownHostException || t instanceof TimeoutException){
+                    showNetWorkError();
+                }
+
+                Logger.d(t);
             }
         });
     }

@@ -9,7 +9,9 @@ import com.bihe0832.readhub.module.readhub.topic.api.ITopicService;
 import com.bihe0832.readhub.network.ApiClient;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeoutException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,31 +53,14 @@ public class TopicFragment extends ReadhubFragment {
             @Override
             public void onFailure(Call<TopicRsp> call, Throwable t) {
                 t.printStackTrace();
+                if(t instanceof UnknownHostException || t instanceof TimeoutException){
+                    showNetWorkError();
+                }
+
                 Logger.d(t);
             }
         });
     }
-
-//    private class GetTopicResponseHandle implements
-//            HttpResponseHandler<GetTopicResponse> {
-//
-//
-//        @Override
-//        public void onResponse(final GetTopicResponse response) {
-//            Logger.d(response.toString());
-//            if(null != response.mInfoList && response.mInfoList.size() > 0 ){
-//                ShakebaThreadManager.getInstance().runOnUIThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        mNewsAdapter.addAll(response.mInfoList);
-//                    }
-//                });
-//            }
-//            mCursor = response.cursor;
-//            pageSize = response.pageSize;
-//            loadComplete();
-//        }
-//    }
 
     @Override
     protected void clearAdapter() {

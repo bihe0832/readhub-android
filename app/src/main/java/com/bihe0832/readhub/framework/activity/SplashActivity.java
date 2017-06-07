@@ -19,7 +19,7 @@ public class SplashActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Shakeba.getInstance().init(getApplicationContext());
-        setContentView(R.layout.com_bihe0832_shakeba_activity_splash);
+        setContentView(R.layout.com_bihe0832_activity_splash);
         startApp(getIntent());
     }
 

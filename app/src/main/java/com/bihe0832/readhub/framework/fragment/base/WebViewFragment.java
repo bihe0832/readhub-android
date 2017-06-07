@@ -33,7 +33,7 @@ public abstract class WebViewFragment extends BaseFragment {
 
     @Override
     protected View setContentView(LayoutInflater inflater, ViewGroup container) {
-        return inflater.inflate(R.layout.com_bihe0832_shakeba_webview_fragment, container, false);
+        return inflater.inflate(R.layout.com_bihe0832_webview_fragment, container, false);
     }
 
     protected abstract String getLoadUrl();

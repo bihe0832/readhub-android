@@ -40,14 +40,19 @@
     <string name="page_key_developer">开发者资讯</string>
     <string name="news_desc">%1$s / %2$s • %3$s</string>
 
+    <string name="fragement_network_error_word">网络异常，请检查您的网络~</string>
+    <string name="fragement_network_retry_word">重新加载</string>
+
     <string name="share_title">分享 Readhub 给朋友</string>
     <string name="share_text">Readhub 是无码科技团队的一款产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。你可以点击 https://readhub.me 通过网页版了解信息，或者点击 http://shakeba.bihe0832.com/download/index.html 下载Android应用。</string>
 
-    <string name="game_update_isnew_toast">您当前的版本（%1$s）已经是最新版本了！</string>
+    <string name="game_update_isnew_toast">您当前的版本（%1$s）已经是最新版</string>
     <string name="game_update_notnew_Title">Readhub 有版本啦！</string>
     <string name="game_update_notnew_desc">Readhub 最新版（%1$s）已经发布啦，您要现在更新么？</string>
     <string name="game_update_notnew_update_btn">确认更新</string>
     <string name="game_update_notnew_cancle_btn">取消更新</string>
+
+
 
     <string name="menu_key_app">应用版</string>
     <integer name="menu_order_app">0</integer>

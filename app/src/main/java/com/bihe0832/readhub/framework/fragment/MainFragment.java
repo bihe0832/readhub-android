@@ -21,7 +21,7 @@ public class MainFragment extends BaseFragment {
 
     @Override
     protected View setContentView(LayoutInflater inflater, ViewGroup container) {
-        return inflater.inflate(R.layout.com_bihe0832_readhub_main_fragment, container, false);
+        return inflater.inflate(R.layout.com_bihe0832_main_fragment, container, false);
     }
 
     @Override
