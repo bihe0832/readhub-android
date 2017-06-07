@@ -22,7 +22,7 @@
 
 - 直接下载
 
-	[https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk](https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk)
+	[https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk?raw=true](https://github.com/bihe0832/readhub-android/blob/master/demo/readhub-release-newer.apk?raw=true)
 
 ### 应用效果
 
