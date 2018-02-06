@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion as int
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion as int
+        targetSdkVersion rootProject.ext.android.targetSdkVersion as int
+        versionName rootProject.ext.android.versionName
+        versionCode rootProject.ext.android.versionCode as int
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+clean.doFirst {
+    delete "build"
+}
+
+//导出aar
+task copyAAR(type: Copy, dependsOn: "assembleRelease") {
+    from 'build/outputs/aar/' + module.name + '-release.aar'
+    into "./../libs/"
+}
+
+apply from: './../build_maven.gradle'

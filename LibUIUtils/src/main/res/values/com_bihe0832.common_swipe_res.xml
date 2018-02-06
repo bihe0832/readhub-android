@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="bihe0832_common_header_footer_left_right_padding">24dp</dimen>
+    <dimen name="bihe0832_common_header_footer_top_bottom_padding">12dp</dimen>
+
+    <string name="bihe0832_common_pullToRefresh">下拉刷新</string>
+    <string name="bihe0832_common_loosenToRefresh">松开刷新</string>
+    <string name="bihe0832_common_refreshing">正在刷新</string>
+    <string name="bihe0832_common_refresh_sub_title">上次更新时间 %1$s</string>
+
+</resources>

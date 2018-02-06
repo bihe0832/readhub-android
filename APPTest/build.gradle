@@ -1,0 +1,41 @@
+if(rootProject.ext.test_module_is_application as boolean){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion as int
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        if(rootProject.ext.test_module_is_application as boolean){
+            applicationId rootProject.ext.android.applicationId
+        }
+
+        minSdkVersion rootProject.ext.android.minSdkVersion as int
+        targetSdkVersion rootProject.ext.android.targetSdkVersion as int
+        versionName rootProject.ext.android.versionName
+        versionCode rootProject.ext.android.versionCode as int
+        vectorDrawables.useSupportLibrary= true
+        multiDexEnabled false
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+clean.doFirst {
+    delete "build"
+}
+
+//导出aar
+task copyAAR(type: Copy, dependsOn: "assembleRelease") {
+    from 'build/outputs/aar/' + module.name + '-release.aar'
+    into "./../libs/"
+}
+
+dependencies {
+    compile project(':Framework_core')
+}
