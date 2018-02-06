@@ -1,4 +1,4 @@
-package com.bihe0832.app.test;
+package com.bihe0832.readhub.test;
 
 import android.content.Intent;
 import android.os.Bundle;

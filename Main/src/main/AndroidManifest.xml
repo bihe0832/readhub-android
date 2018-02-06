@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:label="Readhub-测试"
-            android:name="com.bihe0832.app.test.TestActivity"
+            android:name="com.bihe0832.readhub.test.TestActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">

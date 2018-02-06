@@ -1,4 +1,4 @@
-package com.bihe0832.app.test.base;
+package com.bihe0832.readhub.test.base;
 
 /**
  * Created by hardyshi on 2017/7/20.
