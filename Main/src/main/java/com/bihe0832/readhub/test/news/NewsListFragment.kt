@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.ezstudio.myapplication.R
+import com.bihe0832.readhub.R
 import com.ottd.base.topic.viewmodel.NewsListViewModel
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
