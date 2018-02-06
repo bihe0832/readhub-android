@@ -30,7 +30,8 @@ dependencies {
     compile "$rootProject.ext.ExtLib.publishGroupID:LibConfig:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibCache:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibCrash:+"
-    compile "$rootProject.ext.ExtLib.publishGroupID:LibNetwork:+"
+//    compile "$rootProject.ext.ExtLib.publishGroupID:LibNetwork:+"
+    compile project(":LibNetwork")
     compile "$rootProject.ext.ExtLib.publishGroupID:LibWebview:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibAdapter:+"
     compile "com.android.support:support-v4:$rootProject.ext.android_support_version"

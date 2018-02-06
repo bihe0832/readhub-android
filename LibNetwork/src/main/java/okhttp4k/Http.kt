@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
  * OkHttpClientManager
  * Created by enzowei on 17/11/14.
  */
-class Http {
+object Http {
 
   private var okHttpClientEither: Either<Any, Any> = Left(OkHttpClient())
 
@@ -18,8 +18,7 @@ class Http {
   @Suppress("unused")
   fun init(config: OkhttpBuilder.() -> Unit): Http {
     val builder = OkhttpBuilder(okHttpClientEither.fold(this::getOKHttpClient))
-    builder.config()
-    okHttpClientEither = Right(builder.build())
+    okHttpClientEither = Right(builder.build(config))
     return this
   }
 

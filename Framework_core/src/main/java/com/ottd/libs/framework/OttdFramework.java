@@ -2,6 +2,7 @@ package com.ottd.libs.framework;
 
 import android.content.Context;
 
+import com.ottd.libs.framework.network.ReadHubApi;
 import com.ottd.libs.ui.ToastUtil;
 
 
@@ -33,6 +34,8 @@ public class OttdFramework {
     public void init(final Context ctx) {
         mApplicationContext = ctx;
         OttdFramework.getInstance().showDebug("测试版本，体验问题请及时联系子勰");
+
+        ReadHubApi.INSTANCE.init(ctx, true);
     }
 
     public Context getApplicationContext(){
