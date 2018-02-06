@@ -1,4 +1,4 @@
-package com.bihe0832.app.test;
+package com.bihe0832.readhub.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bihe0832.app.test.debug.TestDebugFragment;
-import com.bihe0832.readhub.app.test.R;
+import com.bihe0832.readhub.R;
+import com.bihe0832.readhub.test.debug.TestDebugFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.ottd.libs.framework.fragment.BaseMainFragment;
 

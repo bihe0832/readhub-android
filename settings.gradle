@@ -1,3 +1,4 @@
 include ':Framework_core'
-include ':APPTest'
 include ':LibNetwork'
+include ':Main'
+include ':LibUIUtils'

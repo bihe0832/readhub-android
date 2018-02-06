@@ -18,5 +18,5 @@ ext {
     
     kotlin_version = '1.2.10'
     android_support_version = '26.0.0-alpha1'
-    test_module_is_application = true
+
 }

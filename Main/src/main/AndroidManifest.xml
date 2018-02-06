@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.bihe0832.readhub.app.test"
+<manifest package="com.bihe0832.readhub"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:label="Readhub-测试"
-            android:name="com.bihe0832.app.test.TestActivity"
+            android:name="com.bihe0832.readhub.test.TestActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">

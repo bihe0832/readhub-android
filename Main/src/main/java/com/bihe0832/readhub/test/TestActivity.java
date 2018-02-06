@@ -1,9 +1,10 @@
-package com.bihe0832.app.test;
+package com.bihe0832.readhub.test;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.bihe0832.readhub.app.test.R;
+
+import com.bihe0832.readhub.R;
 
 import me.yokeyword.fragmentation.SupportActivity;
 
