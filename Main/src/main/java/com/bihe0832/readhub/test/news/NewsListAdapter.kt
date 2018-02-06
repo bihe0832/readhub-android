@@ -1,7 +1,6 @@
-package com.bihe0832.readhub.test.news.viewmodel
+package com.bihe0832.readhub.test.news
 
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bihe0832.readhub.R
@@ -16,13 +15,12 @@ import kotlin.properties.Delegates
 class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
   var newsList: List<News> by Delegates.observable(emptyList()) { prop, old, new ->
     //    autoNotify(old, new) { o, n -> o.id == n.id }
-    Log.e("Delegates.observable", "$new")
     notifyDataSetChanged()
   }
 
   override fun onBindViewHolder(holder: CommonViewHolder, position: Int) {
     holder.bind(newsList[position]) { news ->
-      titleTextView.text = news.title
+      title.text = news.title
     }
   }
 
