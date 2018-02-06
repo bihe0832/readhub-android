@@ -1,4 +1,2 @@
 include ':Framework_core'
-include ':LibNetwork'
 include ':Main'
-include ':LibUIUtils'

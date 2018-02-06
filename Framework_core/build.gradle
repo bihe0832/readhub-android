@@ -25,15 +25,13 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
     compile "$rootProject.ext.ExtLib.publishGroupID:LibThread:+"
-//    compile "$rootProject.ext.ExtLib.publishGroupID:LibUIUtils:+"
-    compile project(":LibUIUtils")
+    compile "$rootProject.ext.ExtLib.publishGroupID:LibUIUtils:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibUtils:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibLogger:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibConfig:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibCache:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibCrash:+"
-//    compile "$rootProject.ext.ExtLib.publishGroupID:LibNetwork:+"
-    compile project(":LibNetwork")
+    compile "$rootProject.ext.ExtLib.publishGroupID:LibNetwork:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibWebview:+"
     compile "$rootProject.ext.ExtLib.publishGroupID:LibAdapter:+"
     compile "com.android.support:support-v4:$rootProject.ext.android_support_version"

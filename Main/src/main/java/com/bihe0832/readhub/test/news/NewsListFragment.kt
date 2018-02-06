@@ -94,6 +94,7 @@ class NewsListFragment : Fragment() {
 
 	companion object {
 		val TAG = "NewsListFragment"
+		@JvmStatic
 		fun newInstance(): NewsListFragment = NewsListFragment()
 	}
 }

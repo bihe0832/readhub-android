@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.test.debug.TestDebugFragment;
+import com.bihe0832.readhub.test.news.NewsListFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.ottd.libs.framework.fragment.BaseMainFragment;
 
@@ -92,7 +93,7 @@ public class MainFragment extends BaseMainFragment {
                 //修改此处，重新编译，即可使用new tab调试任意独立的无Activity模块的fragment
                 return TestDebugFragment.newInstance();
             }else if(mTabString[position].equals(TAB_FOR_DEVELOPER)){
-                return TestDebugFragment.newInstance();
+                return NewsListFragment.newInstance();
             }else{
                 return TestDebugFragment.newInstance();
             }

@@ -14,9 +14,21 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>recyclerview-v7</artifactId>
+      <version>26.0.0-alpha1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
       <groupId>com.bihe0832.readhub</groupId>
       <artifactId>LibThread</artifactId>
       <version>+</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib-jre7</artifactId>
+      <version>1.2.10</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
