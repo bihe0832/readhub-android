@@ -1,4 +1,4 @@
-package com.ottd.base.topic.viewmodel
+package com.bihe0832.readhub.test.news
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel

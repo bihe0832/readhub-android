@@ -1,4 +1,4 @@
-package com.ottd.base.topic
+package com.bihe0832.readhub.test.news
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,20 +6,19 @@ import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
-import android.util.TimeUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
-import com.ottd.base.topic.viewmodel.NewsListViewModel
+import com.bihe0832.readhub.test.news.viewmodel.NewsListAdapter
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
 
 class NewsListFragment : Fragment() {
   private val viewModel: NewsListViewModel by lazy { ViewModelProviders.of(this).get(NewsListViewModel::class.java) }
 
-  private val newsListAdapter:NewsListAdapter by lazy { NewsListAdapter() }
+  private val newsListAdapter: NewsListAdapter by lazy { NewsListAdapter() }
 
   private val autoLoadDecorator by lazy { AutoLoadDecorator(list) }
 
