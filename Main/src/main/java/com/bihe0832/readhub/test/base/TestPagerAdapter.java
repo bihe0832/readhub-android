@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.bihe0832.readhub.app.test.R;
+import com.bihe0832.readhub.R;
 
 import java.util.ArrayList;
 import java.util.List;

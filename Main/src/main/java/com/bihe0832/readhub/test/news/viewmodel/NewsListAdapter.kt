@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.ezstudio.myapplication.R
+import com.bihe0832.readhub.R
 import com.ottd.libs.framework.model.News
 import kotlinx.android.synthetic.main.fragment_news_item.view.*
 import kotlin.properties.Delegates

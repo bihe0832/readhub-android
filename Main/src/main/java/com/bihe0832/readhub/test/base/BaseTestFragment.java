@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bihe0832.readhub.app.test.R;
+import com.bihe0832.readhub.R;
 import com.ottd.libs.framework.fragment.BaseBackFragment;
 
 import java.util.List;

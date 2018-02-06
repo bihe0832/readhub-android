@@ -66,7 +66,6 @@ object ReadHubApi {
 				.create(ApiService::class.java)
 	}
 
-
 }
 
 interface ApiService {
