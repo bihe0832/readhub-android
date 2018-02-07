@@ -9,6 +9,7 @@
     <dimen name="text_size_14">14.0sp</dimen>
     <dimen name="text_size_12">12.0sp</dimen>
     <dimen name="text_size_10">10.0sp</dimen>
+    <dimen name="text_size_8">8.0sp</dimen>
     <dimen name="framework_toolbar_height">50dp</dimen>
     <dimen name="toolbar_padding_top">0dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.bihe0832.readhub.test.news
+package com.bihe0832.readhub.news
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -11,7 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
-import com.bihe0832.readhub.test.news.viewmodel.NewsListViewModel
+import com.bihe0832.readhub.news.viewmodel.NewsListViewModel
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
 

@@ -1,4 +1,4 @@
-package com.bihe0832.readhub.test.news
+package com.bihe0832.readhub.topic
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -10,14 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
-import com.bihe0832.readhub.test.news.viewmodel.DEFAULT_PAGE_SIZE_TOPIC
-import com.bihe0832.readhub.test.news.viewmodel.TopicListViewModel
+import com.bihe0832.readhub.topic.viewmodel.DEFAULT_PAGE_SIZE_TOPIC
+import com.bihe0832.readhub.topic.viewmodel.TopicListViewModel
 import com.ottd.libs.framework.fragment.BaseMainFragment
-import com.ottd.libs.framework.utils.getDateCompareResult
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
-import kotlinx.android.synthetic.main.fragment_news_list.*
-import kotlinx.android.synthetic.main.fragment_topic_item_summary.view.*
-import java.math.BigDecimal
+import kotlinx.android.synthetic.main.fragment_topic_list.*
+
 
 const val TOPIC_VIEW_TYPE_KEY = "READHUB_TOPIC_TYPE"
 const val TOPIC_VIEW_TYPE_LIST = 1

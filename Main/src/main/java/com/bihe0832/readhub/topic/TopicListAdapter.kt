@@ -1,10 +1,9 @@
-package com.bihe0832.readhub.test.news
+package com.bihe0832.readhub.topic
 
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.bihe0832.readhub.R
 import com.ottd.base.topic.CommonViewHolder
@@ -22,6 +21,7 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
         //    autoNotify(old, new) { o, n -> o.id == n.id }
         notifyDataSetChanged()
     }
+
 
     override fun onBindViewHolder(holder: CommonViewHolder, position: Int) {
         holder.bind(topicList[position]) { topic ->
