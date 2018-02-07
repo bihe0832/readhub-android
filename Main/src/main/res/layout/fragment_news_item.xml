@@ -40,7 +40,7 @@
         android:id="@+id/summary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tips"
@@ -54,15 +54,17 @@
             android:lineSpacingExtra="@dimen/card_summary_line_spacing"
             android:textColor="@color/card_summary_color"
             android:textSize="@dimen/card_summary_textsize"
-            tools:text="titledsdfsdfsdfhkjhkh" />
+            tools:text="" />
 
         <TextView
             android:id="@id/expand_collapse"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_margin_button"
             android:text="展开"
             android:textColor="@color/card_expand_collapse_color"
             android:textSize="@dimen/card_expand_collapse_size"
+            android:gravity="right"
             android:textStyle="bold" />
     </com.ottd.libs.framework.utils.ExpandableTextView>
 

@@ -12,6 +12,7 @@
 
     <TextView
         android:id="@+id/listTopicTitle"
+        android:lineSpacingExtra="@dimen/card_title_line_spacing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/card_title_textsize"

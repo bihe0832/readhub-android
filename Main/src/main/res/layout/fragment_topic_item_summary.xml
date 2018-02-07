@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/tools"
     android:paddingLeft="@dimen/card_padding_left_right"
     android:paddingRight="@dimen/card_padding_left_right"
     android:paddingTop="@dimen/card_padding_top"
@@ -14,6 +15,7 @@
         android:id="@+id/summaryTopicTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/card_title_line_spacing"
         android:textSize="@dimen/card_title_textsize"
         android:textColor="@color/card_title_color"
         android:textStyle="bold"
@@ -32,17 +34,38 @@
         android:text="25 家媒体已报道"
         />
 
-    <TextView
+    <com.ottd.libs.framework.utils.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
         android:id="@+id/summaryTopicSummary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/card_margin_between_title_tips"
-        android:textSize= "@dimen/card_summary_textsize"
-        android:textColor="@color/card_summary_color"
-        android:lineSpacingMultiplier="1.5"
-        android:maxLines="4"
-        android:text="品途商业评论讯  2 月 5 日，眼动追踪技术解决方案商七 鑫易维获得新一轮融资，由晟道投资、财政部中小企业发  展基金联由晟道投资、财政部中小企业发展基金联合  领投其他投资方还包括中关村发展集团、联合联合 ...                 展开"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tips"
+        expandableTextView:animDuration="200"
+        expandableTextView:maxCollapsedLines="4">
+
+        <TextView
+            android:id="@id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/card_summary_line_spacing"
+            android:textColor="@color/card_summary_color"
+            android:textSize="@dimen/card_summary_textsize"
+            android:text="titledsdfsdfsdfhkjhkh" />
+
+        <TextView
+            android:id="@id/expand_collapse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_margin_button"
+            android:text="展开"
+            android:textColor="@color/card_expand_collapse_color"
+            android:textSize="@dimen/card_expand_collapse_size"
+            android:gravity="right"
+            android:textStyle="bold" />
+    </com.ottd.libs.framework.utils.ExpandableTextView>
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -26,7 +26,7 @@ class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
     override fun onBindViewHolder(holder: CommonViewHolder, position: Int) {
         holder.bind(newsList[position]) { news ->
             title.text = news.title
-            tips.text = "${news.siteName} * ${news.publishDate.getDateCompareResult()}"
+            tips.text = "${news.siteName} • ${news.publishDate.getDateCompareResult()}"
             summary.text = news.summary
 
             val pixelDrawableSize = Math.round(forwardBtn.lineHeight * 0.9f)

@@ -23,7 +23,7 @@
     <dimen name="card_forward_textsize">@dimen/text_size_8</dimen>
     <color name="card_forward_color">#ff678bb4</color>
 
-    <dimen name="card_margin_button">20dp</dimen>
+    <dimen name="card_margin_button">10dp</dimen>
     <dimen name="card_button_textsize">@dimen/text_size_14</dimen>
     <dimen name="card_margin_between_buttons">20dp</dimen>
     <dimen name="card_padding_drawable">2dp</dimen>
