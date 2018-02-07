@@ -35,13 +35,13 @@ fun Long.getDateCompareResult(): String {
     val hourC = diffValue / hour
     val minC = diffValue / minute
     return when {
-        yearC > 0 -> "${yearC}年前"
-        monthC > 0 -> "${monthC}月前"
-        weekC > 0 -> "${weekC}周前"
-        dayC > 0 -> "${dayC}天前"
-        hourC > 0 -> "${hourC}小时前"
-        minC > 0 -> "${minC}分钟前"
-        diffValue > 0 -> "${diffValue}秒前"
+        yearC > 0 -> "${yearC} 年前"
+        monthC > 0 -> "${monthC} 月前"
+        weekC > 0 -> "${weekC} 周前"
+        dayC > 0 -> "${dayC} 天前"
+        hourC > 0 -> "${hourC} 小时前"
+        minC > 0 -> "${minC} 分钟前"
+        diffValue > 0 -> "${diffValue} 秒前"
         else -> "不久前"
     }
 }

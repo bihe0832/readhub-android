@@ -2,7 +2,9 @@ package com.ottd.libs.framework;
 
 import android.content.Context;
 
+import com.ottd.libs.config.Config;
 import com.ottd.libs.framework.network.ReadHubApi;
+import com.ottd.libs.logger.OttdLog;
 import com.ottd.libs.ui.ToastUtil;
 
 
@@ -33,7 +35,12 @@ public class OttdFramework {
     // 全局变量的初始化
     public void init(final Context ctx) {
         mApplicationContext = ctx;
+        OttdLog.init(getApplicationContext(),isDebug());
+
         OttdFramework.getInstance().showDebug("测试版本，体验问题请及时联系子勰");
+
+        final String CONFIG_FILE = "conf.ini";
+        Config.init(getApplicationContext(),CONFIG_FILE);
 
         ReadHubApi.INSTANCE.init(ctx, true);
     }

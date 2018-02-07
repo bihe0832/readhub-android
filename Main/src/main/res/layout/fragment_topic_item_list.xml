@@ -11,7 +11,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/topicTitle"
+        android:id="@+id/listTopicTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/card_title_textsize"
@@ -21,7 +21,7 @@
         />
 
     <TextView
-        android:id="@+id/topicTips"
+        android:id="@+id/listTopicTips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/card_margin_between_title_tips"

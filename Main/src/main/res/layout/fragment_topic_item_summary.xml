@@ -11,7 +11,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/topicTitle"
+        android:id="@+id/summaryTopicTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/card_title_textsize"
@@ -21,7 +21,7 @@
         />
 
     <TextView
-        android:id="@+id/topicTips"
+        android:id="@+id/summaryTopicTips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="8dp"
@@ -33,6 +33,7 @@
         />
 
     <TextView
+        android:id="@+id/summaryTopicSummary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/card_margin_between_title_tips"
@@ -53,7 +54,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/subTopic"
+            android:id="@+id/summaryTopicSubTopic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_star_black_24dp"
@@ -64,7 +65,7 @@
             android:textColor="@color/card_title_color"
             android:textSize="@dimen/card_button_textsize" />
         <TextView
-            android:id="@+id/moreAboutTopic"
+            android:id="@+id/summaryTopicMoreAboutTopic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"

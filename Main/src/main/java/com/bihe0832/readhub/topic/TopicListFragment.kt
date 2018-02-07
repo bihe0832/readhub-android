@@ -2,7 +2,6 @@ package com.bihe0832.readhub.test.news
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
@@ -11,92 +10,91 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
+import com.bihe0832.readhub.test.news.viewmodel.DEFAULT_PAGE_SIZE_TOPIC
 import com.bihe0832.readhub.test.news.viewmodel.TopicListViewModel
 import com.ottd.libs.framework.fragment.BaseMainFragment
+import com.ottd.libs.framework.utils.getDateCompareResult
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
+import kotlinx.android.synthetic.main.fragment_topic_item_summary.view.*
+import java.math.BigDecimal
+
+const val TOPIC_VIEW_TYPE_KEY = "READHUB_TOPIC_TYPE"
+const val TOPIC_VIEW_TYPE_LIST = 1
+const val TOPIC_VIEW_TYPE_SUMMARY = 2
 
 class TopicListFragment : BaseMainFragment() {
 
-	private val viewModel: TopicListViewModel by lazy { ViewModelProviders.of(this).get(TopicListViewModel::class.java) }
+    private val viewModel: TopicListViewModel by lazy { ViewModelProviders.of(this).get(TopicListViewModel::class.java) }
 
-	private val topicListAdapter: TopicListAdapter by lazy { TopicListAdapter() }
+    private val topicListAdapter: TopicListAdapter by lazy { TopicListAdapter() }
 
-	private val autoLoadDecorator by lazy { AutoLoadDecorator(list) }
+    private val autoLoadDecorator by lazy { AutoLoadDecorator(list) }
 
-	private var canLoadMore = false
+    private var canLoadMore = false
 
-	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-														savedInstanceState: Bundle?): View? =
-			inflater.inflate(R.layout.fragment_topic_list, container, false)
+    private var lastCursor = ""
+    private var pageSize = DEFAULT_PAGE_SIZE_TOPIC
 
-	override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? =
+            inflater.inflate(R.layout.fragment_topic_list, container, false)
 
-//    refreshLayout.setOnPullListener(onPullListener)
-		refreshLayout.setOnRefreshListener(onRefreshListener)
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
 
-		list.apply {
-			layoutManager = LinearLayoutManager(context)
-			adapter = topicListAdapter
-		}
+        refreshLayout.setOnRefreshListener(onRefreshListener)
 
-//    autoLoadDecorator.onScrollStateChanged(topicListAdapter.onScrollStateChanged)
-		autoLoadDecorator.onLoadMore(::getMore)
-	}
+        list.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = topicListAdapter
+        }
+        autoLoadDecorator.onLoadMore(::getMore)
+    }
 
-	override fun onActivityCreated(savedInstanceState: Bundle?) {
-		super.onActivityCreated(savedInstanceState)
-		viewModel.topicList.observe(::getLifecycle, { newsList ->
-			Log.d(TAG, "observe:${newsList?.pageSize}")
-			newsList?.let {
-				if (autoLoadDecorator.isLoadingMore) {
-					topicListAdapter.topicList += it.data
-				} else {
-					topicListAdapter.topicList = it.data
-				}
-				autoLoadDecorator.isLoadingMore = false
-				refreshLayout.isRefreshing = false
-				canLoadMore = true
-			}
-		})
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel.topicList.observe(::getLifecycle, { newsList ->
+            Log.d(TAG, "observe:${newsList?.pageSize}")
+            newsList?.let {
+                if (autoLoadDecorator.isLoadingMore) {
+                    topicListAdapter.topicList += it.data
+                } else {
+                    topicListAdapter.topicList = it.data
+                }
+                autoLoadDecorator.isLoadingMore = false
+                refreshLayout.isRefreshing = false
+                canLoadMore = true
 
-		viewModel.getTopicList()
-	}
+                lastCursor = it.data.last().order
+                val intOrder =  it.data.last().order.toInt().rem(DEFAULT_PAGE_SIZE_TOPIC)
+                pageSize = when {
+                    intOrder > 0 -> intOrder
+                    else -> DEFAULT_PAGE_SIZE_TOPIC
+                }
+            }
+        })
 
-//  private val onPullListener = object : OnPullListener {
-//    override fun onPulling(headView: View?) {
-//      val versionInfo = String.format(resources.getString(R.string.bihe0832_common_refresh_sub_title), TimeUtils.getDateCompareResult(lastRefreshTimeStamp))
-//      refreshLayout.setRefreshSubText(versionInfo)
-//    }
-//
-//    override fun onRefreshing(headView: View?) {
-//    }
-//
-//    override fun onCanRefreshing(headView: View?) {
-//    }
-//
-//  }
+        viewModel.getTopicList(lastCursor, pageSize)
+    }
 
-	private val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
-		Log.d(TAG, "onRefresh")
-//    if (refreshLayout.isEnabled && !refreshLayout.isRefreshing) {
-		Log.d(TAG, "start refresh")
-		viewModel.getTopicList()
-//    }
-	}
+    private val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
+        Log.d(TAG, "onRefresh")
+        Log.d(TAG, "start refresh")
+        viewModel.getTopicList()
+    }
 
-	private fun getMore() {
-		Log.d(TAG, "getMore")
-		if (canLoadMore) {
-			viewModel.getTopicList()
-		} else {
-			Toast.makeText(context, "滑到底部了，加载更多~", Toast.LENGTH_SHORT).show()
-		}
-	}
+    private fun getMore() {
+        Log.d(TAG, "getMore")
+        if (canLoadMore) {
+            viewModel.getTopicList(lastCursor, pageSize)
+        } else {
+            Toast.makeText(context, "滑到底部了，加载更多~", Toast.LENGTH_SHORT).show()
+        }
+    }
 
-	companion object {
-		val TAG = "TopicListFragment"
-		@JvmStatic
-		fun newInstance(): TopicListFragment = TopicListFragment()
-	}
+    companion object {
+        val TAG = "TopicListFragment"
+        @JvmStatic
+        fun newInstance(): TopicListFragment = TopicListFragment()
+    }
 }

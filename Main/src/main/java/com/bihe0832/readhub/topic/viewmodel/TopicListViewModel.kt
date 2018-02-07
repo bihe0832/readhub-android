@@ -8,7 +8,7 @@ import com.ottd.libs.framework.network.ReadHubApi
 import topic.network.enqueue
 
 
-const val DEFAULT_PAGE_SIZE_TOPIC = 20
+const val DEFAULT_PAGE_SIZE_TOPIC = 5
 const val DEFAULT_CURSOR_TOPIC = ""
 
 class TopicListViewModel : ViewModel() {
@@ -16,6 +16,7 @@ class TopicListViewModel : ViewModel() {
 	val topicList = MutableLiveData<TopicList>()
 
 	fun getTopicList(lastCursor: String = DEFAULT_CURSOR_TOPIC, pageSize: Int = DEFAULT_PAGE_SIZE_TOPIC) {
+
 		ReadHubApi.apiService.topic(lastCursor, pageSize).enqueue {
 			onResponse { _, response ->
 				Log.d("TopicListViewModel", "onResponse:${response?.body()?.pageSize}")
