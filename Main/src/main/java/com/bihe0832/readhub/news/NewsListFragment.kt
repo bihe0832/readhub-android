@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.news.viewmodel.NewsListViewModel
+import com.ottd.libs.framework.utils.getReadhubTimeStamp
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
 
@@ -23,6 +24,8 @@ class NewsListFragment : Fragment() {
 	private val autoLoadDecorator by lazy { AutoLoadDecorator(list) }
 
 	private var canLoadMore = false
+
+	private var lastCursor = System.currentTimeMillis()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
 														savedInstanceState: Bundle?): View? =
@@ -55,10 +58,12 @@ class NewsListFragment : Fragment() {
 				autoLoadDecorator.isLoadingMore = false
 				refreshLayout.isRefreshing = false
 				canLoadMore = true
+
+				lastCursor = it.data.last().publishDate.getReadhubTimeStamp()
 			}
 		})
 
-		viewModel.getNewsList()
+		viewModel.getNewsList(lastCursor)
 	}
 
 //  private val onPullListener = object : OnPullListener {
@@ -86,7 +91,7 @@ class NewsListFragment : Fragment() {
 	private fun getMore() {
 		Log.d(TAG, "getMore")
 		if (canLoadMore) {
-			viewModel.getNewsList()
+			viewModel.getNewsList(lastCursor)
 		} else {
 			Toast.makeText(context, "滑到底部了，加载更多~", Toast.LENGTH_SHORT).show()
 		}

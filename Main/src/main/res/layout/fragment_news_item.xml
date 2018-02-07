@@ -58,11 +58,12 @@
 
         <TextView
             android:id="@id/expand_collapse"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="展开"
             android:textColor="@color/card_expand_collapse_color"
             android:textSize="@dimen/card_expand_collapse_size"
+            android:gravity="right"
             android:textStyle="bold" />
     </com.ottd.libs.framework.utils.ExpandableTextView>
 
