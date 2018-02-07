@@ -1,20 +1,15 @@
-package com.bihe0832.readhub.test.news
+package com.bihe0832.readhub.topic
 
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
-import android.support.v4.content.ContextCompat.getColor
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bihe0832.readhub.R
 import com.ottd.base.topic.CommonViewHolder
 import com.ottd.libs.framework.model.Topic
-import com.ottd.libs.ui.ResourceUtils
 import kotlinx.android.synthetic.main.fragment_topic_item_summary.view.*
 import kotlin.properties.Delegates
-import android.graphics.drawable.Drawable
-
-
 
 
 class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {

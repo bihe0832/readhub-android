@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.test.debug.TestDebugFragment;
-import com.bihe0832.readhub.test.news.NewsListFragment;
-import com.bihe0832.readhub.test.news.TopicListFragment;
+import com.bihe0832.readhub.news.NewsListFragment;
+import com.bihe0832.readhub.topic.TopicListFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.ottd.libs.framework.fragment.BaseMainFragment;
 
