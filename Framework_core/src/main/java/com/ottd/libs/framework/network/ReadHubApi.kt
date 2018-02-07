@@ -5,6 +5,7 @@ import android.util.Log
 import com.ottd.libs.cache.CacheManager
 import com.ottd.libs.framework.model.NewsList
 import com.ottd.libs.framework.model.Topic
+import com.ottd.libs.framework.model.TopicList
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -70,8 +71,8 @@ object ReadHubApi {
 
 interface ApiService {
 	@GET("topic")
-	fun topic(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),
-						@Query("pageSize") pageSize: Int = 10): Call<List<Topic>>
+	fun topic(@Query("lastCursor") lastCursor: String,
+						@Query("pageSize") pageSize: Int): Call<TopicList>
 
 	@GET("news")
 	fun news(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),

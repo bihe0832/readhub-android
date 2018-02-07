@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.test.debug.TestDebugFragment;
 import com.bihe0832.readhub.test.news.NewsListFragment;
+import com.bihe0832.readhub.test.news.TopicListFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.ottd.libs.framework.fragment.BaseMainFragment;
 
@@ -24,10 +25,10 @@ public class MainFragment extends BaseMainFragment {
     private ViewPager mViewPager;
     private SlidingTabLayout mTabBar;
 
-    public static final int DEFAULT_TAB = 2;
+    public static final int DEFAULT_TAB = 0;
     public static final String INTENT_EXTRA_KEY_TEST_ITEM_TAB = MainFragment.class.getName() + "INTENT_KEY_TAB";
-    private static final String TAB_FOR_DEVELOPER = "开发调试";
-    private static final String TAB_FOR_NEW = "模块测试";
+    private static final String TAB_FOR_DEVELOPER = "动态测试";
+    private static final String TAB_FOR_NEW = "资讯测试";
     private String[] mTabString = new String[]{
             TAB_FOR_DEVELOPER,TAB_FOR_NEW
     };
@@ -91,9 +92,9 @@ public class MainFragment extends BaseMainFragment {
         public Fragment getItem(int position) {
             if (mTabString[position].equals(TAB_FOR_NEW)) {
                 //修改此处，重新编译，即可使用new tab调试任意独立的无Activity模块的fragment
-                return TestDebugFragment.newInstance();
-            }else if(mTabString[position].equals(TAB_FOR_DEVELOPER)){
                 return NewsListFragment.newInstance();
+            }else if(mTabString[position].equals(TAB_FOR_DEVELOPER)){
+                return TopicListFragment.newInstance();
             }else{
                 return TestDebugFragment.newInstance();
             }

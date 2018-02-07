@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/card_padding_leaft_right"
+    android:paddingRight="@dimen/card_padding_leaft_right"
+    android:paddingTop="@dimen/card_padding_top"
+    android:paddingBottom="@dimen/card_padding_bottom"
+    android:layout_marginBottom="@dimen/card_margin_bottom"
+    android:background="@color/card_background_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/topicTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/card_title_textsize"
+        android:textColor="@color/card_title_color"
+        android:textStyle="bold"
+        android:text="眼动追踪技术解决方案商七鑫易维获得新一轮融资"
+        />
+
+    <TextView
+        android:id="@+id/topicTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
+        android:textSize="@dimen/card_tips_textsize"
+        android:textColor="@color/card_tips_color"
+        android:gravity="right"
+        android:text="25 家媒体已报道"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
+        android:textSize= "@dimen/card_summary_textsize"
+        android:textColor="@color/card_summary_color"
+        android:lineSpacingMultiplier="1.5"
+        android:maxLines="4"
+        android:text="品途商业评论讯  2 月 5 日，眼动追踪技术解决方案商七 鑫易维获得新一轮融资，由晟道投资、财政部中小企业发  展基金联由晟道投资、财政部中小企业发展基金联合  领投其他投资方还包括中关村发展集团、联合联合 ...                 展开"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_button"
+        android:background="@drawable/com_bihe0832_readhub_boder"
+        android:paddingTop="@dimen/card_padding_top"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/subTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_star_black_24dp"
+            android:drawablePadding="@dimen/card_padding_drawable"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:text="关注话题"
+            android:textColor="@color/card_title_color"
+            android:textSize="@dimen/card_button_textsize" />
+        <TextView
+            android:id="@+id/moreAboutTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginLeft="@dimen/card_margin_between_buttons"
+            android:drawableLeft="@drawable/ic_open_in_new_black_24dp"
+            android:drawablePadding="@dimen/card_padding_drawable"
+            android:textStyle="bold"
+            android:textSize="@dimen/card_button_textsize"
+            android:textColor="@color/primary_dark"
+            android:text="进入话题"
+            />
+    </LinearLayout>
+</LinearLayout>

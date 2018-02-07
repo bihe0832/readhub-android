@@ -1,7 +1,5 @@
 <resources>
 
-
-
     <string name="app_name">Readhub</string>
     <string name="company_name">无码科技</string>
     <string name="app_slogan">每天几分钟 了解互联网</string>
@@ -50,6 +48,7 @@
     <color name="primary">#607D8B</color>
     <color name="primary_dark">#406d91</color>
     <color name="primary_light">#CFD8DC</color>
+    <color name="background">#F5F5F5</color>
     <color name="accent">#246394</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#6c747f</color>
