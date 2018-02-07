@@ -12,10 +12,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.news.viewmodel.NewsListViewModel
+import com.ottd.libs.framework.fragment.BaseBackFragment
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
 
-class NewsListFragment : Fragment() {
+class NewsListFragment : BaseBackFragment() {
 	private val viewModel: NewsListViewModel by lazy { ViewModelProviders.of(this).get(NewsListViewModel::class.java) }
 
 	private val newsListAdapter: NewsListAdapter by lazy { NewsListAdapter() }

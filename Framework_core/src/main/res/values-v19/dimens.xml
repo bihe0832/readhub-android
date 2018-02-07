@@ -4,6 +4,5 @@
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <!-- 通用 -->
-    <dimen name="framework_toolbar_height">50dp</dimen>
     <dimen name="toolbar_padding_top">25dp</dimen>
 </resources>

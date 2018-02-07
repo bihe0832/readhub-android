@@ -10,9 +10,9 @@
     <string name="link_readhub_desc">file:///android_asset/readhub.html</string>
     <string name="link_feedback">file:///android_asset/feedback.html</string>
 
-    <string name="page_key_topic">热门话题</string>
-    <string name="page_key_news">科技动态</string>
-    <string name="page_key_developer">开发者资讯</string>
+    <string name="page_key_topic">话题</string>
+    <string name="page_key_news">资讯</string>
+    <string name="page_key_me">我的</string>
 
     <string name="news_desc">%1$s / %2$s • %3$s</string>
 

@@ -12,7 +12,7 @@ import android.widget.Toast
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.topic.viewmodel.DEFAULT_PAGE_SIZE_TOPIC
 import com.bihe0832.readhub.topic.viewmodel.TopicListViewModel
-import com.ottd.libs.framework.fragment.BaseMainFragment
+import com.ottd.libs.framework.fragment.BaseBackFragment
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_topic_list.*
 
@@ -21,7 +21,7 @@ const val TOPIC_VIEW_TYPE_KEY = "READHUB_TOPIC_TYPE"
 const val TOPIC_VIEW_TYPE_LIST = 1
 const val TOPIC_VIEW_TYPE_SUMMARY = 2
 
-class TopicListFragment : BaseMainFragment() {
+class TopicListFragment : BaseBackFragment() {
 
     private val viewModel: TopicListViewModel by lazy { ViewModelProviders.of(this).get(TopicListViewModel::class.java) }
 

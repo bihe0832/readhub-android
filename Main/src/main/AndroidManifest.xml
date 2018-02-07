@@ -4,14 +4,13 @@
 
     <application
         android:name="com.ottd.libs.framework.App"
-        android:icon="@drawable/icon"
+        android:icon="@mipmap/readhub_logo"
         android:label="@string/app_name"
         android:allowBackup="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:label="Readhub-测试"
-            android:name="com.bihe0832.readhub.test.TestActivity"
+            android:name="com.bihe0832.readhub.main.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTop"
             android:screenOrientation="portrait">
