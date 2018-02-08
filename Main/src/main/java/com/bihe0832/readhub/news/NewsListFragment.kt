@@ -26,6 +26,8 @@ class NewsListFragment : BaseBackFragment() {
 
     private var canLoadMore = false
 
+    private var isFirstLoad = true
+
     private var lastCursor = System.currentTimeMillis()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +35,6 @@ class NewsListFragment : BaseBackFragment() {
             inflater.inflate(R.layout.fragment_news_list, container, false)
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-
-//    refreshLayout.setOnPullListener(onPullListener)
         refreshLayout.setOnRefreshListener(onRefreshListener)
 
         list.apply {
@@ -42,15 +42,19 @@ class NewsListFragment : BaseBackFragment() {
             adapter = newsListAdapter
         }
 
-//    autoLoadDecorator.onScrollStateChanged(newsListAdapter.onScrollStateChanged)
         autoLoadDecorator.onLoadMore(::getMore)
+
+        errorText.setOnClickListener {
+            viewModel.getNewsList()
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.newsList.observe(::getLifecycle, { newsList ->
+        viewModel.newsList.observe(::getLifecycle) { newsList ->
             Log.d(TAG, "observe:${newsList?.pageSize}")
             newsList?.let {
+                isFirstLoad = false
                 if (autoLoadDecorator.isLoadingMore) {
                     newsListAdapter.newsList += it.data
                 } else {
@@ -61,13 +65,18 @@ class NewsListFragment : BaseBackFragment() {
                 canLoadMore = true
 
                 lastCursor = it.data.last().publishDate.getReadhubTimeStamp()
+                errorText.visibility = View.GONE
+                refreshLayout.visibility = View.VISIBLE
             }
-        })
-
-        viewModel.error.observe(::getLifecycle) { errorMsg ->
-            //TODO:on error
         }
-        
+
+        viewModel.error.observe(::getLifecycle) { _ ->
+            if (isFirstLoad) {
+                errorText.visibility = View.VISIBLE
+                refreshLayout.visibility = View.GONE
+            }
+        }
+
         viewModel.getNewsList(lastCursor)
     }
 

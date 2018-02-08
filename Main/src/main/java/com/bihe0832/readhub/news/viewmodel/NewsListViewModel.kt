@@ -13,7 +13,7 @@ import topic.network.enqueue
 class NewsListViewModel : ViewModel() {
 	val newsList = MutableLiveData<NewsList>()
 	val error = MutableLiveData<String>()
-	fun getNewsList(lastCursor: Long = System.currentTimeMillis(), pageSize: Int = 3) {
+	fun getNewsList(lastCursor: Long = System.currentTimeMillis(), pageSize: Int = 10) {
 		ReadHubApi.apiService.news(lastCursor, pageSize).enqueue {
 			onResponse { _, response ->
 				Log.d("NewsListViewModel", "onResponse:${response?.body()?.pageSize}")
