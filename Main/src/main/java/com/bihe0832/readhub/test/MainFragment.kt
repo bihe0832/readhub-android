@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.news.NewsListFragment
+import com.bihe0832.readhub.news.TYPE_TECH_NEWS
 import com.bihe0832.readhub.test.debug.TestDebugFragment
 import com.bihe0832.readhub.topic.TopicListFragment
 import com.ottd.libs.framework.fragment.BaseMainFragment
@@ -55,7 +56,7 @@ class MainFragment : BaseMainFragment() {
         override fun getItem(position: Int): Fragment {
             return when {
             //修改此处，重新编译，即可使用new tab调试任意独立的无Activity模块的fragment
-                tabString[position] == TAB_FOR_NEW -> NewsListFragment.newInstance()
+                tabString[position] == TAB_FOR_NEW -> NewsListFragment.newInstance(TYPE_TECH_NEWS)
                 tabString[position] == TAB_FOR_DEVELOPER -> TopicListFragment.newInstance()
                 else -> TestDebugFragment.newInstance()
             }

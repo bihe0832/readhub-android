@@ -31,4 +31,23 @@ class NewsListViewModel : ViewModel() {
 			}
 		}
 	}
+
+	fun getTechNewsList(lastCursor: Long = System.currentTimeMillis(), pageSize: Int = 10) {
+		ReadHubApi.apiService.technews(lastCursor, pageSize).enqueue {
+			onResponse { _, response ->
+				Log.d("NewsListViewModel", "onResponse:${response?.body()?.pageSize}")
+				response?.let {
+					newsList.value = it.body()
+				}
+			}
+			onFailure { _, t ->
+				if (t == null) {
+					error.value = "Unknow Error"
+				} else {
+					Log.e("NewsListViewModel", t.localizedMessage)
+					error.value = t.toString()
+				}
+			}
+		}
+	}
 }

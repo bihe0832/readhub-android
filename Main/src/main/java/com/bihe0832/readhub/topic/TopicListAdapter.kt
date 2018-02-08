@@ -52,7 +52,7 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                 summaryTopicMoreAboutTopic.apply {
                     val drawable = context.resources.getDrawable(R.drawable.ic_open_in_new_black_24dp).apply {
                         setBounds(0, 0, pixelDrawableSize, pixelDrawableSize)
-                        colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_dark), PorterDuff.Mode.SRC_IN)
+                        colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_blue), PorterDuff.Mode.SRC_IN)
                     }
                     setCompoundDrawables(drawable, null, null, null)
                     setOnClickListener {

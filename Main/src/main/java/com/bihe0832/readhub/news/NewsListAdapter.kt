@@ -35,7 +35,7 @@ class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                 val pixelDrawableSize = Math.round(this.lineHeight * 0.9f)
                 val textViewDrawable = context.resources.getDrawable(R.drawable.ic_open_in_new_black_24dp).apply {
                     setBounds(0, 0, pixelDrawableSize, pixelDrawableSize)
-                    colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_dark), PorterDuff.Mode.SRC_IN)
+                    colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_blue), PorterDuff.Mode.SRC_IN)
                 }
                 setCompoundDrawables(textViewDrawable, null, null, null)
             }

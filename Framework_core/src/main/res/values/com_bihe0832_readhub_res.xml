@@ -46,7 +46,7 @@
 
     <color name="transparent">#00000000</color>
     <color name="primary">#607D8B</color>
-    <color name="primary_dark">#406d91</color>
+    <color name="primary_blue">#406d91</color>
     <color name="primary_light">#CFD8DC</color>
     <color name="background">#F5F5F5</color>
     <color name="accent">#246394</color>

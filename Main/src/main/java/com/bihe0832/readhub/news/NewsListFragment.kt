@@ -16,9 +16,11 @@ import com.ottd.libs.framework.utils.getReadhubTimeStamp
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_news_list.*
 
+const val TYPE_NORMAL_NEWS = 0
+const val TYPE_TECH_NEWS = 1
 
 class NewsListFragment : BaseBackFragment() {
-	private val viewModel: NewsListViewModel by lazy { ViewModelProviders.of(this).get(NewsListViewModel::class.java) }
+    private val viewModel: NewsListViewModel by lazy { ViewModelProviders.of(this).get(NewsListViewModel::class.java) }
 
     private val newsListAdapter: NewsListAdapter by lazy { NewsListAdapter() }
 
@@ -30,9 +32,12 @@ class NewsListFragment : BaseBackFragment() {
 
     private var lastCursor = System.currentTimeMillis()
 
+    private val type: Int by lazy { arguments?.getInt("type") ?: TYPE_NORMAL_NEWS }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_news_list, container, false)
+
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         refreshLayout.setOnRefreshListener(onRefreshListener)
@@ -45,7 +50,7 @@ class NewsListFragment : BaseBackFragment() {
         autoLoadDecorator.onLoadMore(::getMore)
 
         errorText.setOnClickListener {
-            viewModel.getNewsList()
+            fetchData()
         }
     }
 
@@ -77,19 +82,26 @@ class NewsListFragment : BaseBackFragment() {
             }
         }
 
-        viewModel.getNewsList(lastCursor)
+        fetchData()
     }
 
 
     private val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
         Log.d(TAG, "start refresh")
-        viewModel.getNewsList()
+        fetchData()
+    }
+
+    private fun fetchData() {
+        when (type) {
+            TYPE_NORMAL_NEWS -> viewModel.getNewsList(lastCursor)
+            else -> viewModel.getTechNewsList(lastCursor)
+        }
     }
 
     private fun getMore() {
         Log.d(TAG, "getMore")
         if (canLoadMore) {
-            viewModel.getNewsList(lastCursor)
+            fetchData()
         } else {
             Toast.makeText(context, "滑到底部了，加载更多~", Toast.LENGTH_SHORT).show()
         }
@@ -98,6 +110,9 @@ class NewsListFragment : BaseBackFragment() {
     companion object {
         val TAG = "NewsListFragment"
         @JvmStatic
-        fun newInstance(): NewsListFragment = NewsListFragment()
+        fun newInstance(type: Int = TYPE_NORMAL_NEWS): NewsListFragment =
+                NewsListFragment().apply {
+                    arguments = Bundle().apply { putInt("type", type) }
+                }
     }
 }

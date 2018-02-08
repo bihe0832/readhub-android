@@ -79,6 +79,6 @@ interface ApiService {
 					 @Query("pageSize") pageSize: Int = 10): Call<NewsList>
 
 	@GET("technews")
-	fun techNews(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),
+	fun technews(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),
 							 @Query("pageSize") pageSize: Int = 10): Call<NewsList>
 }
