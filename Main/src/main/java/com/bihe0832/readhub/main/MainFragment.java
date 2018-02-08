@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.news.NewsListFragment;
 import com.bihe0832.readhub.topic.TopicListFragment;
