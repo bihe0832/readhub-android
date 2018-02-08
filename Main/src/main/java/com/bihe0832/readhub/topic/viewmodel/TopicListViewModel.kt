@@ -14,6 +14,7 @@ const val DEFAULT_CURSOR_TOPIC = ""
 class TopicListViewModel : ViewModel() {
 
 	val topicList = MutableLiveData<TopicList>()
+	val error = MutableLiveData<String>()
 
 	fun getTopicList(lastCursor: String = DEFAULT_CURSOR_TOPIC, pageSize: Int = DEFAULT_PAGE_SIZE_TOPIC) {
 
@@ -25,7 +26,12 @@ class TopicListViewModel : ViewModel() {
 				}
 			}
 			onFailure { _, t ->
-				Log.e("TopicListViewModel", t?.localizedMessage)
+				if (t == null) {
+					error.value = "Unknow Error"
+				} else {
+					Log.e("NewsListViewModel", t.localizedMessage)
+					error.value = t.toString()
+				}
 			}
 		}
 	}

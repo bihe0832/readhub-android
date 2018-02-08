@@ -12,7 +12,7 @@ import topic.network.enqueue
  */
 class NewsListViewModel : ViewModel() {
 	val newsList = MutableLiveData<NewsList>()
-
+	val error = MutableLiveData<String>()
 	fun getNewsList(lastCursor: Long = System.currentTimeMillis(), pageSize: Int = 3) {
 		ReadHubApi.apiService.news(lastCursor, pageSize).enqueue {
 			onResponse { _, response ->
@@ -22,7 +22,12 @@ class NewsListViewModel : ViewModel() {
 				}
 			}
 			onFailure { _, t ->
-				Log.e("NewsListViewModel", t?.localizedMessage)
+				if (t == null) {
+					error.value = "Unknow Error"
+				} else {
+					Log.e("NewsListViewModel", t.localizedMessage)
+					error.value = t.toString()
+				}
 			}
 		}
 	}

@@ -51,7 +51,7 @@ class TopicListFragment : BaseBackFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.topicList.observe(::getLifecycle, { newsList ->
+        viewModel.topicList.observe(::getLifecycle) { newsList ->
             Log.d(TAG, "observe:${newsList?.pageSize}")
             newsList?.let {
                 if (autoLoadDecorator.isLoadingMore) {
@@ -70,7 +70,11 @@ class TopicListFragment : BaseBackFragment() {
                     else -> DEFAULT_PAGE_SIZE_TOPIC
                 }
             }
-        })
+        }
+
+        viewModel.error.observe(::getLifecycle) { errorMsg ->
+            //TODO:on error
+        }
 
         viewModel.getTopicList(lastCursor, pageSize)
     }

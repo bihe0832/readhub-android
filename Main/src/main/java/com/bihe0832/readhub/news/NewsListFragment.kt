@@ -64,6 +64,10 @@ class NewsListFragment : BaseBackFragment() {
             }
         })
 
+        viewModel.error.observe(::getLifecycle) { errorMsg ->
+            //TODO:on error
+        }
+        
         viewModel.getNewsList(lastCursor)
     }
 
