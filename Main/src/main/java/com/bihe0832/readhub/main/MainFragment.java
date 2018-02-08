@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 
 import com.bihe0832.readhub.R;
+import com.bihe0832.readhub.me.MyFragment;
 import com.bihe0832.readhub.news.NewsListFragment;
 import com.bihe0832.readhub.topic.TopicListFragment;
 import com.ottd.libs.framework.fragment.BaseMainFragment;
@@ -51,7 +52,7 @@ public class MainFragment extends BaseMainFragment {
         if (firstFragment == null) {
             mFragments[TAB_FOR_TOPIC] = TopicListFragment.newInstance();
             mFragments[TAB_FOR_NEWS] = NewsListFragment.newInstance();
-            mFragments[TAB_FOR_ME] = NewsListFragment.newInstance();
+            mFragments[TAB_FOR_ME] = MyFragment.newInstance();
 
             loadMultipleRootFragment(R.id.app_main_main_fragment_content, TAB_FOR_TOPIC,
                     mFragments[TAB_FOR_TOPIC],
@@ -63,7 +64,7 @@ public class MainFragment extends BaseMainFragment {
             // 这里我们需要拿到mFragments的引用
             mFragments[TAB_FOR_TOPIC] = firstFragment;
             mFragments[TAB_FOR_NEWS] = findChildFragment(NewsListFragment.class);
-            mFragments[TAB_FOR_ME] = findChildFragment(NewsListFragment.class);
+            mFragments[TAB_FOR_ME] = findChildFragment(MyFragment.class);
         }
     }
 

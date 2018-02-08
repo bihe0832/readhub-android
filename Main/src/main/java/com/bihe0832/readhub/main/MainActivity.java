@@ -1,9 +1,11 @@
 package com.bihe0832.readhub.main;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.view.WindowManager;
 
 import com.bihe0832.readhub.R;
 
@@ -19,8 +21,13 @@ public class MainActivity extends SupportActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.com_bihe0832_readhub_main_activity);
         handleIntent(getIntent());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
+        }
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
     }
 
     private void handleIntent(Intent intent){

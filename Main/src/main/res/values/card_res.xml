@@ -1,9 +1,7 @@
 <resources>
     <!-- some dimen from material design guideline -->
 
-    <dimen name="card_padding_left_right">16dp</dimen>
-    <dimen name="card_padding_top">15dp</dimen>
-    <dimen name="card_padding_bottom">15dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
     <dimen name="card_margin_bottom">12dp</dimen>
 
     <color name="card_background_color">#ffffff</color>
@@ -20,13 +18,11 @@
     <color name="card_summary_color">@color/secondary_text</color>
     <dimen name="card_summary_line_spacing">10sp</dimen>
 
-    <dimen name="card_forward_textsize">@dimen/card_tips_textsize</dimen>
-    <color name="card_forward_color">#ff678bb4</color>
-
     <dimen name="card_margin_button">10dp</dimen>
-    <dimen name="card_button_textsize">@dimen/text_size_14</dimen>
+    <dimen name="card_button_textsize">@dimen/card_tips_textsize</dimen>
     <dimen name="card_margin_between_buttons">20dp</dimen>
     <dimen name="card_padding_drawable">2dp</dimen>
+    <color name="card_forward_color">#ff678bb4</color>
 
     <color name="card_expand_collapse_color">#ff678bb4</color>
     <dimen name="card_expand_collapse_size">@dimen/text_size_12</dimen>

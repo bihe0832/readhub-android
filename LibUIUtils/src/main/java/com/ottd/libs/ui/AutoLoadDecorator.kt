@@ -19,7 +19,7 @@ class AutoLoadDecorator(private val attachedRecyclerView: RecyclerView) {
         super.onScrolled(recyclerView, dx, dy)
         onScrolled?.invoke(recyclerView, dx, dy)
         val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
-        //有回调接口，且不是加载状态，且计算后剩下2个item，且处于向下滑动，则自动加载
+        //有回调接口，且不是加载状态，且计算后剩下2个item
         if (!isLoadingMore && lastVisibleItemPosition >= attachedRecyclerView.adapter.itemCount - 2) {
           onLoadMore()
           isLoadingMore = true

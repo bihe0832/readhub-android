@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants"
@@ -8,21 +6,19 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/app_webview_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
+
     <FrameLayout
-        android:id="@+id/app_main_content"
+        android:id="@+id/fragment_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/windowBackground"
-        android:scrollbars="none"></FrameLayout>
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackground" />
+
 
 </LinearLayout>
-
-

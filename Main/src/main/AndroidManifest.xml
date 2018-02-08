@@ -10,14 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.bihe0832.readhub.main.MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:name="com.bihe0832.readhub.SplashActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.bihe0832.readhub.main.MainActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".webview.WebviewActivity"></activity>
     </application>
 </manifest>

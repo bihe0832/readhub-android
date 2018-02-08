@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_topic_item_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/card_padding_left_right"
-    android:paddingRight="@dimen/card_padding_left_right"
-    android:paddingTop="@dimen/card_padding_top"
-    android:paddingBottom="@dimen/card_padding_bottom"
     android:layout_marginBottom="@dimen/card_margin_bottom"
     android:background="@color/card_background_color"
-    android:orientation="vertical">
+    android:padding="@dimen/card_padding">
 
     <TextView
         android:id="@+id/listTopicTitle"
-        android:lineSpacingExtra="@dimen/card_title_line_spacing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/card_title_textsize"
-        android:textColor="@color/card_title_color"
-        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/card_margin_between_title_tips"
+        android:lineSpacingExtra="@dimen/card_title_line_spacing"
         android:text="眼动追踪技术解决方案商七鑫易维获得新一轮融资"
-        />
+        android:textColor="@color/card_title_color"
+        android:textSize="@dimen/card_title_textsize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/listTopicTips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/listTopicTips"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/listTopicTips"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/card_margin_between_title_tips"
-        android:textSize="@dimen/card_tips_textsize"
-        android:textColor="@color/card_tips_color"
         android:gravity="right"
         android:text="25 家媒体已报道"
-        />
-</LinearLayout>
+        android:textColor="@color/card_tips_color"
+        android:textSize="@dimen/card_tips_textsize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listTopicTitle" />
+</android.support.constraint.ConstraintLayout>

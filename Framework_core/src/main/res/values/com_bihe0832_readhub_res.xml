@@ -3,12 +3,7 @@
     <string name="app_name">Readhub</string>
     <string name="company_name">无码科技</string>
     <string name="app_slogan">每天几分钟 了解互联网</string>
-    <string name="splash_start_btn_text">@string/company_name</string>
-
-    <string name="link_readhub_page">https://readhub.me</string>
-    <string name="link_author">file:///android_asset/author.html</string>
-    <string name="link_readhub_desc">file:///android_asset/readhub.html</string>
-    <string name="link_feedback">file:///android_asset/feedback.html</string>
+    <string name="splash_start_btn_text">无码科技 • Readhub</string>
 
     <string name="page_key_topic">话题</string>
     <string name="page_key_news">资讯</string>
@@ -30,19 +25,21 @@
 
     <string name="press_again_exit">再按一次将退出应用</string>
 
+    <string name="menu_key_readhub">关于 Readhub</string>
 
-    <string name="menu_key_app">应用版</string>
-    <integer name="menu_order_app">0</integer>
-    <string name="menu_key_web">网页版</string>
-    <integer name="menu_order_web">1</integer>
-    <string name="menu_key_readhub">关于应用</string>
-    <integer name="menu_order_readhub">2</integer>
-    <string name="menu_key_share">分享应用</string>
-    <integer name="menu_order_share">4</integer>
-    <string name="menu_key_update">检查更新</string>
-    <integer name="menu_order_update">5</integer>
-    <string name="menu_key_me">关于作者</string>
-    <integer name="menu_order_me">6</integer>
+    <string name="menu_key_readhub_company">Readhub 及无码科技</string>
+    <string name="link_readhub_desc">file:///android_asset/readhub.html</string>
+    <string name="menu_key_readhub_web">Readhub 网页版</string>
+    <string name="link_readhub_page">https://readhub.me</string>
+    <string name="link_readhub_topic_page">https://readhub.me/topic/%1$s</string>
+
+    <string name="menu_key_app">关于应用</string>
+    <string name="menu_key_app_topic">热门话题浏览方式</string>
+    <string name="menu_key_app_en">科技动态英文新闻</string>
+    <string name="menu_key_app_sub">我关注的话题</string>
+    <string name="menu_key_dev">关于开发者</string>
+    <string name="menu_key_dev_info">开发者信息</string>
+    <string name="link_author">file:///android_asset/author.html</string>
 
     <color name="transparent">#00000000</color>
     <color name="primary">#607D8B</color>
