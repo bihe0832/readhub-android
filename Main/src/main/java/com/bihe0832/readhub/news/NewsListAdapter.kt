@@ -35,7 +35,7 @@ class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                 setBounds(0, 0, pixelDrawableSize, pixelDrawableSize)
                 colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_dark), PorterDuff.Mode.SRC_IN)
             }
-            forwardBtn.text = "前往《${news.siteName}》 查看详细内容"
+            forwardBtn.text = "前往「 ${news.siteName} 」查看详细内容"
             forwardBtn.setCompoundDrawables(textViewDrawable, null, null, null)
         }
     }

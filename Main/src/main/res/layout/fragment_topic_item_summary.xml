@@ -97,7 +97,7 @@
             android:drawablePadding="@dimen/card_padding_drawable"
             android:textStyle="bold"
             android:textSize="@dimen/card_button_textsize"
-            android:textColor="@color/primary_dark"
+            android:textColor="@color/card_forward_color"
             android:text="进入话题"
             />
     </LinearLayout>

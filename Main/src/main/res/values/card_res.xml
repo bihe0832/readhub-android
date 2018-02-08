@@ -20,7 +20,7 @@
     <color name="card_summary_color">@color/secondary_text</color>
     <dimen name="card_summary_line_spacing">10sp</dimen>
 
-    <dimen name="card_forward_textsize">@dimen/text_size_8</dimen>
+    <dimen name="card_forward_textsize">@dimen/card_tips_textsize</dimen>
     <color name="card_forward_color">#ff678bb4</color>
 
     <dimen name="card_margin_button">10dp</dimen>
