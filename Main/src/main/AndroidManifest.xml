@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.bihe0832.readhub"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bihe0832.readhub">
 
     <application
         android:name="com.ottd.libs.framework.App"
+        android:allowBackup="true"
         android:icon="@mipmap/readhub_logo"
         android:label="@string/app_name"
-        android:allowBackup="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
@@ -28,6 +28,8 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".webview.WebviewActivity"></activity>
+        <activity
+            android:name=".webview.WebviewActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 </manifest>

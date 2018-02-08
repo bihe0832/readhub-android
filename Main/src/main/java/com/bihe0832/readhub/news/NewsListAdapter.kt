@@ -29,14 +29,16 @@ class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
             tips.text = "${news.siteName} • ${news.publishDate.getDateCompareResult()}"
             summary.text = news.summary
 
-            val pixelDrawableSize = Math.round(forwardBtn.lineHeight * 0.9f)
+            forwardBtn.apply {
+                text = "前往「 ${news.siteName} 」查看详细内容"
 
-            val textViewDrawable = context.resources.getDrawable(R.drawable.ic_open_in_new_black_24dp).apply {
-                setBounds(0, 0, pixelDrawableSize, pixelDrawableSize)
-                colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_dark), PorterDuff.Mode.SRC_IN)
+                val pixelDrawableSize = Math.round(this.lineHeight * 0.9f)
+                val textViewDrawable = context.resources.getDrawable(R.drawable.ic_open_in_new_black_24dp).apply {
+                    setBounds(0, 0, pixelDrawableSize, pixelDrawableSize)
+                    colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_blue), PorterDuff.Mode.SRC_IN)
+                }
+                setCompoundDrawables(textViewDrawable, null, null, null)
             }
-            forwardBtn.text = "前往「 ${news.siteName} 」查看详细内容"
-            forwardBtn.setCompoundDrawables(textViewDrawable, null, null, null)
         }
     }
 

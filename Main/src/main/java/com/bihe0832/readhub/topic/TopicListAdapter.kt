@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import com.bihe0832.readhub.ConfigProxy
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.base.topic.CommonViewHolder
+import com.ottd.libs.config.Config
 import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.framework.model.Topic
 import com.ottd.libs.framework.utils.getDateCompareResult
@@ -20,7 +20,7 @@ import kotlin.properties.Delegates
 
 class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
 
-    private val config by ConfigProxy(CONFIG_KEY_TOPIC_VIEW_TYPE, TOPIC_VIEW_TYPE_LIST)
+    private val config = Config.readConfig(CONFIG_KEY_TOPIC_VIEW_TYPE, TOPIC_VIEW_TYPE_LIST)
 
     var topicList: List<Topic> by Delegates.observable(emptyList()) { prop, old, new ->
         //    autoNotify(old, new) { o, n -> o.id == n.id }
@@ -32,6 +32,9 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
             if (config == TOPIC_VIEW_TYPE_LIST) {
                 listTopicTitle.text = topic.title
                 listTopicTips.setTips(topic)
+                fragment_topic_item_list.setOnClickListener {
+                    goToDetailPage(topic.id)
+                }
             } else {
                 summaryTopicTitle.text = topic.title
                 summaryTopicTips.setTips(topic)
@@ -53,12 +56,11 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                 summaryTopicMoreAboutTopic.apply {
                     val drawable = context.resources.getDrawable(R.drawable.ic_open_in_new_black_24dp).apply {
                         setBounds(0, 0, pixelDrawableSize, pixelDrawableSize)
-                        colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_dark), PorterDuff.Mode.SRC_IN)
+                        colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_blue), PorterDuff.Mode.SRC_IN)
                     }
                     setCompoundDrawables(drawable, null, null, null)
                     setOnClickListener {
-                        WebviewActivity.openNewWeb(context.resources.getString(R.string.app_name),
-                                String.format(context.resources.getString(R.string.link_readhub_topic_page),topic.id))
+                        goToDetailPage(topic.id)
                     }
                 }
             }
@@ -67,6 +69,12 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
 
     override fun getItemCount(): Int = topicList.size
 
+    private fun goToDetailPage(id : String){
+        WebviewActivity.openNewWeb(OttdFramework.getInstance().applicationContext.resources.getString(R.string.app_name),
+                kotlin.String.format(
+                        OttdFramework.getInstance().applicationContext.resources.getString(R.string.link_readhub_topic_page)
+                        ,id))
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder {
         val viewId = if (config == TOPIC_VIEW_TYPE_SUMMARY) {
             R.layout.fragment_topic_item_summary

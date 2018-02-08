@@ -27,4 +27,8 @@
     <color name="card_expand_collapse_color">#ff678bb4</color>
     <dimen name="card_expand_collapse_size">@dimen/text_size_12</dimen>
 
+    <dimen name="news_tab_title_bar_height">42dp</dimen>
+
+    <color name="divider_color">#73bebebe</color>
+    <dimen name="divider_height">0.5dp</dimen>
 </resources>

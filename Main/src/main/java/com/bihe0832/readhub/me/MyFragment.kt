@@ -17,6 +17,11 @@ import com.ottd.libs.config.Config
 import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.ui.ToastUtil
 import kotlinx.android.synthetic.main.fragment_me.*
+import android.widget.Toast
+import com.bihe0832.readhub.main.MainActivity
+import android.widget.CompoundButton
+
+
 
 
 class MyFragment : BaseBackFragment() {
@@ -48,11 +53,11 @@ class MyFragment : BaseBackFragment() {
                 Config.setCloudConfig(CONFIG_KEY_TOPIC_VIEW_TYPE, "" + TOPIC_VIEW_TYPE_LIST)
             }
 
-            setOnClickListener {
-                isChecked = !isChecked
+            setOnCheckedChangeListener { buttonView, isChecked ->
                 updateContentWithSwitch(isChecked, ::onTrue, ::onFalse)
                 ToastUtil.showLong(context,"设置成功，下次应用启动时生效~")
             }
+
             isChecked = topicType == TOPIC_VIEW_TYPE_SUMMARY
             updateContentWithSwitch(isChecked, ::onTrue, ::onFalse)
         }
@@ -67,8 +72,7 @@ class MyFragment : BaseBackFragment() {
                 Config.setCloudConfig(CONFIG_KEY_NEWS_HAS_EN, Config.VALUE_SWITCH_OFF)
             }
 
-            setOnClickListener {
-                isChecked = !isChecked
+            setOnCheckedChangeListener { buttonView, isChecked ->
                 updateContentWithSwitch(isChecked, ::onTrue, ::onFalse)
                 ToastUtil.showLong(context,"设置成功，下次应用启动时生效~")
             }
