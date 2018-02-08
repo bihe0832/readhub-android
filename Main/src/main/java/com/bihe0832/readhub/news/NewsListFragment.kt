@@ -88,6 +88,7 @@ class NewsListFragment : BaseBackFragment() {
 
     private val onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
         Log.d(TAG, "start refresh")
+        lastCursor = System.currentTimeMillis()
         fetchData()
     }
 
