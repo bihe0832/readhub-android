@@ -7,5 +7,5 @@ import android.view.View
  * Created by enzowei on 2017/12/5.
  */
 class CommonViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-  fun <T> bind(item: T, onBind: View.(T) -> Unit) = itemView.onBind(item)
+  inline fun <T> bind(item: T, onBind: View.(T) -> Unit) = itemView.onBind(item)
 }

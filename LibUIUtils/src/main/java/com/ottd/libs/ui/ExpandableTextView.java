@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.ottd.libs.framework.utils;
+package com.ottd.libs.ui;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -37,8 +37,6 @@ import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.ottd.libs.framework.R;
 
 
 public class ExpandableTextView extends LinearLayout implements View.OnClickListener {

@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/summaryTopicTitle" />
 
 
-    <com.ottd.libs.framework.utils.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+    <com.ottd.libs.ui.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
         android:id="@+id/summaryTopicSummary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:textColor="@color/card_expand_collapse_color"
             android:textSize="@dimen/card_expand_collapse_size"
             android:textStyle="bold" />
-    </com.ottd.libs.framework.utils.ExpandableTextView>
+    </com.ottd.libs.ui.ExpandableTextView>
 
     <View
         android:id="@+id/divider"

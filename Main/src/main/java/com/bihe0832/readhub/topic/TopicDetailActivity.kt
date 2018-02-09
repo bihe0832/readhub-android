@@ -15,6 +15,7 @@ import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.base.topic.CommonViewHolder
 import com.ottd.libs.framework.model.News
 import com.ottd.libs.framework.model.Topic
+import com.ottd.libs.ui.CommonRecyclerAdapter
 import kotlinx.android.synthetic.main.activity_topic_detail.*
 import kotlinx.android.synthetic.main.activity_topic_detail_news_item.view.*
 import kotlinx.android.synthetic.main.activity_topic_detail_timeline_item.view.*
@@ -24,8 +25,16 @@ const val INTENT_EXTRA_KEY_TOPIC_ID = "topic_id"
 
 class TopicDetailActivity : AppCompatActivity() {
     private val viewModel: TopicViewModel by lazy { ViewModelProviders.of(this).get(TopicViewModel::class.java) }
-    private val timelineListAdapter: TimelineListAdapter by lazy { TimelineListAdapter() }
-    private val newsListAdapter: NewsListAdapter by lazy { NewsListAdapter() }
+    private var newsListData: List<News> by Delegates.observable(emptyList()) { prop, old, new ->
+        //    autoNotify(old, new) { o, n -> o.id == n.id }
+        newsList.adapter.notifyDataSetChanged()
+    }
+
+    private var topicList: List<Topic> by Delegates.observable(emptyList()) { prop, old, new ->
+        //    autoNotify(old, new) { o, n -> o.id == n.id }
+        timelineList.adapter.notifyDataSetChanged()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val id = intent.getStringExtra(INTENT_EXTRA_KEY_TOPIC_ID)
@@ -40,11 +49,38 @@ class TopicDetailActivity : AppCompatActivity() {
         titleBar.setNavigationOnClickListener { finish() }
 
         timelineList.apply {
-            adapter = timelineListAdapter
+            adapter = CommonRecyclerAdapter<Topic> {
+                onLayout { _ -> R.layout.activity_topic_detail_timeline_item }
+                onCount { topicList.size }
+                onItem { position -> topicList[position] }
+                onBind { topic ->
+                    date.text = "2.5"
+                    year.text = "2017"
+                    timelineTitle.text = topic.title
+                    when (topicList.indexOf(topic)) {
+                        0 -> timelineTopLine.visibility = View.GONE
+                        topicList.size - 1 -> timelineBottomLine.visibility = View.GONE
+                    }
+                }
+            }
             layoutManager = LinearLayoutManager(this@TopicDetailActivity)
         }
+
         newsList.apply {
-            adapter = newsListAdapter
+            adapter = CommonRecyclerAdapter<News> {
+                onLayout { _ -> R.layout.activity_topic_detail_news_item }
+                onCount { newsListData.size }
+                onItem { position -> newsListData[position] }
+                onBind { news ->
+                    newsTitle.text = news.title
+                    newsFrom.text = news.siteName
+                    setOnClickListener {
+                        WebviewActivity.openNewWeb(context.resources.getString(R.string.app_name),
+                                news.mobileUrl ?: news.url)
+                    }
+                }
+            }
+
             layoutManager = LinearLayoutManager(this@TopicDetailActivity)
         }
         viewModel.topicDetail.observe(::getLifecycle) { detail ->
@@ -59,7 +95,7 @@ class TopicDetailActivity : AppCompatActivity() {
                     it.timeline?.let {
                         timelineDsc.visibility = View.VISIBLE
                         timelineList.visibility = View.VISIBLE
-                        timelineListAdapter.topicList = it.topics
+                        topicList = it.topics
                     }
                 }
                 if (it.newsArray == null || it.newsArray?.size == 0) {
@@ -69,7 +105,7 @@ class TopicDetailActivity : AppCompatActivity() {
                     it.newsArray?.let {
                         newsDsc.visibility = View.VISIBLE
                         newsList.visibility = View.VISIBLE
-                        newsListAdapter.newsList = it
+                        newsListData = it
                     }
                 }
                 timelineList.invalidate()
@@ -82,8 +118,6 @@ class TopicDetailActivity : AppCompatActivity() {
 }
 
 class TimelineListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
-
-
     var topicList: List<Topic> by Delegates.observable(emptyList()) { prop, old, new ->
         //    autoNotify(old, new) { o, n -> o.id == n.id }
         notifyDataSetChanged()
@@ -94,7 +128,7 @@ class TimelineListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
             date.text = "2.5"
             year.text = "2017"
             timelineTitle.text = topic.title
-            when (position) {
+            when (topicList.indexOf(topic)) {
                 0 -> timelineTopLine.visibility = View.GONE
                 topicList.size - 1 -> timelineBottomLine.visibility = View.GONE
             }
@@ -105,29 +139,4 @@ class TimelineListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder =
             CommonViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.activity_topic_detail_timeline_item, parent, false))
-}
-
-class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
-
-    var newsList: List<News> by Delegates.observable(emptyList()) { prop, old, new ->
-        //    autoNotify(old, new) { o, n -> o.id == n.id }
-        notifyDataSetChanged()
-    }
-
-    override fun onBindViewHolder(holder: CommonViewHolder, position: Int) {
-        holder.bind(newsList[position]) { news ->
-            newsTitle.text = news.title
-            newsFrom.text = news.siteName
-            setOnClickListener {
-                WebviewActivity.openNewWeb(context.resources.getString(R.string.app_name),
-                        news.mobileUrl ?: news.url)
-            }
-        }
-    }
-
-    override fun getItemCount(): Int = newsList.size
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder =
-            CommonViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.activity_topic_detail_news_item, parent, false))
-
 }
