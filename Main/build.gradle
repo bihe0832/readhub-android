@@ -16,7 +16,7 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion as int
         versionName rootProject.ext.android.versionName
         versionCode rootProject.ext.android.versionCode as int
-        vectorDrawables.useSupportLibrary= true
+        vectorDrawables.useSupportLibrary = true
         multiDexEnabled false
     }
 

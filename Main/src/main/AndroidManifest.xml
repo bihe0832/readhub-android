@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.bihe0832.readhub.SplashActivity"
+            android:name=".SplashActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.bihe0832.readhub.main.MainActivity"
+            android:name=".main.MainActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -30,6 +30,10 @@
         </activity>
         <activity
             android:name=".webview.WebviewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".topic.TopicDetailActivity"
+            android:screenOrientation="portrait" />
     </application>
+
 </manifest>

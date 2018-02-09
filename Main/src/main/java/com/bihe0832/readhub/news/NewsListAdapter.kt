@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bihe0832.readhub.R
+import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.base.topic.CommonViewHolder
 import com.ottd.libs.framework.model.News
 import com.ottd.libs.framework.utils.getDateCompareResult
@@ -38,6 +39,11 @@ class NewsListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                     colorFilter = PorterDuffColorFilter(context.resources.getColor(R.color.primary_blue), PorterDuff.Mode.SRC_IN)
                 }
                 setCompoundDrawables(textViewDrawable, null, null, null)
+
+                setOnClickListener {
+                    WebviewActivity.openNewWeb(context.resources.getString(R.string.app_name),
+                            news.mobileUrl?:news.url)
+                }
             }
         }
     }

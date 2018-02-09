@@ -1,5 +1,12 @@
 <resources>
     <!-- some dimen from material design guideline -->
+    <dimen name="detail_padding">8dp</dimen>
+    <color name="detail_title_color">@color/primary_text</color>
+    <dimen name="detail_title_textsize">@dimen/text_size_16</dimen>
+    <dimen name="detail_title_line_spacing">8sp</dimen>
+    <color name="detail_summary_color">@color/primary_text</color>
+    <dimen name="detail_summary_textsize">@dimen/text_size_12</dimen>
+    <dimen name="detail_summary_line_spacing">10sp</dimen>
 
     <dimen name="card_padding">16dp</dimen>
     <dimen name="card_margin_bottom">12dp</dimen>

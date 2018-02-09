@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/detail_padding">
+
+            <TextView
+                android:id="@+id/detailTitleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/detail_title_line_spacing"
+                android:textColor="@color/detail_title_color"
+                android:textSize="@dimen/detail_title_textsize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="titledsdfsdfsdfhkjhkh" />
+
+            <TextView
+                android:id="@+id/detailSummaryView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:lineSpacingExtra="@dimen/detail_summary_line_spacing"
+                android:textColor="@color/detail_summary_color"
+                android:textSize="@dimen/detail_summary_textsize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detailTitleView"
+                tools:text="titledsdfsdfsdfhkjhkh" />
+
+            <TextView
+                android:id="@+id/timelineDsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="相关事件"
+                android:textColor="@color/card_tips_color"
+                android:textSize="@dimen/card_tips_textsize"
+                app:layout_constraintTop_toBottomOf="@+id/detailSummaryView" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/timelineList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="@dimen/card_padding"
+                app:layout_constraintTop_toBottomOf="@+id/timelineDsc" />
+
+            <TextView
+                android:id="@+id/newsDsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="相关报道："
+                android:textColor="@color/card_tips_color"
+                android:textSize="@dimen/card_tips_textsize"
+                app:layout_constraintTop_toBottomOf="@+id/timelineList" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/newsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="@dimen/card_padding"
+                app:layout_constraintTop_toBottomOf="@+id/newsDsc" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

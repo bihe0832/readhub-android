@@ -22,7 +22,7 @@ class TopicViewModel : ViewModel() {
 
         ReadHubApi.apiService.topic(lastCursor, pageSize).enqueue {
             onResponse { _, response ->
-                Log.d("getTopicList", "onResponse:${response?.body()?.pageSize}")
+                Log.d("getNewsList", "onResponse:${response?.body()?.pageSize}")
                 response?.let {
                     topicList.value = it.body()
                 }
@@ -31,7 +31,7 @@ class TopicViewModel : ViewModel() {
                 if (t == null) {
                     error.value = "Unknow Error"
                 } else {
-                    Log.e("getTopicList", t.localizedMessage)
+                    Log.e("getNewsList", t.localizedMessage)
                     error.value = t.toString()
                 }
             }

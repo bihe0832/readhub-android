@@ -91,6 +91,7 @@ public class WebviewActivity extends SupportActivity {
         Intent intent = new Intent(OttdFramework.getInstance().getApplicationContext(),WebviewActivity.class);
         intent.putExtra(WebviewActivity.INTENT_EXTRA_KEY_WEBVIEW_ITEM_URI, url);
         intent.putExtra(WebviewActivity.INTENT_EXTRA_KEY_WEBVIEW_ITEM_TITLE, title);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         OttdFramework.getInstance().getApplicationContext().startActivity(intent);
     }
 }
