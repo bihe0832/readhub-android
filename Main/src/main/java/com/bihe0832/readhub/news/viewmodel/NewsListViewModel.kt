@@ -33,7 +33,7 @@ class NewsListViewModel : ViewModel() {
 	}
 
 	fun getTechNewsList(lastCursor: Long = System.currentTimeMillis(), pageSize: Int = 10) {
-		ReadHubApi.apiService.technews(lastCursor, pageSize).enqueue {
+		ReadHubApi.apiService.techNews(lastCursor, pageSize).enqueue {
 			onResponse { _, response ->
 				Log.d("NewsListViewModel", "onResponse:${response?.body()?.pageSize}")
 				response?.let {

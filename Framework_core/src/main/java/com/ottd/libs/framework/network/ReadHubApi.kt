@@ -5,6 +5,7 @@ import android.util.Log
 import com.ottd.libs.cache.CacheManager
 import com.ottd.libs.framework.model.NewsList
 import com.ottd.libs.framework.model.Topic
+import com.ottd.libs.framework.model.TopicDetail
 import com.ottd.libs.framework.model.TopicList
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -78,7 +79,10 @@ interface ApiService {
 	fun news(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),
 					 @Query("pageSize") pageSize: Int = 10): Call<NewsList>
 
-	@GET("technews")
-	fun technews(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),
-							 @Query("pageSize") pageSize: Int = 10): Call<NewsList>
+	@GET("techNews")
+	fun techNews(@Query("lastCursor") lastCursor: Long = System.currentTimeMillis(),
+				 @Query("pageSize") pageSize: Int = 10): Call<NewsList>
+
+	@GET("topic/{id}")
+	fun topicDetail(@Path("id")id:String):Call<TopicDetail>
 }

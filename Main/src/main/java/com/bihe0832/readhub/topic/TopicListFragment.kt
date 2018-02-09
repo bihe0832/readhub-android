@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.topic.viewmodel.DEFAULT_PAGE_SIZE_TOPIC
-import com.bihe0832.readhub.topic.viewmodel.TopicListViewModel
+import com.bihe0832.readhub.topic.viewmodel.TopicViewModel
 import com.ottd.libs.framework.fragment.BaseBackFragment
 import com.tencent.jygame.base.subscribe.ui.AutoLoadDecorator
 import kotlinx.android.synthetic.main.fragment_topic_list.*
@@ -23,7 +23,7 @@ const val TOPIC_VIEW_TYPE_SUMMARY = 2
 
 class TopicListFragment : BaseBackFragment() {
 
-    private val viewModel: TopicListViewModel by lazy { ViewModelProviders.of(this).get(TopicListViewModel::class.java) }
+    private val viewModel: TopicViewModel by lazy { ViewModelProviders.of(this).get(TopicViewModel::class.java) }
 
     private val topicListAdapter: TopicListAdapter by lazy { TopicListAdapter() }
 
