@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/fragment_me_items_height">
+
+        <TextView
+            android:id="@+id/aboutReadhub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fragment_me_margin"
+            android:layout_marginRight="@dimen/fragment_me_margin"
+            android:layout_marginTop="@dimen/fragment_me_margin"
+            android:text="@string/menu_key_readhub"
+            android:textColor="#969696"
+            android:textSize="@dimen/fragment_me_title_textsize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/aboutReadhubCompany"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_title_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhub"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_readhub_company"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubCompany"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubCompany"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubCompany"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubCompany"/>
+
+        <View
+            android:id="@+id/aboutReadhubWeb"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhubCompany"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_readhub_web"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubWeb"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubWeb"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubWeb"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubWeb"/>
+
+        <TextView
+            android:id="@+id/aboutApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_me_title_margin_top"
+            android:text="@string/menu_key_app"
+            android:textColor="#969696"
+            android:textSize="@dimen/fragment_me_title_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhubWeb" />
+
+        <View
+            android:id="@+id/aboutAppTopicViewType"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_title_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutApp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_app_topic"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppTopicViewType"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppTopicViewType"/>
+
+        <TextView
+            android:id="@+id/aboutAppTopicViewTypeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="列表"
+            android:textColor="#000000"
+            android:layout_marginRight="@dimen/fragment_me_items_margin_top"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintEnd_toStartOf="@+id/aboutAppTopicViewTypeSwitch"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppTopicViewType"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppTopicViewType"/>
+
+        <Switch
+            android:id="@+id/aboutAppTopicViewTypeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:theme="@style/MySwitch"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppTopicViewType"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppTopicViewType"/>
+
+        <View
+            android:id="@+id/aboutAppNewsWithEN"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutAppTopicViewType"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_app_en"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"/>
+
+        <TextView
+            android:id="@+id/aboutAppNewsWithENText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不展示"
+            android:textColor="#000000"
+            android:layout_marginRight="@dimen/fragment_me_items_margin_top"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintEnd_toStartOf="@+id/aboutAppNewsWithENSwitch"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"/>
+
+        <Switch
+            android:id="@+id/aboutAppNewsWithENSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:theme="@style/MySwitch"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"/>
+
+        <View
+            android:id="@+id/aboutAppMySub"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutAppNewsWithEN"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_app_sub"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppMySub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppMySub"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppMySub"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppMySub"/>
+
+        <View
+            android:id="@+id/aboutAppUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutAppMySub"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_app"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppUpdate"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppUpdate"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutAppUpdate"
+            app:layout_constraintTop_toTopOf="@+id/aboutAppUpdate"/>
+
+        <TextView
+            android:id="@+id/aboutDev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_me_title_margin_top"
+            android:text="@string/menu_key_dev"
+            android:textColor="#969696"
+            android:textSize="@dimen/fragment_me_title_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toBottomOf="@+id/aboutAppUpdate" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/aboutDevInfo"></View>
+
+        <View
+            android:id="@+id/aboutDevInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_title_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutDev"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_dev_info"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutDevInfo"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutDevInfo"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutDevInfo"
+            app:layout_constraintTop_toTopOf="@+id/aboutDevInfo"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

@@ -1,8 +1,10 @@
 package com.bihe0832.readhub.main
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
+import android.view.WindowManager
 
 import com.bihe0832.readhub.R
 import kotlinx.android.synthetic.main.com_bihe0832_readhub_main_activity.*
@@ -18,6 +20,10 @@ class MainActivity : SupportActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.com_bihe0832_readhub_main_activity)
         handleIntent(intent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val localLayoutParams = window.attributes
+            localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
+        }
         setSupportActionBar(my_toolbar)
     }
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import com.bihe0832.readhub.R
+import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.base.topic.CommonViewHolder
 import com.ottd.libs.config.Config
 import com.ottd.libs.framework.OttdFramework
@@ -18,7 +19,8 @@ import kotlin.properties.Delegates
 
 
 class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
-    private val config by lazy { Config.readConfig(TOPIC_VIEW_TYPE_KEY, TOPIC_VIEW_TYPE_LIST) }
+
+    private val config = Config.readConfig(CONFIG_KEY_TOPIC_VIEW_TYPE, TOPIC_VIEW_TYPE_LIST)
 
     var topicList: List<Topic> by Delegates.observable(emptyList()) { prop, old, new ->
         //    autoNotify(old, new) { o, n -> o.id == n.id }
@@ -30,10 +32,12 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
             if (config == TOPIC_VIEW_TYPE_LIST) {
                 listTopicTitle.text = topic.title
                 listTopicTips.setTips(topic)
+                fragment_topic_item_list.setOnClickListener {
+                    goToDetailPage(topic.id)
+                }
             } else {
                 summaryTopicTitle.text = topic.title
                 summaryTopicTips.setTips(topic)
-
                 summaryTopicSummary.text = topic.summary
 
                 val pixelDrawableSize = Math.round(summaryTopicSubTopic.lineHeight * 0.9f)
@@ -56,7 +60,7 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                     }
                     setCompoundDrawables(drawable, null, null, null)
                     setOnClickListener {
-                        OttdFramework.getInstance().showWaitting()
+                        goToDetailPage(topic.id)
                     }
                 }
             }
@@ -65,6 +69,12 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
 
     override fun getItemCount(): Int = topicList.size
 
+    private fun goToDetailPage(id : String){
+        WebviewActivity.openNewWeb(OttdFramework.getInstance().applicationContext.resources.getString(R.string.app_name),
+                kotlin.String.format(
+                        OttdFramework.getInstance().applicationContext.resources.getString(R.string.link_readhub_topic_page)
+                        ,id))
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder {
         val viewId = if (config == TOPIC_VIEW_TYPE_SUMMARY) {
             R.layout.fragment_topic_item_summary
