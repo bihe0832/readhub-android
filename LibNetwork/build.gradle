@@ -38,5 +38,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.github.enzowyf:Okhttp4k:v0.1'
+    compile 'com.github.enzowyf:okhttp4k:1.0.0'
 }
