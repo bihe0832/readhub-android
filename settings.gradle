@@ -1,1 +1,2 @@
-include ':app','xrecyclerview'
+include ':Framework_core'
+include ':Main'

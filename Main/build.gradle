@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion as int
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion as int
+        targetSdkVersion rootProject.ext.android.targetSdkVersion as int
+        versionName rootProject.ext.android.versionName
+        versionCode rootProject.ext.android.versionCode as int
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled false
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+clean.doFirst {
+    delete "build"
+}
+
+dependencies {
+    compile project(':Framework_core')
+}

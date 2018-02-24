@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:descendantFocusability="blocksDescendants"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/fragment_me_items_height">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="60dp"
+            android:src="@mipmap/readhub_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/aboutReadhub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/fragment_me_margin"
+            android:layout_marginRight="@dimen/fragment_me_margin"
+            android:layout_marginTop="30dp"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo"
+            android:text="Readhub v1.0" />
+
+
+        <View
+            android:id="@+id/aboutReadhubFunc"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="30dp"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhub"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_about_func"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubFunc"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubFunc"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubFunc"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubFunc"/>
+
+
+        <View
+            android:id="@+id/aboutReadhubUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhubFunc"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_about_update"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubUpdate"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubUpdate"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubUpdate"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubUpdate"/>
+
+
+        <View
+            android:id="@+id/aboutReadhubShare"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhubUpdate"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_about_share"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubShare"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubShare"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubShare"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubShare"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Copyright © 2017 - 2018 zixie. All Rights Reserved."
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_14"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
+
+

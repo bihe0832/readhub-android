@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:fitsSystemWindows="true"
+    android:background="@color/transparent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/mainLayout"
+            android:paddingLeft="@dimen/detail_padding_leftRight"
+            android:paddingRight="@dimen/detail_padding_leftRight"
+            android:paddingTop="@dimen/detail_padding_top"
+            android:paddingBottom="@dimen/detail_padding_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/detailTitleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="@dimen/detail_title_line_spacing"
+                android:textColor="@color/detail_title_color"
+                android:textSize="@dimen/detail_title_textsize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/mainLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="titledsdfsdfsdfhkjhkh" />
+
+            <TextView
+                android:id="@+id/detailSummaryView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="@dimen/detail_summary_line_spacing"
+                android:textColor="@color/detail_summary_color"
+                android:textSize="@dimen/detail_summary_textsize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detailTitleView"
+                tools:text="titledsdfsdfsdfhkjhkh" />
+
+            <TextView
+                android:id="@+id/timelineDsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="相关事件"
+                android:textStyle="bold"
+                android:textColor="@color/detail_title_color"
+                android:textSize="@dimen/card_summary_textsize"
+                app:layout_constraintTop_toBottomOf="@+id/detailSummaryView" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/timelineList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="@dimen/card_padding"
+                app:layout_constraintTop_toBottomOf="@+id/timelineDsc" />
+
+            <TextView
+                android:id="@+id/newsDsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="相关报道："
+                android:textStyle="bold"
+                android:textColor="@color/detail_title_color"
+                android:textSize="@dimen/card_summary_textsize"
+                app:layout_constraintTop_toBottomOf="@+id/timelineList" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/newsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="@dimen/card_padding"
+                app:layout_constraintTop_toBottomOf="@+id/newsDsc" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

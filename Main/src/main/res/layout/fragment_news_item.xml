@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/card_margin_bottom"
+    android:background="@color/card_background_color"
+    android:padding="@dimen/card_padding">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/card_title_line_spacing"
+        android:textColor="@color/card_title_color"
+        android:textSize="@dimen/card_title_textsize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="titledsdfsdfsdfhkjhkh" />
+
+    <TextView
+        android:id="@+id/tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
+        android:textColor="@color/card_tips_color"
+        android:textSize="@dimen/card_tips_textsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="titledsdfsdfsdfhkjhkh" />
+
+    <com.ottd.libs.ui.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tips"
+        expandableTextView:animDuration="200"
+        expandableTextView:maxCollapsedLines="4">
+
+        <TextView
+            android:id="@id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/card_summary_line_spacing"
+            android:textColor="@color/card_summary_color"
+            android:textSize="@dimen/card_summary_textsize"
+            tools:text="titledsdfsdfsdfhkjhkh" />
+
+        <TextView
+            android:id="@id/expand_collapse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_margin_button"
+            android:gravity="right"
+            android:text="展开"
+            android:textColor="@color/card_expand_collapse_color"
+            android:textSize="@dimen/card_expand_collapse_size"
+            android:textStyle="bold" />
+    </com.ottd.libs.ui.ExpandableTextView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/card_margin_button"
+        android:background="@color/divider_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summary" />
+
+    <TextView
+        android:id="@+id/forwardBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_button"
+        android:drawableLeft="@drawable/ic_open_in_new_black_24dp"
+        android:drawablePadding="@dimen/card_padding_drawable"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/card_forward_color"
+        android:textSize="@dimen/card_button_textsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,23 @@
+<resources>
+
+    <color name="windowBackground">@color/background</color>
+    <color name="colorPrimary">@color/primary</color>
+    <color name="colorPrimaryDark">@color/primary_blue</color>
+    <color name="textColor">@color/primary_text</color>
+    <color name="colorAccent">@color/accent</color>
+    <color name="textColorSecondary">@color/secondary_text</color>
+
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--多点触控，在无需多点触控的页面上，可以选择关闭-->
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+</resources>

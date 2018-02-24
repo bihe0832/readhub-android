@@ -2,21 +2,21 @@ def cmd = 'git rev-list HEAD --count'
 def gitVersion = cmd.execute().text.trim().toInteger()
 ext {
     android = [
-        compileSdkVersion: 25,
-        buildToolsVersion: "25.0.2",
+        compileSdkVersion: 26,
+        buildToolsVersion: "26.0.2",
         applicationId    : "com.bihe0832.readhub",
-        minSdkVersion    : 12,
+        minSdkVersion    : 14,
         targetSdkVersion : 25,
         versionCode      : gitVersion,
         versionName      : "1.1.0"
     ]
 
-    def supportVersion = "25.0.0"
-    def supportCardViewVersion = "25.1.0"
-    dependencies = [
-        SupportDesign           : "com.android.support:design:$supportVersion",
-        SupportCardView         : "com.android.support:cardview-v7:$supportCardViewVersion",
-        ConverterGson           : "com.squareup.retrofit2:converter-gson:2.2.0",
-        Gson                    : "com.google.code.gson:gson:2.8.0"
+    ExtLib = [
+            publishGroupID: android.applicationId,
+            publishVersionName : "0.0.1",
     ]
+    
+    kotlin_version = '1.2.10'
+    android_support_version = '26.0.0-alpha1'
+
 }

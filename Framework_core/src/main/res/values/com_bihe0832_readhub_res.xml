@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="app_name">Readhub</string>
+    <string name="company_name">无码科技</string>
+    <string name="app_slogan">每天几分钟 了解互联网</string>
+    <string name="splash_start_btn_text">无码科技 • Readhub</string>
+
+    <string name="page_key_topic">话题</string>
+    <string name="page_key_news">资讯</string>
+    <string name="page_key_me">我的</string>
+
+    <string name="news_desc">%1$s / %2$s • %3$s</string>
+
+    <string name="fragement_network_error_word">网络异常，请检查您的网络~</string>
+    <string name="fragement_network_retry_word">重新加载</string>
+
+    <string name="share_title">分享 Readhub 给朋友</string>
+    <string name="share_text">Readhub 是无码科技团队的一款产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。你可以点击 https://readhub.me 通过网页版了解信息，或者点击 https://github.com/bihe0832/readhub-android/releases 下载Android应用。</string>
+
+
+
+    <string name="press_again_exit">再按一次将退出应用</string>
+
+    <string name="menu_key_readhub">关于 Readhub</string>
+
+    <string name="menu_key_readhub_company">Readhub 及无码科技</string>
+    <string name="link_readhub_desc">file:///android_asset/readhub.html</string>
+    <string name="menu_key_readhub_web">Readhub 网页版</string>
+    <string name="link_readhub_page">https://readhub.me</string>
+    <string name="link_readhub_topic_page">https://readhub.me/topic/%1$s</string>
+
+    <string name="menu_key_app">关于应用</string>
+    <string name="menu_key_app_topic">热门话题浏览方式</string>
+    <string name="menu_key_app_en">科技动态英文新闻</string>
+    <string name="menu_key_app_sub">我关注的话题</string>
+    <string name="menu_key_dev">关于开发者</string>
+    <string name="menu_key_dev_zixie_info">开发者信息 — 子勰</string>
+    <string name="link_zixie_author">file:///android_asset/author.html</string>
+    <string name="menu_key_dev_enzo_info">开发者信息 — enzo</string>
+    <string name="link_enzo_author">https://github.com/enzowyf</string>
+    <string name="menu_key_about_func">功能介绍</string>
+    <string name="link_version">file:///android_asset/version.html</string>
+    <string name="menu_key_about_update">检查新版本</string>
+
+    <string name="game_update_isnew_toast">您当前的版本（%1$s）已经是最新版</string>
+    <string name="game_update_notnew_Title">Readhub 有版本啦！</string>
+    <string name="game_update_notnew_desc">Readhub 最新版（%1$s）已经发布啦，您要现在更新么？</string>
+    <string name="game_update_notnew_update_btn">确认更新</string>
+    <string name="game_update_notnew_cancle_btn">取消更新</string>
+
+    <string name="menu_key_about_share">分享给朋友</string>
+
+    <color name="transparent">#00000000</color>
+    <color name="primary">#607D8B</color>
+    <color name="primary_blue">#406d91</color>
+    <color name="primary_light">#CFD8DC</color>
+    <color name="background">#F5F5F5</color>
+    <color name="accent">#246394</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#6c747f</color>
+    <color name="icons">#f2f2f2</color>
+    <color name="divider">#BDBDBD</color>
+</resources>

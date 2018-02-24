@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_topic_item_summary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/card_margin_bottom"
+    android:background="@color/card_background_color"
+    android:padding="@dimen/card_padding">
+
+    <TextView
+        android:id="@+id/summaryTopicTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/card_title_line_spacing"
+        android:text="眼动追踪技术解决方案商七鑫易维获得新一轮融资"
+        android:textColor="@color/card_title_color"
+        android:textSize="@dimen/card_title_textsize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/summaryTopicTips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
+        android:gravity="right"
+        android:text="25 家媒体已报道"
+        android:textColor="@color/card_tips_color"
+        android:textSize="@dimen/card_tips_textsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summaryTopicTitle" />
+
+
+    <com.ottd.libs.ui.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/summaryTopicSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_between_title_tips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summaryTopicTips"
+        expandableTextView:animDuration="200"
+        expandableTextView:maxCollapsedLines="4"
+        >
+
+        <TextView
+            android:id="@id/expandable_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/card_summary_line_spacing"
+            tools:text="titledsdfsdfsdfhkjhkh"
+            android:textColor="@color/card_summary_color"
+            android:textSize="@dimen/card_summary_textsize" />
+
+        <TextView
+            android:id="@id/expand_collapse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_margin_button"
+            android:gravity="right"
+            android:text="展开"
+            android:textColor="@color/card_expand_collapse_color"
+            android:textSize="@dimen/card_expand_collapse_size"
+            android:textStyle="bold" />
+    </com.ottd.libs.ui.ExpandableTextView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#73bebebe"
+        android:layout_marginTop="@dimen/card_margin_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summaryTopicSummary" />
+
+    <TextView
+        android:id="@+id/summaryTopicSubTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_button"
+        android:layout_marginRight="@dimen/card_margin_between_buttons"
+        android:drawableLeft="@drawable/ic_star_black_24dp"
+        android:drawablePadding="@dimen/card_padding_drawable"
+        android:gravity="right"
+        android:text="关注话题"
+        android:textAlignment="center"
+        android:textColor="@color/card_title_color"
+        android:textSize="@dimen/card_button_textsize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/summaryTopicMoreAboutTopic"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/summaryTopicMoreAboutTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_margin_button"
+        android:drawableLeft="@drawable/ic_open_in_new_black_24dp"
+        android:drawablePadding="@dimen/card_padding_drawable"
+        android:text="进入话题"
+        android:textAlignment="center"
+        android:textColor="@color/card_forward_color"
+        android:textSize="@dimen/card_button_textsize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+
+</android.support.constraint.ConstraintLayout>

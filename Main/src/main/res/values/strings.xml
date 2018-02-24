@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="normal_news">科技动态</string>
+    <string name="tech_news">开发者资讯</string>
+    <string name="block_chain_news">区块链资讯</string>
+</resources>
