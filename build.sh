@@ -40,8 +40,8 @@ checkResult
 
 timeinfo=`date +'%Y%m%d-%H%M'`
 echo "********copy apk *******"
-# cp $localPath/app/build/outputs/apk/app-debug.apk $localPath/bin/readhub-debug-${version}-${timeinfo}.apk
-# cp $localPath/app/build/outputs/apk/app-release-unsigned.apk $localPath/bin/readhub-release-${version}-unsigned-${timeinfo}.apk
-# $ANDROID_HOME/build-tools/25.0.2/apksigner sign --ks $localPath/debug.keystore --ks-pass pass:android --out $localPath/bin/readhub-release-${version}-${timeinfo}.apk $localPath/bin/readhub-release-${version}-unsigned-${timeinfo}.apk 
-# checkResult
-# cp $localPath/bin/readhub-release-${version}-${timeinfo}.apk $localPath/demo/readhub-release-newer.apk
+cp $localPath/Main/build/outputs/apk/debug/Main-debug.apk $localPath/bin/readhub_debug_${version}_${timeinfo}.apk
+cp $localPath/Main/build/outputs/apk/release/Main-release-unsigned.apk $localPath/bin/readhub_release_${version}_unsigned_${timeinfo}.apk
+$ANDROID_HOME/build-tools/25.0.2/apksigner sign --ks $localPath/debug.keystore --ks-pass pass:android --out $localPath/bin/readhub_release_${version}_${timeinfo}.apk $localPath/bin/readhub_release_${version}_unsigned_${timeinfo}.apk 
+checkResult
+cp $localPath/bin/readhub_release_${version}_${timeinfo}.apk $localPath/demo/readhub_release_newer.apk

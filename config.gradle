@@ -8,7 +8,7 @@ ext {
         minSdkVersion    : 14,
         targetSdkVersion : 25,
         versionCode      : gitVersion,
-        versionName      : "1.1.0"
+        versionName      : "2.0.0"
     ]
 
     ExtLib = [
