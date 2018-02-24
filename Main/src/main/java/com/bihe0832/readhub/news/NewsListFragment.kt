@@ -24,8 +24,7 @@ import kotlinx.android.synthetic.main.fragment_news_item.view.*
 import kotlinx.android.synthetic.main.fragment_news_list.*
 import kotlin.properties.Delegates
 
-const val TYPE_NORMAL_NEWS = 0
-const val TYPE_TECH_NEWS = 1
+
 
 class NewsListFragment : BaseBackFragment() {
     private val viewModel: NewsListViewModel by lazy { ViewModelProviders.of(this).get(NewsListViewModel::class.java) }
@@ -131,7 +130,9 @@ class NewsListFragment : BaseBackFragment() {
     private fun fetchData() {
         when (type) {
             TYPE_NORMAL_NEWS -> viewModel.getNewsList(lastCursor)
-            else -> viewModel.getTechNewsList(lastCursor)
+            TYPE_TECH_NEWS -> viewModel.getTechNewsList(lastCursor)
+            TYPE_BLOCK_CHAIN_NEWS -> viewModel.getBlockchainNewsList(lastCursor)
+            else -> viewModel.getNewsList(lastCursor)
         }
     }
 

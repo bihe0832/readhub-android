@@ -8,15 +8,11 @@ import android.view.ViewGroup;
 
 import com.bihe0832.readhub.R;
 import com.bihe0832.readhub.me.MyFragment;
-import com.bihe0832.readhub.news.NewsListFragment;
 import com.bihe0832.readhub.news.NewsTabFragment;
 import com.bihe0832.readhub.topic.TopicListFragment;
 import com.ottd.libs.framework.fragment.BaseMainFragment;
 
 import me.yokeyword.fragmentation.SupportFragment;
-
-import static com.bihe0832.readhub.news.NewsListFragmentKt.TYPE_NORMAL_NEWS;
-import static com.bihe0832.readhub.news.NewsListFragmentKt.TYPE_TECH_NEWS;
 
 public class MainFragment extends BaseMainFragment {
     private static final int REQ_MSG = 10;
@@ -54,7 +50,7 @@ public class MainFragment extends BaseMainFragment {
         SupportFragment firstFragment = findChildFragment(TopicListFragment.class);
         if (firstFragment == null) {
             mFragments[TAB_FOR_TOPIC] = TopicListFragment.newInstance();
-            mFragments[TAB_FOR_NEWS] = NewsListFragment.newInstance(TYPE_NORMAL_NEWS);
+            mFragments[TAB_FOR_NEWS] = NewsTabFragment.newInstance();
             mFragments[TAB_FOR_ME] = MyFragment.newInstance();
 
 
@@ -67,7 +63,7 @@ public class MainFragment extends BaseMainFragment {
 
             // 这里我们需要拿到mFragments的引用
             mFragments[TAB_FOR_TOPIC] = firstFragment;
-            mFragments[TAB_FOR_NEWS] = findChildFragment(NewsListFragment.class);
+            mFragments[TAB_FOR_NEWS] = findChildFragment(NewsTabFragment.class);
             mFragments[TAB_FOR_ME] = findChildFragment(MyFragment.class);
         }
     }

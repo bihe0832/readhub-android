@@ -1,0 +1,103 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta name="author" CONTENT="子勰(bihe0832), code@bihe0832.com" />
+  <meta name="keywords" content="子勰,bihe0832" />
+  <meta name="description" content="子勰的空白页面" />
+  <title>Readhub版本历史页面</title>
+
+  <link rel="stylesheet" type="text/css" href="./css/global.css" />
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <style type="text/css">
+
+      body {
+          font-family: "Microsoft Yahei", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+          color: #333;
+          background-color: #f2f2f2;
+          line-height: 30px;
+          clear: both;
+      }
+
+      dt:hover{
+        background:#eeecec;
+      }
+      dt{
+        border-bottom:1px solid #ccc;
+        padding-left:10px;
+        line-height: 45px;
+        font-weight:bold;
+      }
+      dd{
+        border-bottom:1px solid #ccc;
+        padding-left:20px;
+      }
+    ul,ol{padding:0;margin:0;}
+    li{padding:0;margin:0;list-style:none;line-height: 1.75;}
+    li{margin-bottom:5px;padding-left:20px;line-height:1.75;}
+    li:before{content:'-';margin-right:6px;margin-left:-16px; color:#808080;}
+  </style>
+</head>
+<body>
+ 
+<dl id="faq">
+    <dt>应用介绍</dt>
+    <dd>
+        该应用非无码科技官方产品，仅是基于个人兴趣开发的一款浏览Readhub内容的Android应用。app内所有资讯内容均来自无码科技产品 Readhub。
+    </dd>
+
+    <dt>Readhub 2.0主要更新</dt>
+    <dd>
+        <ul >
+            <li>界面改版（开发框架改版）</li>
+            <li>话题增加列表、摘要两种浏览方式（可在「我的」设置）</li>
+            <li>话题增加详情页，可按事件跟踪话题、浏览相关资讯</li>
+            <li>资讯增加比特币资讯</li>
+        </ul>
+    </dd>
+
+    <dt>Readhub 1.1主要更新</dt>
+    <dd>
+        <ul >
+            <li>内置 Readhub Web版本</li>
+            <li>增加分享 Readhub 给好友</li>
+            <li>优化无网络或者网络不好时用户体验</li>
+            <li>增加沉浸式状态栏</li>
+            <li>部分bug修复</li>
+            <li>增加开发者资讯</li>
+        </ul>
+    </dd>
+
+    <dt>Readhub 1.0 版本内容</dt>
+    <dd>
+        <ul>
+            <li>支持浏览热门话题</li>
+            <li>支持浏览最新资讯</li>
+        </ul>
+    </dd>
+</dl>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#faq').find('dd').hide();
+  $('#faq').find('dt').click(function() {
+   var answer = $(this).next(); 
+   if (answer.is(':visible')) {
+    answer.slideUp();
+   } else {
+    answer.slideDown();
+   }
+  });
+});
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=37805902" charset="UTF-8"></script>
+</body>
+</html>

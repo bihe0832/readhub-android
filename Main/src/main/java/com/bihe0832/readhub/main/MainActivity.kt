@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar
 import android.view.WindowManager
 
 import com.bihe0832.readhub.R
+import com.ottd.libs.framework.OttdFramework
 import kotlinx.android.synthetic.main.com_bihe0832_readhub_main_activity.*
 
 import me.yokeyword.fragmentation.SupportActivity
@@ -25,6 +26,7 @@ class MainActivity : SupportActivity() {
             localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
         }
         setSupportActionBar(my_toolbar)
+        OttdFramework.getInstance().checkUpdate(this,true)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -46,7 +48,6 @@ class MainActivity : SupportActivity() {
         super.onNewIntent(intent)
         handleIntent(intent)
     }
-
 
     override fun onBackPressedSupport() {
         // 对于 4个类别的主Fragment内的回退back逻辑,已经在其onBackPressedSupport里各自处理了

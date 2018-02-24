@@ -5,6 +5,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.bihe0832.readhub.R
@@ -52,6 +53,7 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                     setOnClickListener {
                         OttdFramework.getInstance().showWaitting()
                     }
+                    visibility = View.GONE
                 }
 
                 summaryTopicMoreAboutTopic.apply {

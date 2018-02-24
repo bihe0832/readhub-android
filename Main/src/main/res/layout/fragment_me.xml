@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/aboutReadhubCompany"
+            android:id="@+id/aboutReadhubFunc"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fragment_me_items_height"
             android:layout_marginTop="@dimen/fragment_me_title_margin_top"
@@ -43,16 +43,16 @@
             android:textColor="#000000"
             android:textSize="@dimen/fragment_me_items_textsize"
             app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
-            app:layout_constraintTop_toTopOf="@+id/aboutReadhubCompany"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubCompany"/>
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubFunc"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubFunc"/>
 
         <ImageView
             android:layout_width="@dimen/fragment_me_right_arrow_size"
             android:layout_height="@dimen/fragment_me_right_arrow_size"
             android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
             app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubCompany"
-            app:layout_constraintTop_toTopOf="@+id/aboutReadhubCompany"/>
+            app:layout_constraintBottom_toBottomOf="@+id/aboutReadhubFunc"
+            app:layout_constraintTop_toTopOf="@+id/aboutReadhubFunc"/>
 
         <View
             android:id="@+id/aboutReadhubWeb"
@@ -62,7 +62,7 @@
             android:background="@color/card_background_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutReadhubCompany"
+            app:layout_constraintTop_toBottomOf="@+id/aboutReadhubFunc"
             />
 
         <TextView
@@ -137,77 +137,77 @@
             app:layout_constraintBottom_toBottomOf="@+id/aboutAppTopicViewType"
             app:layout_constraintTop_toTopOf="@+id/aboutAppTopicViewType"/>
 
-        <View
-            android:id="@+id/aboutAppNewsWithEN"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/fragment_me_items_height"
-            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
-            android:background="@color/card_background_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutAppTopicViewType"
-            />
+        <!--<View-->
+            <!--android:id="@+id/aboutAppNewsWithEN"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/fragment_me_items_height"-->
+            <!--android:layout_marginTop="@dimen/fragment_me_items_margin_top"-->
+            <!--android:background="@color/card_background_color"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/aboutAppTopicViewType"-->
+            <!--/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_key_app_en"
-            android:textColor="#000000"
-            android:textSize="@dimen/fragment_me_items_textsize"
-            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
-            app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/menu_key_app_en"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="@dimen/fragment_me_items_textsize"-->
+            <!--app:layout_constraintStart_toStartOf="@+id/aboutReadhub"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"/>-->
 
-        <TextView
-            android:id="@+id/aboutAppNewsWithENText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="不展示"
-            android:textColor="#000000"
-            android:layout_marginRight="@dimen/fragment_me_items_margin_top"
-            android:textSize="@dimen/fragment_me_items_textsize"
-            app:layout_constraintEnd_toStartOf="@+id/aboutAppNewsWithENSwitch"
-            app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"/>
+        <!--<TextView-->
+            <!--android:id="@+id/aboutAppNewsWithENText"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="不展示"-->
+            <!--android:textColor="#000000"-->
+            <!--android:layout_marginRight="@dimen/fragment_me_items_margin_top"-->
+            <!--android:textSize="@dimen/fragment_me_items_textsize"-->
+            <!--app:layout_constraintEnd_toStartOf="@+id/aboutAppNewsWithENSwitch"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"/>-->
 
-        <Switch
-            android:id="@+id/aboutAppNewsWithENSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="true"
-            android:theme="@style/MySwitch"
-            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutAppNewsWithEN"
-            app:layout_constraintTop_toTopOf="@+id/aboutAppNewsWithEN"/>
+        <!--<Switch-->
+            <!--android:id="@+id/aboutAppNewsWithENSwitch"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:enabled="true"-->
+            <!--android:theme="@style/MySwitch"-->
+            <!--app:layout_constraintEnd_toEndOf="@id/aboutReadhub"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/aboutAppTopicViewType"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/aboutAppTopicViewType"/>-->
 
-        <View
-            android:id="@+id/aboutAppMySub"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/fragment_me_items_height"
-            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
-            android:background="@color/card_background_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutAppNewsWithEN"
-            />
+        <!--<View-->
+            <!--android:id="@+id/aboutAppMySub"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/fragment_me_items_height"-->
+            <!--android:layout_marginTop="@dimen/fragment_me_items_margin_top"-->
+            <!--android:background="@color/card_background_color"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/aboutAppTopicViewType"-->
+            <!--/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/menu_key_app_sub"
-            android:textColor="#000000"
-            android:textSize="@dimen/fragment_me_items_textsize"
-            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
-            app:layout_constraintTop_toTopOf="@+id/aboutAppMySub"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutAppMySub"/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/menu_key_app_sub"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="@dimen/fragment_me_items_textsize"-->
+            <!--app:layout_constraintStart_toStartOf="@+id/aboutReadhub"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/aboutAppMySub"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/aboutAppMySub"/>-->
 
-        <ImageView
-            android:layout_width="@dimen/fragment_me_right_arrow_size"
-            android:layout_height="@dimen/fragment_me_right_arrow_size"
-            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
-            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutAppMySub"
-            app:layout_constraintTop_toTopOf="@+id/aboutAppMySub"/>
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/fragment_me_right_arrow_size"-->
+            <!--android:layout_height="@dimen/fragment_me_right_arrow_size"-->
+            <!--android:src="@drawable/ic_keyboard_arrow_right_black_24dp"-->
+            <!--app:layout_constraintEnd_toEndOf="@id/aboutReadhub"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/aboutAppMySub"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/aboutAppMySub"/>-->
 
         <View
             android:id="@+id/aboutAppUpdate"
@@ -217,7 +217,7 @@
             android:background="@color/card_background_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aboutAppMySub"
+            app:layout_constraintTop_toBottomOf="@+id/aboutAppTopicViewType"
             />
 
         <TextView
@@ -250,15 +250,7 @@
             app:layout_constraintTop_toBottomOf="@+id/aboutAppUpdate" />
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/fragment_me_items_height"
-            android:background="@color/card_background_color"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/aboutDevInfo"></View>
-
-        <View
-            android:id="@+id/aboutDevInfo"
+            android:id="@+id/aboutDevZixieInfo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fragment_me_items_height"
             android:layout_marginTop="@dimen/fragment_me_title_margin_top"
@@ -271,20 +263,49 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_key_dev_info"
+            android:text="@string/menu_key_dev_zixie_info"
             android:textColor="#000000"
             android:textSize="@dimen/fragment_me_items_textsize"
             app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
-            app:layout_constraintTop_toTopOf="@+id/aboutDevInfo"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutDevInfo"/>
+            app:layout_constraintTop_toTopOf="@+id/aboutDevZixieInfo"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutDevZixieInfo"/>
 
         <ImageView
             android:layout_width="@dimen/fragment_me_right_arrow_size"
             android:layout_height="@dimen/fragment_me_right_arrow_size"
             android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
             app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
-            app:layout_constraintBottom_toBottomOf="@+id/aboutDevInfo"
-            app:layout_constraintTop_toTopOf="@+id/aboutDevInfo"/>
+            app:layout_constraintBottom_toBottomOf="@+id/aboutDevZixieInfo"
+            app:layout_constraintTop_toTopOf="@+id/aboutDevZixieInfo"/>
+
+        <View
+            android:id="@+id/aboutDevEnzoInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_me_items_height"
+            android:layout_marginTop="@dimen/fragment_me_items_margin_top"
+            android:background="@color/card_background_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutDevZixieInfo"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_key_dev_enzo_info"
+            android:textColor="#000000"
+            android:textSize="@dimen/fragment_me_items_textsize"
+            app:layout_constraintStart_toStartOf="@+id/aboutReadhub"
+            app:layout_constraintTop_toTopOf="@+id/aboutDevEnzoInfo"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutDevEnzoInfo"/>
+
+        <ImageView
+            android:layout_width="@dimen/fragment_me_right_arrow_size"
+            android:layout_height="@dimen/fragment_me_right_arrow_size"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintEnd_toEndOf="@id/aboutReadhub"
+            app:layout_constraintBottom_toBottomOf="@+id/aboutDevEnzoInfo"
+            app:layout_constraintTop_toTopOf="@+id/aboutDevEnzoInfo"/>
 
     </android.support.constraint.ConstraintLayout>
 

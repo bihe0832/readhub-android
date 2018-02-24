@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/news_tab_title_bar_height"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/normal_news"
-            android:textSize="@dimen/text_size_18"
+            android:textSize="@dimen/text_size_14"
             android:textStyle="bold" />
 
         <TextView
@@ -33,8 +33,19 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/tech_news"
-            android:textSize="@dimen/text_size_18"
+            android:textSize="@dimen/text_size_14"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/block_chain_news_tab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/block_chain_news"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <View
