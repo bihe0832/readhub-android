@@ -14,16 +14,15 @@
 
 ## 产品体验
 
-
 ### 下载地址
 
 - 扫码下载
 
-	敬请期待
+	![](./demo/readhub_release_newer.png)
 
 - 直接下载
 
-	敬请期待
+	[https://github.com/bihe0832/readhub-android/blob/master/demo/readhub_release_newer.apk?raw=true](https://github.com/bihe0832/readhub-android/blob/master/demo/readhub_release_newer.apk?raw=true)
 
 ### 应用效果
 
@@ -39,20 +38,6 @@
 
 	![](./demo/me.jpg)
 	
-## 版本内容 — v2.0
-
-- 新的代码框架
-
-- 新的页面风格
-
-- 增加浏览记录
-
-- 提升用户体验
-	
-	- 预下载提升页面打开速度
-	
-	- 支持断网条件下离线访问 
-
 
 ## 开发体验
 
@@ -68,4 +53,6 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 #### 框架介绍
 
 #### 代码目录
+
+#### Api介绍
 
