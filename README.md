@@ -48,17 +48,17 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 
 ### 代码目录
 	.
-	├── Framework_core				：框架核心层
-	├── Lib*					 ：基础框架层
-	├── Main					：应用开发层
-	├── README.md					：项目介绍
-	├── build.conf					：自动构建配置文件
-	├── build.sh					：自动构建脚本
-	├── build_lib.sh					：基础框架层生成maven构建脚本
+	├── Framework_core			：框架核心层
+	├── Lib*				：基础框架层
+	├── Main				：应用开发层
+	├── README.md				：项目介绍
+	├── build.conf				：自动构建配置文件
+	├── build.sh				：自动构建脚本
+	├── build_lib.sh			：基础框架层生成maven构建脚本
 	├── build_maven.gradle			:基础框架层生成maven构建依赖
-	├── config.gradle				：项目工程、构建、版本号等配置
-	├── demo					：demo展示相关文件
-	└── libs					：本地maven目录
+	├── config.gradle			：项目工程、构建、版本号等配置
+	├── demo				：demo展示相关文件
+	└── libs				：本地maven目录
 
 ## Api介绍
 
