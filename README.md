@@ -28,15 +28,11 @@
 
 - 首页热门话题：
 
-	![](./demo/topic.jpg)
+- 话题详情
 
 - 首页资讯：
 
-	![](./demo/news.jpg)
-
 - 首页我的：
-
-	![](./demo/me.jpg)
 	
 
 ## 开发体验
@@ -46,13 +42,93 @@
 开发中版本，暂无完整版本的体验运行方法。如果想体验开发中版本，请参考本人博客：[终端基于gradle的开源项目运行环境配置指引](
 http://blog.bihe0832.com/android-as-gradle-config.html)
 
-### 项目介绍
+### 框架介绍
 
-新版本采用模块化 + 页面路由的方式来开发。具体用到的框架后续会陆续补充。
+新版本采用模块化来开发。具体框架后续会陆续补充。
 
-#### 框架介绍
+### 代码目录
+	.
+	├── Framework_core				：框架核心层
+	├── Lib*					 	：基础框架层
+	├── Main						：应用开发层
+	├── README.md					：项目介绍
+	├── build.conf					：自动构建配置文件
+	├── build.sh					：自动构建脚本
+	├── build_lib.sh				：基础框架层生成maven构建脚本
+	├── build_maven.gradle			:基础框架层生成maven构建依赖
+	├── config.gradle				：项目工程、构建、版本号等配置
+	├── demo						：demo展示相关文件
+	└── libs						：本地maven目录
 
-#### 代码目录
+## Api介绍
 
-#### Api介绍
+开发中使用到了多个readhub官方的api，为了方便后续的开发者，简单整理如下：
 
+### 热门话题列表
+
+- URL: https://api.readhub.me/topic
+
+- 参数：
+
+	- lastCursor：上一页数据最后一个话题的order，首次传空
+	- pageSize：一次请求拉取的话题数目
+
+- 请求事例：
+
+
+		https://api.readhub.me/topic?pageSize=1&lastCursor=
+		
+		https://api.readhub.me/topic?pageSize=10&lastCursor=39311
+
+### 话题详情
+
+- URL: https://api.readhub.me/topic/话题id
+
+- 请求事例：
+
+		https://api.readhub.me/topic/4djhWVo81n9
+		
+### 科技动态
+
+- URL: https://api.readhub.me/news
+
+- 参数：
+	
+	- lastCursor：上一次访问的最后一条资讯的PublishDate对应的毫秒时间戳
+	- pageSize：一次请求拉取的话题数目
+
+- 请求事例：
+
+		https://api.readhub.me/news?pageSize=1&lastCursor=
+		
+		https://api.readhub.me/news?pageSize=1&lastCursor=1519477905000
+
+### 开发者资讯
+
+- URL: https://api.readhub.me/technews
+
+- 参数：
+
+	- lastCursor：上一次访问的最后一条资讯的PublishDate对应的毫秒时间戳
+	- pageSize：一次请求拉取的话题数目
+
+- 请求事例：
+
+		https://api.readhub.me/technews?pageSize=1&lastCursor=
+		
+		https://api.readhub.me/technews?pageSize=10&lastCursor=1519477905000
+
+### 区块链资讯
+
+- URL: https://api.readhub.me/blockchain
+
+- 参数：
+
+	- lastCursor：上一次访问的最后一条资讯的PublishDate对应的毫秒时间戳
+	- pageSize：一次请求拉取的话题数目
+
+- 请求事例：
+
+		https://api.readhub.me/blockchain?pageSize=1&lastCursor=
+		
+		https://api.readhub.me/blockchain?pageSize=5&lastCursor=1519477905000
