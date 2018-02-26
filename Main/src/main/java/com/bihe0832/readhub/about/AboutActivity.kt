@@ -10,6 +10,7 @@ import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.framework.network.ReadHubApi
 import com.ottd.libs.logger.OttdLog
+import com.ottd.libs.utils.APKUtils
 import kotlinx.android.synthetic.main.com_bihe0832_readhub_about_activity.*
 import okhttp3.MediaType
 import okhttp3.RequestBody
@@ -31,6 +32,8 @@ class AboutActivity : AppCompatActivity() {
         setSupportActionBar(titleBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         titleBar.setNavigationOnClickListener { finish() }
+
+        aboutReadhub.text = "Readhub V" + APKUtils.getAppVersionName(this) + "." + APKUtils.getAppVersionCode(this)
 
         aboutReadhubFunc.setOnClickListener{
             if(!isClicked){

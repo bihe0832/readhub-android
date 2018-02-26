@@ -5,10 +5,10 @@ buildscript {
     apply from: 'config.gradle'
     repositories {
         maven { url './../libs/' }
-        mavenLocal()
         jcenter()
         google()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -19,7 +19,6 @@ buildscript {
 allprojects {
     repositories {
         maven { url './../libs/' }
-        mavenLocal()
         jcenter()
         google()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public'}

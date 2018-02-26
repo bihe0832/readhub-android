@@ -34,7 +34,7 @@ public class OttdFramework {
     private Context mApplicationContext = null;
 
     //是否为调试版本，主要用于开发中打一些提供给游戏定位问题
-    private static final boolean IS_TEST_VERSION = false;
+    private static final boolean IS_TEST_VERSION = true;
     private static volatile OttdFramework instance = null;
     private OttdFramework(){}
     public static OttdFramework getInstance() {

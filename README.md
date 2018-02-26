@@ -28,12 +28,20 @@
 
 - 首页热门话题：
 
+	![](./demo/topic.jpg)
+
 - 话题详情
 
+	![](./demo/topic_detail.jpg)
+
 - 首页资讯：
+	
+	![](./demo/news.jpg)
+
 
 - 首页我的：
 	
+	![](./demo/me.jpg)
 
 ## 开发体验
 
