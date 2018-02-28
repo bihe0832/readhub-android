@@ -1,6 +1,7 @@
 package com.bihe0832.readhub.topic
 
 import android.arch.lifecycle.ViewModelProviders
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -9,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.topic.viewmodel.TopicViewModel
 import com.bihe0832.readhub.webview.WebviewActivity
@@ -44,6 +46,10 @@ class TopicDetailActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_topic_detail)
         titleBar.title = resources.getString(R.string.app_name)//设置主标题
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val localLayoutParams = window.attributes
+            localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
+        }
         setSupportActionBar(titleBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         titleBar.setNavigationOnClickListener { finish() }
@@ -54,6 +60,7 @@ class TopicDetailActivity : AppCompatActivity() {
                 onCount { topicList.size }
                 onItem { position -> topicList[position] }
                 onBind { topic ->
+                    //TODO 日期没有添加
                     date.text = "2.5"
                     year.text = "2017"
                     timelineTitle.text = topic.title

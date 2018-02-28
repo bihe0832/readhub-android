@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-    android:background="#ffffff">
+    android:background="@color/windowBackground">
 
     <View
         android:id="@+id/dot"
@@ -19,23 +19,24 @@
         android:id="@+id/newsTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:textColor="@color/primary_text"
+        android:paddingLeft="10dp"
+        android:textColor="@color/primary_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/newsFrom"
         app:layout_constraintStart_toEndOf="@id/dot"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2dsfhsehfkadhsdfsdfsdfsdf" />
+        tools:text="2dsfhsehfkadhsdfsdfsdfsdf2dsfhsehfkadhsdfsdfsdfsdf2dsfhsehfkadhsdfsdfsdfsdf" />
 
     <TextView
         android:id="@+id/newsFrom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/text_size_14"
         android:textColor="@color/secondary_text"
+        android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2dsfhs" />
+        tools:text="2dsfhs2dsfhs2dsfhs" />
 </android.support.constraint.ConstraintLayout>

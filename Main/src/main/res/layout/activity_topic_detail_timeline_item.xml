@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-    android:background="#ffffff">
+    android:background="@color/windowBackground">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/date_layout"
@@ -17,7 +17,8 @@
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/card_title_color"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,8 +29,9 @@
             android:id="@+id/year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/card_title_color"
+            android:textColor="@color/secondary_text"
             app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="@dimen/text_size_10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/date"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -81,11 +83,12 @@
         android:id="@+id/timelineTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:textColor="@color/card_title_color"
+        android:layout_marginLeft="12dp"
+        android:textSize="@dimen/text_size_14"
+        android:textColor="@color/secondary_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/timeline_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="2dsfhsehfkadhsdfsdfsdfsdf" />
+        tools:text="2dsfhsehfkadhsdfsdfsdfsdf2dsfhsehfkadhsdfsdfsdfsdf2dsfhsehfkadhsdfsdfsdfsdf" />
 </android.support.constraint.ConstraintLayout>

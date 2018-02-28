@@ -49,5 +49,11 @@
       <version>2.3.0</version>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>com.github.enzowyf</groupId>
+      <artifactId>okhttp4k</artifactId>
+      <version>0.1.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 </project>
