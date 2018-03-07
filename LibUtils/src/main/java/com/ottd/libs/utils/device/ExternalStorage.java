@@ -24,9 +24,9 @@ public class ExternalStorage {
 
 
     // 有sd卡时应用程序的存储根目录
-    public static final String APP_SDCARD_AMOUNT_ROOT_PATH = "/tencent/JYGame";
+    public static final String APP_SDCARD_AMOUNT_ROOT_PATH = "/bihe0832/readhub";
     // 无sd卡时应用程序的存储根目录
-    public static final String APP_SDCARD_UNAMOUNT_ROOT_PATH = "/JYGame";
+    public static final String APP_SDCARD_UNAMOUNT_ROOT_PATH = "/bihe0832";
 
 
     /**

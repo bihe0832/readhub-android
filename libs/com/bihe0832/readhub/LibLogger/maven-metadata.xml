@@ -3,10 +3,10 @@
   <groupId>com.bihe0832.readhub</groupId>
   <artifactId>LibLogger</artifactId>
   <versioning>
-    <release>0.0.1</release>
+    <release>0.0.2</release>
     <versions>
-      <version>0.0.1</version>
+      <version>0.0.2</version>
     </versions>
-    <lastUpdated>20180224101846</lastUpdated>
+    <lastUpdated>20180307112610</lastUpdated>
   </versioning>
 </metadata>
