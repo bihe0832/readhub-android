@@ -3,13 +3,11 @@ package com.bihe0832.readhub.main
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.Toolbar
 import android.view.WindowManager
-
 import com.bihe0832.readhub.R
 import com.ottd.libs.framework.OttdFramework
+import com.tencent.stat.StatService
 import kotlinx.android.synthetic.main.com_bihe0832_readhub_main_activity.*
-
 import me.yokeyword.fragmentation.SupportActivity
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator
 import me.yokeyword.fragmentation.anim.FragmentAnimator
@@ -26,7 +24,8 @@ class MainActivity : SupportActivity() {
             localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
         }
         setSupportActionBar(my_toolbar)
-        OttdFramework.getInstance().checkUpdate(this,true)
+
+        OttdFramework.getInstance().checkUpdate(this, true)
     }
 
     private fun handleIntent(intent: Intent) {
@@ -57,5 +56,10 @@ class MainActivity : SupportActivity() {
     override fun onCreateFragmentAnimator(): FragmentAnimator {
         // 设置横向(和安卓4.x动画相同)
         return DefaultHorizontalAnimator()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        StatService.trackCustomKVEvent(this, "homepage", null);
     }
 }

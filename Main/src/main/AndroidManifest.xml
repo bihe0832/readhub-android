@@ -9,6 +9,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
+        <meta-data android:name="TA_APPKEY"
+            android:value="AK76E4VLVA8M"></meta-data>
+
         <activity
             android:name=".SplashActivity"
             android:launchMode="singleInstance"
@@ -16,8 +20,13 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="mtaautotrack.7e0c6b4c31a7a0f9ce04f10f7223600b"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
         <activity

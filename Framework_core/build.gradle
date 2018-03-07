@@ -44,6 +44,10 @@ dependencies {
     compile "android.arch.lifecycle:extensions:1.1.0"
     kapt "android.arch.lifecycle:compiler:1.1.0"
 
+    compile 'com.qq.mta:mta:3.3.+'
+    compile 'com.tencent.mid:mid:3.+'
+    compile 'com.qq.visual:visual:3.3.+'
+
     compile 'me.yokeyword:fragmentation:1.2.5'
     compile 'me.yokeyword:fragmentation-swipeback:1.2.5'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'

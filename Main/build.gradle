@@ -18,6 +18,15 @@ android {
         versionCode rootProject.ext.android.versionCode as int
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled false
+
+        ndk {
+            abiFilters 'armeabi'
+        }
+
+        manifestPlaceholders = [
+                MTA_APPKEY : "AK76E4VLVA8M",
+                MTA_CHANNEL: "zixie"
+        ]
     }
 
     lintOptions {
@@ -31,4 +40,6 @@ clean.doFirst {
 
 dependencies {
     compile project(':Framework_core')
+
+
 }
