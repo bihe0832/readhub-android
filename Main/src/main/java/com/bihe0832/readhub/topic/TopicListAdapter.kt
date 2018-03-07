@@ -78,10 +78,6 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
             putExtra(INTENT_EXTRA_KEY_TOPIC_ID, id)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }.startWith(OttdFramework.getInstance().applicationContext)
-//        WebviewActivity.openNewWeb(OttdFramework.getInstance().applicationContext.resources.getString(R.string.app_name),
-//                kotlin.String.format(
-//                        OttdFramework.getInstance().applicationContext.resources.getString(R.string.link_readhub_topic_page)
-//                        ,id))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder {

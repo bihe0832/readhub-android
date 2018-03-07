@@ -10,7 +10,7 @@
     <dimen name="detail_summary_line_spacing">10sp</dimen>
 
     <dimen name="card_padding">16dp</dimen>
-    <dimen name="card_margin_bottom">12dp</dimen>
+    <dimen name="card_margin_bottom">10dp</dimen>
 
     <color name="card_background_color">#ffffff</color>
 

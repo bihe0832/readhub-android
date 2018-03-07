@@ -24,11 +24,17 @@ fi
 cd $localPath/bin && rm -rf  * && cd $localPath
 version=`git rev-list HEAD --count`
 
-# # 删除本地可能存在的依赖库
+# 删除本地可能存在的依赖库
 # rm -fr $localPath/libs/*
 # # 构建基本依赖库
 # echo "********APK build libs*******"
 # cat build.conf | grep Lib | xargs -I {} /bin/bash ./build_lib.sh {}
+
+
+# 调整依赖库
+# cat build.conf | grep -v Lib | xargs -I {} echo "include ':{}'" > ./settings.gradle
+
+# exit
 
 #关闭本地测试
 src="IS_TEST_VERSION = true"
@@ -38,7 +44,6 @@ mv -f $localPath/bin/OttdFramework.java $localPath/Framework_core/src/main/java/
 
 echo "********APK build test start gradlew *******"
 #返回上层目录启动构建
-cat build.conf | grep -v Lib | xargs -I {} echo "include ':{}'" > ./settings.gradle
 chmod +x $localPath/gradlew
 cd $localPath && ./gradlew clean
 cd $localPath && ./gradlew build

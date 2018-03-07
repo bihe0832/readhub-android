@@ -17,6 +17,7 @@ import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.libs.config.Config
 import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.ui.ToastUtil
+import com.tencent.bugly.crashreport.CrashReport
 import kotlinx.android.synthetic.main.fragment_me.*
 
 

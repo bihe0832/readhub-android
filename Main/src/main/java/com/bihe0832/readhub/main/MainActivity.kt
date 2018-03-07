@@ -23,6 +23,7 @@ class MainActivity : SupportActivity() {
             val localLayoutParams = window.attributes
             localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
         }
+        my_toolbar.title = ""
         setSupportActionBar(my_toolbar)
 
         OttdFramework.getInstance().checkUpdate(this, true)
