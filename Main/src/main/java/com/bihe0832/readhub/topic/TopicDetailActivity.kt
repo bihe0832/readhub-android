@@ -1,8 +1,11 @@
 package com.bihe0832.readhub.topic
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -17,10 +20,15 @@ import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.base.topic.CommonViewHolder
 import com.ottd.libs.framework.model.News
 import com.ottd.libs.framework.model.Topic
+import com.ottd.libs.framework.utils.SimpleUtils
 import com.ottd.libs.ui.CommonRecyclerAdapter
+import com.ottd.libs.utils.device.ExternalStorage
 import kotlinx.android.synthetic.main.activity_topic_detail.*
 import kotlinx.android.synthetic.main.activity_topic_detail_news_item.view.*
 import kotlinx.android.synthetic.main.activity_topic_detail_timeline_item.view.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import kotlin.properties.Delegates
 
 const val INTENT_EXTRA_KEY_TOPIC_ID = "topic_id"
@@ -52,7 +60,45 @@ class TopicDetailActivity : AppCompatActivity() {
         }
         setSupportActionBar(titleBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        titleBar.setNavigationOnClickListener { finish() }
+        titleBar.setNavigationOnClickListener {
+            finish()
+            var outStream: FileOutputStream? = null
+            val file = File(ExternalStorage.getCommonRootDir(applicationContext) + "/" + System.currentTimeMillis() + ".png")
+            if (!file.isDirectory()) {//如果是目录不允许保存
+
+                try {
+                    outStream = FileOutputStream(file)
+                    val bitmap = SimpleUtils.shotScrollView(fdsfsdf)
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream)
+                    outStream!!.flush()
+                    bitmap.recycle()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                } finally {
+                    try {
+                        if (outStream != null) {
+                            outStream.close()
+                        }
+
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+
+                }
+
+            }
+
+//            if (file.exists()) {
+//                val intent = Intent(Intent.ACTION_VIEW)
+//                val photoURI = FileProvider.getUriForFile(applicationContext,
+//                        applicationContext.packageName + ".provider",
+//                        file)
+//                intent.action = Intent.ACTION_SEND
+//                intent.putExtra(Intent.EXTRA_STREAM, photoURI)
+//                intent.type = "image/*"
+//                //                    startActivity(Intent.createChooser(intent, "分享到"));
+//            }
+        }
 
         timelineList.apply {
             adapter = CommonRecyclerAdapter<Topic> {
