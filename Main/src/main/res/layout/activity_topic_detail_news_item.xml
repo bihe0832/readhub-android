@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="55dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/card_margin_bottom"
+    android:layout_marginBottom="@dimen/card_margin_bottom"
     android:background="@color/windowBackground">
 
     <View
@@ -21,6 +23,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:textColor="@color/primary_blue"
+        android:background="@color/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/newsFrom"
         app:layout_constraintStart_toEndOf="@id/dot"
@@ -31,6 +34,7 @@
         android:id="@+id/newsFrom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/windowBackground"
         android:paddingLeft="10dp"
         android:textSize="@dimen/text_size_14"
         android:textColor="@color/secondary_text"

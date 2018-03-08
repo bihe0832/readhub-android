@@ -1,32 +1,16 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
-
     compileSdkVersion rootProject.ext.android.compileSdkVersion as int
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
         minSdkVersion rootProject.ext.android.minSdkVersion as int
         targetSdkVersion rootProject.ext.android.targetSdkVersion as int
         versionName rootProject.ext.android.versionName
         versionCode rootProject.ext.android.versionCode as int
-        vectorDrawables.useSupportLibrary = true
-        multiDexEnabled false
-
-        manifestPlaceholders = [
-                MTA_APPKEY : "AK76E4VLVA8M",
-                MTA_CHANNEL: "zixie"
-        ]
-
-        ndk {
-            abiFilters 'armeabi'
-        }
     }
 
     lintOptions {
@@ -34,10 +18,19 @@ android {
     }
 }
 
+
 clean.doFirst {
     delete "build"
 }
 
+//导出aar
+task copyAAR(type: Copy, dependsOn: "assembleRelease") {
+    from 'build/outputs/aar/' + module.name + '-release.aar'
+    into "./../libs/"
+}
+
+apply from: './../build_maven.gradle'
+
 dependencies {
-    implementation project(':BasePermission')
+    compile project(':Framework_core')
 }

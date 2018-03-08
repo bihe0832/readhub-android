@@ -11,13 +11,25 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/icons"
+            android:textSize="@dimen/text_size_20"
+            android:textStyle="bold"
+            android:text="Readhub"/>
+
+    </android.support.v7.widget.Toolbar>
+
 
     <ScrollView
         android:id="@+id/fdsfsdf"
@@ -32,12 +44,13 @@
             android:paddingRight="@dimen/detail_padding_leftRight"
             android:paddingTop="@dimen/detail_padding_top"
             android:paddingBottom="@dimen/detail_padding_top"
+            android:background="@color/windowBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/detailTitleView"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="@dimen/detail_title_line_spacing"
                 android:textColor="@color/detail_title_color"
@@ -45,7 +58,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/mainLayout"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="titledsdfsdfsdfhkjhkh" />
+                tools:text="titledsdfsdfsdfhkjhkhtitledsdfsdfsdfhkjhkhtitledsdfsdfsdfhkjhkhtitledsdfsdfsdfhkjhkhtitledsdfsdfsdfhkjhkh" />
 
             <TextView
                 android:id="@+id/detailSummaryView"
@@ -72,6 +85,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/timelineList"
+                android:background="@color/windowBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -91,6 +105,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/newsList"
+                android:background="@color/windowBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

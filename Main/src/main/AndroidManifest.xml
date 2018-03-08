@@ -39,6 +39,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".topic.TopicDetailActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
         <activity

@@ -52,7 +52,9 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 
 ### 框架介绍
 
-新版本采用模块化来开发。具体框架后续会陆续补充。
+新版本采用模块化来开发。具体框架后续会陆续补充。下面附上完整的框架图，目前readhub使用了一个部分阉割的框架：
+
+![](./demo/architecture.jpg)
 
 ### 代码目录
 	.
