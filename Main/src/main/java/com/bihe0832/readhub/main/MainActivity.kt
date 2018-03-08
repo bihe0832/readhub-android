@@ -61,6 +61,5 @@ class MainActivity : SupportActivity() {
 
     override fun onResume() {
         super.onResume()
-        StatService.trackCustomKVEvent(this, "homepage", null);
     }
 }
