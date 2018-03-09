@@ -194,7 +194,7 @@ class TopicDetailActivity : AppCompatActivity() {
                 val footerBitmap = SimpleUtils.getFooter(this,id)
                 var tempBitmap = SimpleUtils.mergeBitmap_TB(headerBitmap,topicBitmap,false)
                 tempBitmap = SimpleUtils.mergeBitmap_TB(tempBitmap,footerBitmap,false)
-                tempBitmap.compress(Bitmap.CompressFormat.JPEG, 35, outStream)
+                tempBitmap.compress(Bitmap.CompressFormat.JPEG, 40, outStream)
                 outStream!!.flush()
                 tempBitmap.recycle()
             } catch (e: IOException) {
