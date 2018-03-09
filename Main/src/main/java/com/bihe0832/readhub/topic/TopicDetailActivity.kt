@@ -3,30 +3,26 @@ package com.bihe0832.readhub.topic
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.topic.viewmodel.TopicViewModel
 import com.bihe0832.readhub.webview.WebviewActivity
-import com.ottd.base.topic.CommonViewHolder
 import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.framework.model.News
 import com.ottd.libs.framework.model.Topic
 import com.ottd.libs.framework.utils.SimpleUtils
-import com.ottd.libs.framework.utils.getDateCompareResult
 import com.ottd.libs.framework.utils.getReadhubTimeStamp
 import com.ottd.libs.framework.utils.startWith
 import com.ottd.libs.logger.OttdLog
 import com.ottd.libs.ui.CommonRecyclerAdapter
-import com.ottd.libs.utils.TextUtils
 import com.ottd.libs.utils.device.ExternalStorage
 import kotlinx.android.synthetic.main.activity_topic_detail.*
 import kotlinx.android.synthetic.main.activity_topic_detail_news_item.view.*
@@ -79,41 +75,7 @@ class TopicDetailActivity : AppCompatActivity() {
             }
             setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener { item ->
                 if (item.itemId == R.id.share) {
-                    var outStream: FileOutputStream? = null
-                    val file = File(ExternalStorage.getCommonRootDir(applicationContext) + "/" + System.currentTimeMillis() + ".jpg")
-                    if (!file.isDirectory()) {//如果是目录不允许保存
-
-                        try {
-                            outStream = FileOutputStream(file)
-                            val bitmap = SimpleUtils.shotScrollView(fdsfsdf)
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outStream)
-                            outStream!!.flush()
-                            bitmap.recycle()
-                        } catch (e: IOException) {
-                            e.printStackTrace()
-                        } finally {
-                            try {
-                                if (outStream != null) {
-                                    outStream.close()
-                                }
-
-                            } catch (e: IOException) {
-                                e.printStackTrace()
-                            }
-                        }
-                    }
-
-                    if (file.exists()) {
-                        OttdLog.d("test", file.length())
-                        val intent = Intent(Intent.ACTION_VIEW)
-                        val photoURI = FileProvider.getUriForFile(applicationContext,
-                                applicationContext.packageName + ".provider",
-                                file)
-                        intent.action = Intent.ACTION_SEND
-                        intent.putExtra(Intent.EXTRA_STREAM, photoURI)
-                        intent.type = "image/*"
-                        startActivity(Intent.createChooser(intent, "分享到"))
-                    }
+                    shareTopic(id)
                 }
                 false
             })
@@ -217,5 +179,47 @@ class TopicDetailActivity : AppCompatActivity() {
             }
         }
         viewModel.getTopicDetail(id)
+    }
+
+    private fun shareTopic(id: String){
+        var outStream: FileOutputStream? = null
+        val file = File(ExternalStorage.getCommonRootDir(applicationContext) + "/" + id + ".jpg")
+        if (!file.isDirectory()) {//如果是目录不允许保存
+            try {
+                outStream = FileOutputStream(file)
+                val topicBitmap = SimpleUtils.shotScrollView(topicInfoScrollView)
+//                val headerBitmap = BitmapFactory.decodeResource(resources, R.drawable.share_header)
+//                val footerBitmap = BitmapFactory.decodeResource(resources, R.drawable.share_footer)
+                val headerBitmap = SimpleUtils.getHeader()
+                val footerBitmap = SimpleUtils.getFooter(this,id)
+                var tempBitmap = SimpleUtils.mergeBitmap_TB(headerBitmap,topicBitmap,false)
+                tempBitmap = SimpleUtils.mergeBitmap_TB(tempBitmap,footerBitmap,false)
+                tempBitmap.compress(Bitmap.CompressFormat.JPEG, 35, outStream)
+                outStream!!.flush()
+                tempBitmap.recycle()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } finally {
+                try {
+                    if (outStream != null) {
+                        outStream.close()
+                    }
+
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        if (file.exists()) {
+            OttdLog.d("test", file.length())
+            val intent = Intent(Intent.ACTION_VIEW)
+            val photoURI = FileProvider.getUriForFile(applicationContext,
+                    applicationContext.packageName + ".provider",
+                    file)
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_STREAM, photoURI)
+            intent.type = "image/*"
+            startActivity(Intent.createChooser(intent, "分享到"))
+        }
     }
 }

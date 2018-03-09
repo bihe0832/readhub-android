@@ -3,9 +3,12 @@ package com.ottd.libs.framework.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -17,6 +20,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Toast;
+
+import com.ottd.libs.framework.R;
+import com.ottd.libs.logger.OttdLog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,6 +37,8 @@ import java.util.List;
  * Describe: Describe Text
  */
 public  class SimpleUtils {
+
+    private static final int DEFAULT_WIDTH = 720;
 
     /**
      * 将 Bitmap 保存到SD卡
@@ -244,5 +252,133 @@ public  class SimpleUtils {
             }
         }
         return bigBitmap;
+    }
+
+    public static Bitmap getFooter(Context ctx,String id) {
+        int destWidth = DEFAULT_WIDTH;   //此处的bitmap已经限定好宽高
+        int destHeight = (int)(DEFAULT_WIDTH * 0.388f);
+        Bitmap bitmap = Bitmap.createBitmap(destWidth, destHeight, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);//初始化画布绘制的图像到icon上
+        Rect rectw = new Rect(0,0,destWidth,destHeight);
+        Paint rectPaint = new Paint();
+        rectPaint.setColor(Color.parseColor("#406D91"));
+        rectPaint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(rectw, rectPaint);
+
+        int codeWidth = (int)(destHeight * 2 / 3f);
+//        Bitmap temp = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.head);
+        Bitmap temp = QRCodeUtil.createQRCodeBitmap("https://readhub.me/topic/" + id, codeWidth, codeWidth);
+//        Bitmap tempBitmapT = Bitmap.createScaledBitmap(temp, codeWidth, codeWidth, false);
+        Paint mBitPaint = new Paint();
+        Rect mSrcRect, mDestRect;
+        mSrcRect = new Rect(0, 0, codeWidth, codeWidth);
+        // 计算左边位置
+        int left = (DEFAULT_WIDTH - codeWidth) / 2;
+        // 计算上边位置
+        int top = (destHeight - codeWidth) / 4;
+        mDestRect = new Rect(left, top, left + codeWidth, top + codeWidth);
+        canvas.drawBitmap(temp, mSrcRect, mDestRect, mBitPaint);
+
+        Paint textPaint = new Paint();
+        textPaint.setColor(Color.WHITE);
+        Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+        textPaint.setTypeface( font );
+        textPaint.setTextSize(24);
+        textPaint.setStyle(Paint.Style.FILL);
+        //该方法即为设置基线上那个点究竟是left,center,还是right  这里我设置为center
+        textPaint.setTextAlign(Paint.Align.CENTER);
+
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        int textTop = (int)fontMetrics.top;//为基线到字体上边框的距离,即上图中的top
+        int textBottom = (int)fontMetrics.bottom;//为基线到字体下边框的距离,即上图中的bottom
+
+        int baseLineY = top + codeWidth + (destHeight - top - codeWidth + Math.abs(textTop)  + Math.abs(textBottom)) / 2 ;
+        canvas.drawText("长按上方二维码查看话题详情",rectw.centerX(),baseLineY,textPaint);
+        return bitmap;
+
+    }
+
+    public static Bitmap getHeader() {
+        int destWidth = DEFAULT_WIDTH;
+        int destHeight = (int)(DEFAULT_WIDTH * 0.1625f);
+        Bitmap bitmap = Bitmap.createBitmap(destWidth, destHeight, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);//初始化画布绘制的图像到icon上
+        Rect rectw = new Rect(0,0,destWidth,destHeight);
+        Paint rectPaint = new Paint();
+        rectPaint.setColor(Color.parseColor("#406D91"));
+        rectPaint.setStyle(Paint.Style.FILL);
+        canvas.drawRect(rectw, rectPaint);
+
+        Paint textPaint = new Paint();
+        textPaint.setColor(Color.WHITE);
+        Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+        textPaint.setTypeface( font );
+        textPaint.setTextSize(38);
+        textPaint.setStyle(Paint.Style.FILL);
+        //该方法即为设置基线上那个点究竟是left,center,还是right  这里我设置为center
+        textPaint.setTextAlign(Paint.Align.CENTER);
+
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float top = fontMetrics.top;//为基线到字体上边框的距离,即上图中的top
+        float bottom = fontMetrics.bottom;//为基线到字体下边框的距离,即上图中的bottom
+
+        int baseLineY = (int) (rectw.centerY() - top/2 - bottom/2);//基线中间点的y轴计算公式
+
+        canvas.drawText("Readhub — 每天几分钟，了解互联网",rectw.centerX(),baseLineY,textPaint);
+
+        return bitmap;
+
+    }
+
+    public static Bitmap mergeBitmap_TB(Bitmap topBitmap, Bitmap bottomBitmap, boolean isBaseMax) {
+
+        if (topBitmap == null || topBitmap.isRecycled()
+                || bottomBitmap == null || bottomBitmap.isRecycled()) {
+            OttdLog.e("topBitmap=" + topBitmap + ";bottomBitmap=" + bottomBitmap);
+            return null;
+        }
+        int width = 0;
+        if (isBaseMax) {
+            width = topBitmap.getWidth() > bottomBitmap.getWidth() ? topBitmap.getWidth() : bottomBitmap.getWidth();
+        } else {
+            width = topBitmap.getWidth() < bottomBitmap.getWidth() ? topBitmap.getWidth() : bottomBitmap.getWidth();
+        }
+        OttdLog.e("topBitmap:width=" + topBitmap.getWidth() + ";height=" + topBitmap.getHeight());
+        OttdLog.e("bottomBitmap:width=" + bottomBitmap.getWidth() + ";height=" + bottomBitmap.getHeight());
+        if(width > DEFAULT_WIDTH){
+            width = DEFAULT_WIDTH;
+        }
+        Bitmap tempBitmapT = topBitmap;
+        Bitmap tempBitmapB = bottomBitmap;
+        OttdLog.e("tempBitmapT:width=" + tempBitmapT.getWidth() + ";height=" + tempBitmapT.getHeight());
+        OttdLog.e("tempBitmapB:width=" + tempBitmapB.getWidth() + ";height=" + tempBitmapB.getHeight());
+        if (topBitmap.getWidth() != width) {
+            tempBitmapT = Bitmap.createScaledBitmap(topBitmap, width, (int)(topBitmap.getHeight()*1f/topBitmap.getWidth()*width), false);
+        }
+
+        if (bottomBitmap.getWidth() != width) {
+            tempBitmapB = Bitmap.createScaledBitmap(bottomBitmap, width, (int)(bottomBitmap.getHeight()*1f/bottomBitmap.getWidth()*width), false);
+        }
+
+        OttdLog.e("topBitmap:width=" + topBitmap.getWidth() + ";height=" + topBitmap.getHeight());
+        OttdLog.e("bottomBitmap:width=" + bottomBitmap.getWidth() + ";height=" + bottomBitmap.getHeight());
+        OttdLog.e("tempBitmapT:width=" + tempBitmapT.getWidth() + ";height=" + tempBitmapT.getHeight());
+        OttdLog.e("tempBitmapB:width=" + tempBitmapB.getWidth() + ";height=" + tempBitmapB.getHeight());
+        int height = tempBitmapT.getHeight() + tempBitmapB.getHeight();
+        OttdLog.e("width=" + width);
+        OttdLog.e("height=" + height);
+
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+
+        Rect topRect = new Rect(0, 0, tempBitmapT.getWidth(), tempBitmapT.getHeight());
+        canvas.drawBitmap(tempBitmapT, topRect, topRect, null);
+
+        Rect bottomRect  = new Rect(0, 0, tempBitmapB.getWidth(), tempBitmapB.getHeight());
+        Rect bottomRectT  = new Rect(0, tempBitmapT.getHeight(), width, height);
+        canvas.drawBitmap(tempBitmapB, bottomRect, bottomRectT, null);
+        OttdLog.e("bitmap:width=" + bitmap.getWidth() + ";height=" + bitmap.getHeight());
+
+        return bitmap;
     }
 }
