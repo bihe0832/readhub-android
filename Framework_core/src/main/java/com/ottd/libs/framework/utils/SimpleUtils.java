@@ -267,7 +267,7 @@ public  class SimpleUtils {
 
         int codeWidth = (int)(destHeight * 2 / 3f);
 //        Bitmap temp = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.head);
-        Bitmap temp = QRCodeUtil.createQRCodeBitmap("https://readhub.me/topic/" + id, codeWidth, codeWidth);
+        Bitmap temp = QRCodeUtil.createQRCodeBitmap("http://readhub.bihe0832.com/web/topic.html?id=" + id, codeWidth, codeWidth);
 //        Bitmap tempBitmapT = Bitmap.createScaledBitmap(temp, codeWidth, codeWidth, false);
         Paint mBitPaint = new Paint();
         Rect mSrcRect, mDestRect;
