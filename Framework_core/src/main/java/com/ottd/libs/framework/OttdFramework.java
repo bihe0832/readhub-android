@@ -107,6 +107,7 @@ public class OttdFramework {
                                             String url = response.body().getPackageinfo().getUrl();
                                             Intent intent = new Intent(Intent.ACTION_VIEW);
                                             intent.setData(Uri.parse(url));
+                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                             getApplicationContext().startActivity(intent);
                                         }
                                     });

@@ -96,6 +96,7 @@ class PermissionsActivity : AppCompatActivity() {
     private fun startAppSettings() {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
         intent.data = Uri.parse(PACKAGE_URL_SCHEME + packageName)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
 
