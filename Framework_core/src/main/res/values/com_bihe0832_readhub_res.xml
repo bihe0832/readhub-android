@@ -15,9 +15,7 @@
     <string name="fragement_network_retry_word">重新加载</string>
 
     <string name="share_title">分享 Readhub 给朋友</string>
-    <string name="share_text">Readhub 是无码科技团队的一款产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。你可以点击 https://readhub.me 通过网页版了解信息，或者点击 https://github.com/bihe0832/readhub-android/releases 下载Android应用。</string>
-
-
+    <string name="share_text">Readhub 是无码科技团队的一款产品。通过 Readhub 每天花几分钟了解一下互联网行业里发生的事情。你可以点击 https://readhub.me 通过网页版了解信息，或者点击 http://readhub.bihe0832.com/download/download.html 下载应用。</string>
 
     <string name="press_again_exit">再按一次将退出应用</string>
 

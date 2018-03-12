@@ -1,7 +1,6 @@
-package com.bihe0832.readhub
+package com.ottd.libs.framework.common
 
 import com.ottd.libs.config.Config
-import com.ottd.libs.config.Config.isSwitchEnabled
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 

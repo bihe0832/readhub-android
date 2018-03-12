@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bihe0832.readhub.ConfigProxy
+import com.ottd.libs.framework.common.ConfigProxy
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.about.AboutActivity
 import com.bihe0832.readhub.topic.CONFIG_KEY_NEWS_HAS_EN
@@ -17,7 +17,6 @@ import com.bihe0832.readhub.webview.WebviewActivity
 import com.ottd.libs.config.Config
 import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.ui.ToastUtil
-import com.tencent.bugly.crashreport.CrashReport
 import kotlinx.android.synthetic.main.fragment_me.*
 
 
