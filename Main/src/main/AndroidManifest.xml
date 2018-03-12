@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
-        <meta-data android:name="TA_APPKEY"
-            android:value="AK76E4VLVA8M"></meta-data>
-
         <activity
             android:name=".SplashActivity"
             android:launchMode="singleInstance"
@@ -42,11 +39,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".topic.TopicDetailActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".about.AboutActivity"
             android:screenOrientation="portrait" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.bihe0832.readhub.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

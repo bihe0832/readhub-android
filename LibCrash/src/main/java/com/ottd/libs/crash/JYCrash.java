@@ -10,11 +10,11 @@ import com.tencent.bugly.crashreport.CrashReport;
 
 public class JYCrash {
 
-    public static void init(Context context, String appid) {
+    public static void init(Context context, String appid, boolean isDebug) {
 
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
         strategy.setAppReportDelay(5000);
-        CrashReport.initCrashReport(context, appid, false, strategy);
+        CrashReport.initCrashReport(context, appid, isDebug, strategy);
 
     }
 

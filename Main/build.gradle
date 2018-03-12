@@ -19,14 +19,14 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled false
 
-        ndk {
-            abiFilters 'armeabi'
-        }
-
         manifestPlaceholders = [
                 MTA_APPKEY : "AK76E4VLVA8M",
                 MTA_CHANNEL: "zixie"
         ]
+
+        ndk {
+            abiFilters 'armeabi'
+        }
     }
 
     lintOptions {
@@ -39,7 +39,5 @@ clean.doFirst {
 }
 
 dependencies {
-    compile project(':Framework_core')
-
-
+    implementation project(':BasePermission')
 }

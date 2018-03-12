@@ -4,6 +4,7 @@
     <!-- 通用 -->
     <dimen name="text_size_32">32.0sp</dimen>
     <dimen name="text_size_24">24.0sp</dimen>
+    <dimen name="text_size_20">20.0sp</dimen>
     <dimen name="text_size_18">18.0sp</dimen>
     <dimen name="text_size_16">16.0sp</dimen>
     <dimen name="text_size_14">14.0sp</dimen>

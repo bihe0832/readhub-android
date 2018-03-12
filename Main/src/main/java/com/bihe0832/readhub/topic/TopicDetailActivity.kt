@@ -3,24 +3,25 @@ package com.bihe0832.readhub.topic
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import com.bihe0832.readhub.R
 import com.bihe0832.readhub.topic.viewmodel.TopicViewModel
 import com.bihe0832.readhub.webview.WebviewActivity
-import com.ottd.base.topic.CommonViewHolder
+import com.ottd.libs.framework.OttdFramework
 import com.ottd.libs.framework.model.News
 import com.ottd.libs.framework.model.Topic
 import com.ottd.libs.framework.utils.SimpleUtils
+import com.ottd.libs.framework.utils.getReadhubTimeStamp
+import com.ottd.libs.framework.utils.startWith
+import com.ottd.libs.logger.OttdLog
 import com.ottd.libs.ui.CommonRecyclerAdapter
 import com.ottd.libs.utils.device.ExternalStorage
 import kotlinx.android.synthetic.main.activity_topic_detail.*
@@ -29,9 +30,12 @@ import kotlinx.android.synthetic.main.activity_topic_detail_timeline_item.view.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.properties.Delegates
 
 const val INTENT_EXTRA_KEY_TOPIC_ID = "topic_id"
+const val INTENT_EXTRA_KEY_TOPIC_TITLE = "topic_title"
 
 class TopicDetailActivity : AppCompatActivity() {
     private val viewModel: TopicViewModel by lazy { ViewModelProviders.of(this).get(TopicViewModel::class.java) }
@@ -45,60 +49,42 @@ class TopicDetailActivity : AppCompatActivity() {
         timelineList.adapter.notifyDataSetChanged()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        getMenuInflater().inflate(R.menu.com_tencent_jygame_app_share_toolbar, menu)
+        return true;
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val id = intent.getStringExtra(INTENT_EXTRA_KEY_TOPIC_ID)
+        val topicTitle = intent.getStringExtra(INTENT_EXTRA_KEY_TOPIC_TITLE)
         if (id.isNullOrBlank()) {
             finish()
         }
-
         setContentView(R.layout.activity_topic_detail)
-        titleBar.title = resources.getString(R.string.app_name)//设置主标题
+
+//        titleBar.title = when (topicTitle) {
+//            null -> getString(R.string.app_name)
+//            else -> topicTitle
+//        }
+        titleBar.title = ""
+        setSupportActionBar(titleBar)
+        titleBar.apply {
+            setNavigationOnClickListener {
+                finish()
+            }
+            setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener { item ->
+                if (item.itemId == R.id.share) {
+                    shareTopic(id)
+                }
+                false
+            })
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             val localLayoutParams = window.attributes
             localLayoutParams.flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS or localLayoutParams.flags
         }
-        setSupportActionBar(titleBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        titleBar.setNavigationOnClickListener {
-            finish()
-            var outStream: FileOutputStream? = null
-            val file = File(ExternalStorage.getCommonRootDir(applicationContext) + "/" + System.currentTimeMillis() + ".png")
-            if (!file.isDirectory()) {//如果是目录不允许保存
-
-                try {
-                    outStream = FileOutputStream(file)
-                    val bitmap = SimpleUtils.shotScrollView(fdsfsdf)
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream)
-                    outStream!!.flush()
-                    bitmap.recycle()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                } finally {
-                    try {
-                        if (outStream != null) {
-                            outStream.close()
-                        }
-
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    }
-
-                }
-
-            }
-
-//            if (file.exists()) {
-//                val intent = Intent(Intent.ACTION_VIEW)
-//                val photoURI = FileProvider.getUriForFile(applicationContext,
-//                        applicationContext.packageName + ".provider",
-//                        file)
-//                intent.action = Intent.ACTION_SEND
-//                intent.putExtra(Intent.EXTRA_STREAM, photoURI)
-//                intent.type = "image/*"
-//                //                    startActivity(Intent.createChooser(intent, "分享到"));
-//            }
-        }
 
         timelineList.apply {
             adapter = CommonRecyclerAdapter<Topic> {
@@ -106,10 +92,36 @@ class TopicDetailActivity : AppCompatActivity() {
                 onCount { topicList.size }
                 onItem { position -> topicList[position] }
                 onBind { topic ->
-                    //TODO 日期没有添加
-                    date.text = "2.5"
-                    year.text = "2017"
+                    val format = SimpleDateFormat("yyyy-MM-dd")
+                    val dateFormat = format.format(topic.createdAt.getReadhubTimeStamp())
+                    val tempCalendar = Calendar.getInstance()
+                    tempCalendar.time = format.parse(dateFormat)
+                    date.text =
+                            when (tempCalendar.get(Calendar.MONTH) > 8) {
+                                true -> "" + (tempCalendar.get(Calendar.MONTH) + 1)
+                                else -> "0" + (tempCalendar.get(Calendar.MONTH) + 1)
+                            } + "." +
+                                    when (tempCalendar.get(Calendar.DAY_OF_MONTH) > 9) {
+                                        true -> "" + (tempCalendar.get(Calendar.DAY_OF_MONTH))
+                                        else -> "0" + (tempCalendar.get(Calendar.DAY_OF_MONTH))
+                                    }
+                    year.text = "" + tempCalendar.get(Calendar.YEAR)
                     timelineTitle.text = topic.title
+                    if (id != topic.id) {
+                        timelineTitle.setOnClickListener {
+                            finish()
+                            Intent().apply {
+                                setClass(OttdFramework.getInstance().applicationContext, TopicDetailActivity::class.java)
+                                putExtra(INTENT_EXTRA_KEY_TOPIC_ID, topic.id)
+                                putExtra(INTENT_EXTRA_KEY_TOPIC_TITLE, topic.title)
+                                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                            }.startWith(OttdFramework.getInstance().applicationContext)
+                        }
+                    } else {
+                        timelineTitle.setTextColor(resources.getColor(R.color.secondary_text))
+                    }
+
+
                     when (topicList.indexOf(topic)) {
                         0 -> timelineTopLine.visibility = View.GONE
                         topicList.size - 1 -> timelineBottomLine.visibility = View.GONE
@@ -133,9 +145,9 @@ class TopicDetailActivity : AppCompatActivity() {
                     }
                 }
             }
-
             layoutManager = LinearLayoutManager(this@TopicDetailActivity)
         }
+
         viewModel.topicDetail.observe(::getLifecycle) { detail ->
             detail?.let {
                 Log.d(TopicListFragment.TAG, "observe:${it.id}")
@@ -168,28 +180,46 @@ class TopicDetailActivity : AppCompatActivity() {
         }
         viewModel.getTopicDetail(id)
     }
-}
 
-class TimelineListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
-    var topicList: List<Topic> by Delegates.observable(emptyList()) { prop, old, new ->
-        //    autoNotify(old, new) { o, n -> o.id == n.id }
-        notifyDataSetChanged()
-    }
+    private fun shareTopic(id: String){
+        var outStream: FileOutputStream? = null
+        val file = File(ExternalStorage.getCommonRootDir(applicationContext) + "/" + id + ".jpg")
+        if (!file.isDirectory()) {//如果是目录不允许保存
+            try {
+                outStream = FileOutputStream(file)
+                val topicBitmap = SimpleUtils.shotScrollView(topicInfoScrollView)
+//                val headerBitmap = BitmapFactory.decodeResource(resources, R.drawable.share_header)
+//                val footerBitmap = BitmapFactory.decodeResource(resources, R.drawable.share_footer)
+                val headerBitmap = SimpleUtils.getHeader()
+                val footerBitmap = SimpleUtils.getFooter(this,id)
+                var tempBitmap = SimpleUtils.mergeBitmap_TB(headerBitmap,topicBitmap,false)
+                tempBitmap = SimpleUtils.mergeBitmap_TB(tempBitmap,footerBitmap,false)
+                tempBitmap.compress(Bitmap.CompressFormat.JPEG, 40, outStream)
+                outStream!!.flush()
+                tempBitmap.recycle()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } finally {
+                try {
+                    if (outStream != null) {
+                        outStream.close()
+                    }
 
-    override fun onBindViewHolder(holder: CommonViewHolder, position: Int) {
-        holder.bind(topicList[position]) { topic ->
-            date.text = "2.5"
-            year.text = "2017"
-            timelineTitle.text = topic.title
-            when (topicList.indexOf(topic)) {
-                0 -> timelineTopLine.visibility = View.GONE
-                topicList.size - 1 -> timelineBottomLine.visibility = View.GONE
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
             }
         }
+        if (file.exists()) {
+            OttdLog.d("test", file.length())
+            val intent = Intent(Intent.ACTION_VIEW)
+            val photoURI = FileProvider.getUriForFile(applicationContext,
+                    applicationContext.packageName + ".provider",
+                    file)
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_STREAM, photoURI)
+            intent.type = "image/*"
+            startActivity(Intent.createChooser(intent, "分享到"))
+        }
     }
-
-    override fun getItemCount(): Int = topicList.size
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder =
-            CommonViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.activity_topic_detail_timeline_item, parent, false))
 }

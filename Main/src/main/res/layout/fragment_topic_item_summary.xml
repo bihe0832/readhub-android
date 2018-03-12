@@ -7,7 +7,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/card_margin_bottom"
     android:background="@color/card_background_color"
-    android:padding="@dimen/card_padding">
+    android:padding="@dimen/card_padding"
+    >
 
     <TextView
         android:id="@+id/summaryTopicTitle"

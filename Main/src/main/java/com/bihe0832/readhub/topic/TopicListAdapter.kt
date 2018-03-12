@@ -35,7 +35,7 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                 listTopicTitle.text = topic.title
                 listTopicTips.setTips(topic)
                 fragment_topic_item_list.setOnClickListener {
-                    goToDetailPage(topic.id)
+                    goToDetailPage(topic.id,topic.title)
                 }
             } else {
                 summaryTopicTitle.text = topic.title
@@ -63,7 +63,7 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                     }
                     setCompoundDrawables(drawable, null, null, null)
                     setOnClickListener {
-                        goToDetailPage(topic.id)
+                        goToDetailPage(topic.id,topic.title)
                     }
                 }
             }
@@ -72,16 +72,13 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
 
     override fun getItemCount(): Int = topicList.size
 
-    private fun goToDetailPage(id: String) {
+    private fun goToDetailPage(id: String,title: String) {
         Intent().apply {
             setClass(OttdFramework.getInstance().applicationContext, TopicDetailActivity::class.java)
             putExtra(INTENT_EXTRA_KEY_TOPIC_ID, id)
+            putExtra(INTENT_EXTRA_KEY_TOPIC_TITLE, title)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }.startWith(OttdFramework.getInstance().applicationContext)
-//        WebviewActivity.openNewWeb(OttdFramework.getInstance().applicationContext.resources.getString(R.string.app_name),
-//                kotlin.String.format(
-//                        OttdFramework.getInstance().applicationContext.resources.getString(R.string.link_readhub_topic_page)
-//                        ,id))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder {

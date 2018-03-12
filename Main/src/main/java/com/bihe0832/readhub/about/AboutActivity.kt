@@ -49,6 +49,7 @@ class AboutActivity : AppCompatActivity() {
         aboutReadhubShare.setOnClickListener{
             val sendIntent = Intent()
             sendIntent.action = Intent.ACTION_SEND
+            sendIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text))
             sendIntent.type = "text/plain"
             OttdFramework.getInstance().applicationContext.startActivity(sendIntent)
