@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/card_margin_bottom"
     android:layout_marginBottom="@dimen/card_margin_bottom"
-    android:background="@color/windowBackground">
+    android:background="@color/topicDetailBackground">
 
     <View
         android:id="@+id/dot"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:textColor="@color/primary_blue"
-        android:background="@color/windowBackground"
+        android:background="@color/topicDetailBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/newsFrom"
         app:layout_constraintStart_toEndOf="@id/dot"
@@ -34,7 +34,7 @@
         android:id="@+id/newsFrom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/windowBackground"
+        android:background="@color/topicDetailBackground"
         android:paddingLeft="10dp"
         android:textSize="@dimen/text_size_14"
         android:textColor="@color/secondary_text"

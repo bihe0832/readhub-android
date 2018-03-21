@@ -18,7 +18,7 @@
     <dimen name="card_title_textsize">@dimen/text_size_16</dimen>
     <dimen name="card_title_line_spacing">7sp</dimen>
 
-    <dimen name="card_margin_between_title_tips">10dp</dimen>
+    <dimen name="card_margin_between_title_tips">8dp</dimen>
     <color name="card_tips_color">@color/secondary_text</color>
     <dimen name="card_tips_textsize">@dimen/text_size_12</dimen>
 

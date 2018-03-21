@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/app_slogan"
         android:textColor="@color/primary_blue"
         android:textSize="@dimen/text_size_14"
