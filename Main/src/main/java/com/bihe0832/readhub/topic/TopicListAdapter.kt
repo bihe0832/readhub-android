@@ -39,6 +39,13 @@ class TopicListAdapter : RecyclerView.Adapter<CommonViewHolder>() {
                 }
             } else {
                 summaryTopicTitle.text = topic.title
+                summaryTopicTitle.apply {
+                    text = topic.title
+                    setOnClickListener {
+                        goToDetailPage(topic.id,topic.title)
+                    }
+                }
+
                 summaryTopicTips.setTips(topic)
                 summaryTopicSummary.text = topic.summary
 

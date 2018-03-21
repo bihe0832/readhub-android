@@ -16,6 +16,7 @@ import com.ottd.libs.logger.OttdLog;
 import com.ottd.libs.thread.ThreadManager;
 import com.ottd.libs.ui.ToastUtil;
 import com.ottd.libs.utils.APKUtils;
+import com.ottd.libs.utils.TextUtils;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -53,7 +54,7 @@ public class OttdFramework {
         mApplicationContext = ctx;
         OttdLog.init(getApplicationContext(),isDebug());
 
-        OttdFramework.getInstance().showDebug("测试版本，体验问题请及时联系子勰");
+        OttdFramework.getInstance().showTips();
 
         final String CONFIG_FILE = "conf.ini";
         Config.init(getApplicationContext(),CONFIG_FILE);
@@ -73,9 +74,16 @@ public class OttdFramework {
         ToastUtil.showShort(getApplicationContext(),"功能开发中，敬请期待~");
     }
 
-    public void showDebug(String msg){
+    public void showTips(){
+        String tips = "";
         if(isDebug()){
-            ToastUtil.showShort(getApplicationContext(),msg);
+            tips = "测试版本，体验问题请及时联系子勰";
+        }else{
+            //TODO tipsList
+        }
+
+        if(!TextUtils.ckIsEmpty(tips)){
+            ToastUtil.showShort(getApplicationContext(),tips);
         }
     }
 
