@@ -256,7 +256,7 @@ public  class SimpleUtils {
 
     public static Bitmap getFooter(Context ctx,String id) {
         int destWidth = DEFAULT_WIDTH;   //此处的bitmap已经限定好宽高
-        int destHeight = (int)(DEFAULT_WIDTH * 0.388f);
+        int destHeight = (int)(DEFAULT_WIDTH * 0.45f);
         Bitmap bitmap = Bitmap.createBitmap(destWidth, destHeight, Bitmap.Config.RGB_565);
         Canvas canvas = new Canvas(bitmap);//初始化画布绘制的图像到icon上
         Rect rectw = new Rect(0,0,destWidth,destHeight);

@@ -30,7 +30,7 @@ public class QRCodeUtil {
      */
     @Nullable
     public static Bitmap createQRCodeBitmap(String content, int width, int height){
-        return createQRCodeBitmap(content, width, height, "UTF-8", "H", "2", Color.BLACK, Color.WHITE);
+        return createQRCodeBitmap(content, width, height, "UTF-8", "H", "1", Color.BLACK, Color.WHITE);
     }
 
     /**

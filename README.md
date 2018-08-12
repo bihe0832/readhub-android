@@ -14,7 +14,7 @@
 
 - 相关链接：
 	
-	- Readhub 官网：[https://readhub.me/](https://readhub.me/)
+	- Readhub 官网：[https://readhub.cn/](https://readhub.cn/)
 		
 	- 应用官网：[http://readhub.bihe0832.com/](http://readhub.bihe0832.com/)
 
@@ -97,7 +97,7 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 
 ### 热门话题列表
 
-- URL: https://api.readhub.me/topic
+- URL: https://api.readhub.cn/topic
 
 - 参数：
 
@@ -107,21 +107,21 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 - 请求事例：
 
 
-		https://api.readhub.me/topic?pageSize=1&lastCursor=
+		https://api.readhub.cn/topic?pageSize=1&lastCursor=
 		
-		https://api.readhub.me/topic?pageSize=10&lastCursor=39311
+		https://api.readhub.cn/topic?pageSize=10&lastCursor=39311
 
 ### 话题详情
 
-- URL: https://api.readhub.me/topic/话题id
+- URL: https://api.readhub.cn/topic/话题id
 
 - 请求事例：
 
-		https://api.readhub.me/topic/4djhWVo81n9
+		https://api.readhub.cn/topic/4djhWVo81n9
 		
 ### 科技动态
 
-- URL: https://api.readhub.me/news
+- URL: https://api.readhub.cn/news
 
 - 参数：
 	
@@ -130,13 +130,13 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 
 - 请求事例：
 
-		https://api.readhub.me/news?pageSize=1&lastCursor=
+		https://api.readhub.cn/news?pageSize=1&lastCursor=
 		
-		https://api.readhub.me/news?pageSize=1&lastCursor=1519477905000
+		https://api.readhub.cn/news?pageSize=1&lastCursor=1519477905000
 
 ### 开发者资讯
 
-- URL: https://api.readhub.me/technews
+- URL: https://api.readhub.cn/technews
 
 - 参数：
 
@@ -145,13 +145,13 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 
 - 请求事例：
 
-		https://api.readhub.me/technews?pageSize=1&lastCursor=
+		https://api.readhub.cn/technews?pageSize=1&lastCursor=
 		
-		https://api.readhub.me/technews?pageSize=10&lastCursor=1519477905000
+		https://api.readhub.cn/technews?pageSize=10&lastCursor=1519477905000
 
 ### 区块链资讯
 
-- URL: https://api.readhub.me/blockchain
+- URL: https://api.readhub.cn/blockchain
 
 - 参数：
 
@@ -160,6 +160,6 @@ http://blog.bihe0832.com/android-as-gradle-config.html)
 
 - 请求事例：
 
-		https://api.readhub.me/blockchain?pageSize=1&lastCursor=
+		https://api.readhub.cn/blockchain?pageSize=1&lastCursor=
 		
-		https://api.readhub.me/blockchain?pageSize=5&lastCursor=1519477905000
+		https://api.readhub.cn/blockchain?pageSize=5&lastCursor=1519477905000
