@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="55dp"
-    android:background="@color/windowBackground">
+    android:background="@color/topicDetailBackground">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/date_layout"
-        android:background="@color/windowBackground"
+        android:background="@color/topicDetailBackground"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +45,7 @@
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/windowBackground"
+        android:background="@color/topicDetailBackground"
         app:layout_constraintStart_toEndOf="@+id/date_layout">
         <View
             android:id="@+id/timelineTopLine"
@@ -88,7 +88,7 @@
         android:layout_marginLeft="12dp"
         android:maxLines="3"
         android:textSize="@dimen/text_size_14"
-        android:background="@color/windowBackground"
+        android:background="@color/topicDetailBackground"
         android:textColor="@color/primary_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/timeline_layout"

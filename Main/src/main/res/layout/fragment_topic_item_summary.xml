@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/summaryTopicTips"
         expandableTextView:animDuration="200"
-        expandableTextView:maxCollapsedLines="4"
+        expandableTextView:maxCollapsedLines="3"
         >
 
         <TextView

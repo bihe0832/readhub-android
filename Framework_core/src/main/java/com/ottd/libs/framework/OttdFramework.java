@@ -1,6 +1,7 @@
 package com.ottd.libs.framework;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +17,11 @@ import com.ottd.libs.logger.OttdLog;
 import com.ottd.libs.thread.ThreadManager;
 import com.ottd.libs.ui.ToastUtil;
 import com.ottd.libs.utils.APKUtils;
+import com.ottd.libs.utils.TextUtils;
 
+import org.jetbrains.annotations.NotNull;
+
+import kotlin.jvm.internal.Intrinsics;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -53,7 +58,7 @@ public class OttdFramework {
         mApplicationContext = ctx;
         OttdLog.init(getApplicationContext(),isDebug());
 
-        OttdFramework.getInstance().showDebug("测试版本，体验问题请及时联系子勰");
+        OttdFramework.getInstance().showTips();
 
         final String CONFIG_FILE = "conf.ini";
         Config.init(getApplicationContext(),CONFIG_FILE);
@@ -73,9 +78,16 @@ public class OttdFramework {
         ToastUtil.showShort(getApplicationContext(),"功能开发中，敬请期待~");
     }
 
-    public void showDebug(String msg){
+    public void showTips(){
+        String tips = "";
         if(isDebug()){
-            ToastUtil.showShort(getApplicationContext(),msg);
+            tips = "测试版本，体验问题请及时联系子勰";
+        }else{
+            //TODO tipsList
+        }
+
+        if(!TextUtils.ckIsEmpty(tips)){
+            ToastUtil.showShort(getApplicationContext(),tips);
         }
     }
 
@@ -104,11 +116,7 @@ public class OttdFramework {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
-                                            String url = response.body().getPackageinfo().getUrl();
-                                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                                            intent.setData(Uri.parse(url));
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            getApplicationContext().startActivity(intent);
+                                            startDownload(response.body().getPackageinfo().getVersion(), response.body().getPackageinfo().getUrl());
                                         }
                                     });
                             builder.setNegativeButton(
@@ -147,6 +155,18 @@ public class OttdFramework {
                 ToastUtil.show(getApplicationContext(), text, Toast.LENGTH_SHORT);
             }
         });
+
+    }
+
+    public final void startDownload(@NotNull String versionName, @NotNull String url) {
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.setAllowedNetworkTypes(3);
+        request.setNotificationVisibility(1);
+        request.setTitle(getApplicationContext().getResources().getString(R.string.game_update_notnew_Title) + "更新: v" + versionName);
+        DownloadManager downloadManager= (DownloadManager) OttdFramework.getInstance().getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+        if (downloadManager != null) {
+            downloadManager.enqueue(request);
+        }
 
     }
 }

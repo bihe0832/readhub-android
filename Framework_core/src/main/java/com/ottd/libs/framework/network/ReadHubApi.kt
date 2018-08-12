@@ -29,7 +29,7 @@ const val TIME_OUT_WRITE = 5000L
 const val CACHE_SIZE_DISK = (1024 * 1024 * 5).toLong()
 const val CACHE_SIZE_MEMORY = 1024 * 1024 * 5
 
-const val BASE_URL = "https://api.readhub.me/"
+const val BASE_URL = "https://api.readhub.cn/"
 const val BASE_UPDATE_URL = "http://readhub.bihe0832.com/"
 
 object ReadHubApi {
