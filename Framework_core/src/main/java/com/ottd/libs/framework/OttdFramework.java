@@ -1,6 +1,7 @@
 package com.ottd.libs.framework;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,9 @@ import com.ottd.libs.ui.ToastUtil;
 import com.ottd.libs.utils.APKUtils;
 import com.ottd.libs.utils.TextUtils;
 
+import org.jetbrains.annotations.NotNull;
+
+import kotlin.jvm.internal.Intrinsics;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -112,11 +116,7 @@ public class OttdFramework {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             dialog.dismiss();
-                                            String url = response.body().getPackageinfo().getUrl();
-                                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                                            intent.setData(Uri.parse(url));
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            getApplicationContext().startActivity(intent);
+                                            startDownload(response.body().getPackageinfo().getVersion(), response.body().getPackageinfo().getUrl());
                                         }
                                     });
                             builder.setNegativeButton(
@@ -155,6 +155,18 @@ public class OttdFramework {
                 ToastUtil.show(getApplicationContext(), text, Toast.LENGTH_SHORT);
             }
         });
+
+    }
+
+    public final void startDownload(@NotNull String versionName, @NotNull String url) {
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.setAllowedNetworkTypes(3);
+        request.setNotificationVisibility(1);
+        request.setTitle(getApplicationContext().getResources().getString(R.string.game_update_notnew_Title) + "更新: v" + versionName);
+        DownloadManager downloadManager= (DownloadManager) OttdFramework.getInstance().getApplicationContext().getSystemService(Context.DOWNLOAD_SERVICE);
+        if (downloadManager != null) {
+            downloadManager.enqueue(request);
+        }
 
     }
 }

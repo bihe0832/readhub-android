@@ -7,8 +7,8 @@ ext {
         applicationId    : "com.bihe0832.readhub",
         minSdkVersion    : 14,
         targetSdkVersion : 25,
-        versionCode      : gitVersion,
-        versionName      : "2.0.2"
+        versionCode      : 1,
+        versionName      : "2.0.3"
     ]
 
     ExtLib = [
