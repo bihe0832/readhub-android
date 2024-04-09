@@ -6,7 +6,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * Created by hardyshi on 16/11/21.
+ * Created by zixie on 16/11/21.
  */
 public class URLUtils {
 

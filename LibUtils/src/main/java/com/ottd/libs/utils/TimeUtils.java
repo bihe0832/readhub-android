@@ -1,7 +1,7 @@
 package com.ottd.libs.utils;
 
 /**
- * Created by hardyshi on 2017/11/10.
+ * Created by zixie on 2017/11/10.
  */
 
 public class TimeUtils {

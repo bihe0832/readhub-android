@@ -6,7 +6,7 @@ import android.util.LruCache;
 import com.ottd.libs.cache.CacheItem;
 
 /**
- * Created by hardyshi on 2017/9/15.
+ * Created by zixie on 2017/9/15.
  */
 
 public class MemLruCache {

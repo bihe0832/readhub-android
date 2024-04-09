@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 /**
- * Created by hardyshi on 2017/8/31.
+ * Created by zixie on 2017/8/31.
  */
 
 public class OttdLog {

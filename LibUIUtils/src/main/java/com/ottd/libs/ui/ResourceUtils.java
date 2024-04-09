@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by hardyshi on 2018/1/24.
+ * Created by zixie on 2018/1/24.
  */
 
 public class ResourceUtils {

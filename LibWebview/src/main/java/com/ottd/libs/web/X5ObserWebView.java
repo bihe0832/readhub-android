@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.tencent.smtt.sdk.WebView;
 
 /**
- * Created by hardyshi on 2017/7/21.
+ * Created by zixie on 2017/7/21.
  */
 
 public class X5ObserWebView extends WebView {

@@ -5,7 +5,7 @@ import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
 /**
- * Created by hardyshi on 2018/2/8.
+ * Created by zixie on 2018/2/8.
  */
 class ConfigProxy<T>(val key: String, val defValue: T) : ReadOnlyProperty<Any, T> {
     override fun getValue(thisRef: Any, property: KProperty<*>): T {

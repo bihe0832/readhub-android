@@ -21,7 +21,7 @@ import java.util.List;
 import static com.ottd.libs.utils.device.ExternalStorage.read;
 
 /**
- * Created by hardyshi on 2017/10/12.
+ * Created by zixie on 2017/10/12.
  */
 
 public class DeviceUtils {

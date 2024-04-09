@@ -15,7 +15,7 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import java.util.Hashtable;
 
 /**
- * Created by hardyshi on 2018/3/9.
+ * Created by zixie on 2018/3/9.
  */
 
 public class QRCodeUtil {

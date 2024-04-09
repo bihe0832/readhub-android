@@ -7,7 +7,7 @@ import com.ottd.libs.utils.TextUtils;
 
 
 /**
- * Created by hardyshi on 2017/10/31.
+ * Created by zixie on 2017/10/31.
  */
 
 public class ManufacturerUtil {

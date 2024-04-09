@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by hardyshi on 16/6/2.
+ * Created by zixie on 16/6/2.
  */
 public class ThreadManager {
 

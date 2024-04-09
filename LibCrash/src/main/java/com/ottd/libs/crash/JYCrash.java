@@ -5,7 +5,7 @@ import android.content.Context;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**
- * Created by hardyshi on 2017/8/21.
+ * Created by zixie on 2017/8/21.
  */
 
 public class JYCrash {
