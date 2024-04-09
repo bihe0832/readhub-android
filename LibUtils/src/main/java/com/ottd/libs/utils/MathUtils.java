@@ -1,7 +1,7 @@
 package com.ottd.libs.utils;zixie
 
 /**
- * @author hardyshi
+ * @author zixie
  */
 public class MathUtils {
 
